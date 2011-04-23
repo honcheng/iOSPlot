@@ -1,0 +1,255 @@
+// !$*UTF8*$!
+{
+	1D6058900D05DD3D006BFB54 /* PlotCreator */ = {
+		activeExec = 0;
+		executables = (
+			F897D6D113630CF40025FE6E /* PlotCreator */,
+		);
+	};
+	2860E325111B887F00E27156 /* AppDelegate_iPhone.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {969, 552}}";
+			sepNavSelRange = "{160, 0}";
+			sepNavVisRange = "{0, 318}";
+		};
+	};
+	2860E326111B887F00E27156 /* AppDelegate_iPhone.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1965, 1261}}";
+			sepNavSelRange = "{433, 0}";
+			sepNavVisRange = "{133, 1562}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = F897D6D113630CF40025FE6E /* PlotCreator */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* PlotCreator */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* PlotCreator */,
+		);
+		codeSenseManager = F897D6E313630D020025FE6E /* Code sense */;
+		executables = (
+			F897D6D113630CF40025FE6E /* PlotCreator */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					727,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 325258484;
+			PBXWorkspaceStateSaveDate = 325258484;
+		};
+		perUserProjectItems = {
+			F897D729136318F50025FE6E /* PBXTextBookmark */ = F897D729136318F50025FE6E /* PBXTextBookmark */;
+			F897D72B136318F50025FE6E /* PBXTextBookmark */ = F897D72B136318F50025FE6E /* PBXTextBookmark */;
+			F897D79D13631E110025FE6E /* PBXTextBookmark */ = F897D79D13631E110025FE6E /* PBXTextBookmark */;
+			F897D7C7136320250025FE6E /* PBXTextBookmark */ = F897D7C7136320250025FE6E /* PBXTextBookmark */;
+			F897D7EE1363219E0025FE6E /* PlistBookmark */ = F897D7EE1363219E0025FE6E /* PlistBookmark */;
+			F897D7F6136321DF0025FE6E /* PBXTextBookmark */ = F897D7F6136321DF0025FE6E /* PBXTextBookmark */;
+			F897D802136322660025FE6E /* PBXTextBookmark */ = F897D802136322660025FE6E /* PBXTextBookmark */;
+			F897D8131363230F0025FE6E /* PlistBookmark */ = F897D8131363230F0025FE6E /* PlistBookmark */;
+			F897D8221363237F0025FE6E /* PBXTextBookmark */ = F897D8221363237F0025FE6E /* PBXTextBookmark */;
+			F897D8231363237F0025FE6E /* PBXTextBookmark */ = F897D8231363237F0025FE6E /* PBXTextBookmark */;
+		};
+		sourceControlManager = F897D6E213630D020025FE6E /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	F897D6D113630CF40025FE6E /* PlotCreator */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = PlotCreator;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	F897D6E213630D020025FE6E /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	F897D6E313630D020025FE6E /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	F897D6EF13630FD40025FE6E /* PCPieChart.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1356, 585}}";
+			sepNavSelRange = "{1987, 0}";
+			sepNavVisRange = "{41, 1971}";
+		};
+	};
+	F897D6F013630FD40025FE6E /* PCPieChart.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {537, 3341}}";
+			sepNavSelRange = "{2029, 0}";
+			sepNavVisRange = "{1242, 286}";
+			sepNavWindowFrame = "{{15, 135}, {1295, 888}}";
+		};
+	};
+	F897D6FE136311E60025FE6E /* PieChartViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {905, 527}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 231}";
+		};
+	};
+	F897D6FF136311E60025FE6E /* PieChartViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1335, 1040}}";
+			sepNavSelRange = "{363, 0}";
+			sepNavVisRange = "{141, 1476}";
+		};
+	};
+	F897D729136318F50025FE6E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2860E325111B887F00E27156 /* AppDelegate_iPhone.h */;
+		name = "AppDelegate_iPhone.h: 9";
+		rLen = 0;
+		rLoc = 160;
+		rType = 0;
+		vrLen = 318;
+		vrLoc = 0;
+	};
+	F897D72B136318F50025FE6E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F897D72C136318F50025FE6E /* Element.m */;
+		name = "Element.m: 119";
+		rLen = 289;
+		rLoc = 3013;
+		rType = 0;
+		vrLen = 1916;
+		vrLoc = 2432;
+	};
+	F897D72C136318F50025FE6E /* Element.m */ = {
+		isa = PBXFileReference;
+		name = Element.m;
+		path = "/Users/honcheng/iphone/coding/myOfficialAppWithSVN/SGElections/SPH-Election/Classes/Element.m";
+		sourceTree = "<absolute>";
+	};
+	F897D79D13631E110025FE6E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F897D6FE136311E60025FE6E /* PieChartViewController.h */;
+		name = "PieChartViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 231;
+		vrLoc = 0;
+	};
+	F897D7C7136320250025FE6E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F897D6EF13630FD40025FE6E /* PCPieChart.h */;
+		name = "PCPieChart.h: 42";
+		rLen = 0;
+		rLoc = 1987;
+		rType = 0;
+		vrLen = 1971;
+		vrLoc = 41;
+	};
+	F897D7EE1363219E0025FE6E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* PlotCreator-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/honcheng/Dropbox/Open Source Projects/PlotCreator/PlotCreator/PlotCreator-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	F897D7F6136321DF0025FE6E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2860E326111B887F00E27156 /* AppDelegate_iPhone.m */;
+		name = "AppDelegate_iPhone.m: 18";
+		rLen = 0;
+		rLoc = 433;
+		rType = 0;
+		vrLen = 1562;
+		vrLoc = 133;
+	};
+	F897D802136322660025FE6E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F897D6FF136311E60025FE6E /* PieChartViewController.m */;
+		name = "PieChartViewController.m: 19";
+		rLen = 0;
+		rLoc = 363;
+		rType = 0;
+		vrLen = 1457;
+		vrLoc = 203;
+	};
+	F897D8131363230F0025FE6E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = F897D6ED13630F560025FE6E /* sample_piechart_data.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/honcheng/Dropbox/Open Source Projects/PlotCreator/PlotCreator/Sample Data/sample_piechart_data.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	F897D8221363237F0025FE6E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F897D6F013630FD40025FE6E /* PCPieChart.m */;
+		name = "PCPieChart.m: 181";
+		rLen = 1;
+		rLoc = 5640;
+		rType = 0;
+		vrLen = 1538;
+		vrLoc = 5663;
+	};
+	F897D8231363237F0025FE6E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F897D6FF136311E60025FE6E /* PieChartViewController.m */;
+		name = "PieChartViewController.m: 19";
+		rLen = 0;
+		rLoc = 363;
+		rType = 0;
+		vrLen = 1476;
+		vrLoc = 141;
+	};
+}
