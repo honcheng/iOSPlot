@@ -84,8 +84,8 @@
 					PBXSymbolsDataSource_ReferenceNameID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 325305119;
-			PBXWorkspaceStateSaveDate = 325305119;
+			PBXPerProjectTemplateStateSaveDate = 325312961;
+			PBXWorkspaceStateSaveDate = 325312961;
 		};
 		perUserProjectItems = {
 			F8325FCC1363CEA50045F9DC /* PBXTextBookmark */ = F8325FCC1363CEA50045F9DC /* PBXTextBookmark */;
@@ -95,17 +95,17 @@
 			F83260C51363D97B0045F9DC /* PBXTextBookmark */ = F83260C51363D97B0045F9DC /* PBXTextBookmark */;
 			F83260C61363D97B0045F9DC /* PBXTextBookmark */ = F83260C61363D97B0045F9DC /* PBXTextBookmark */;
 			F83260C71363D97B0045F9DC /* PBXTextBookmark */ = F83260C71363D97B0045F9DC /* PBXTextBookmark */;
-			F83260DC1363DA430045F9DC /* PlistBookmark */ = F83260DC1363DA430045F9DC /* PlistBookmark */;
 			F83260DD1363DA430045F9DC /* PBXTextBookmark */ = F83260DD1363DA430045F9DC /* PBXTextBookmark */;
-			F83260DF1363DA430045F9DC /* PBXTextBookmark */ = F83260DF1363DA430045F9DC /* PBXTextBookmark */;
-			F83260E41363DA7E0045F9DC /* PlistBookmark */ = F83260E41363DA7E0045F9DC /* PlistBookmark */;
 			F832611C1363DD5C0045F9DC /* PBXTextBookmark */ = F832611C1363DD5C0045F9DC /* PBXTextBookmark */;
 			F832611D1363DD5C0045F9DC /* PBXTextBookmark */ = F832611D1363DD5C0045F9DC /* PBXTextBookmark */;
 			F832611E1363DD5C0045F9DC /* PBXTextBookmark */ = F832611E1363DD5C0045F9DC /* PBXTextBookmark */;
 			F832611F1363DD5C0045F9DC /* PBXTextBookmark */ = F832611F1363DD5C0045F9DC /* PBXTextBookmark */;
 			F832613F1363DE940045F9DC /* PBXTextBookmark */ = F832613F1363DE940045F9DC /* PBXTextBookmark */;
-			F83261401363DE940045F9DC /* PBXTextBookmark */ = F83261401363DE940045F9DC /* PBXTextBookmark */;
-			F83261461363DECC0045F9DC /* PBXTextBookmark */ = F83261461363DECC0045F9DC /* PBXTextBookmark */;
+			F84721CB1363E1DB00BE6859 /* PBXTextBookmark */ = F84721CB1363E1DB00BE6859 /* PBXTextBookmark */;
+			F84721CC1363E1DB00BE6859 /* PlistBookmark */ = F84721CC1363E1DB00BE6859 /* PlistBookmark */;
+			F84721CD1363E1DB00BE6859 /* PlistBookmark */ = F84721CD1363E1DB00BE6859 /* PlistBookmark */;
+			F84721CE1363E1DB00BE6859 /* PBXTextBookmark */ = F84721CE1363E1DB00BE6859 /* PBXTextBookmark */;
+			F84721DA1363E1E700BE6859 /* PBXTextBookmark */ = F84721DA1363E1E700BE6859 /* PBXTextBookmark */;
 			F897D72B136318F50025FE6E /* PBXTextBookmark */ = F897D72B136318F50025FE6E /* PBXTextBookmark */;
 		};
 		sourceControlManager = F897D6E213630D020025FE6E /* Source Control */;
@@ -138,9 +138,9 @@
 	};
 	F83260691363D49B0045F9DC /* ChartListViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {908, 2080}}";
-			sepNavSelRange = "{2934, 0}";
-			sepNavVisRange = "{2299, 1348}";
+			sepNavIntBoundsRect = "{{0, 0}, {905, 2197}}";
+			sepNavSelRange = "{387, 0}";
+			sepNavVisRange = "{0, 1018}";
 		};
 	};
 	F832608E1363D5CF0045F9DC /* GenericViewController.h */ = {
@@ -196,9 +196,9 @@
 	};
 	F83260C11363D91E0045F9DC /* PieChartViewController2.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1335, 1170}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1335, 1235}}";
 			sepNavSelRange = "{1298, 0}";
-			sepNavVisRange = "{365, 1756}";
+			sepNavVisRange = "{293, 1871}";
 		};
 	};
 	F83260C51363D97B0045F9DC /* PBXTextBookmark */ = {
@@ -231,17 +231,6 @@
 		vrLen = 271;
 		vrLoc = 0;
 	};
-	F83260DC1363DA430045F9DC /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = F897D6ED13630F560025FE6E /* sample_piechart_data.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = "/Users/honcheng/Dropbox/Open Source Projects/PlotCreator/PlotCreator/Sample Data/sample_piechart_data.plist";
-		rLen = 0;
-		rLoc = 9223372036854775807;
-	};
 	F83260DD1363DA430045F9DC /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = F897D6EF13630FD40025FE6E /* PCPieChart.h */;
@@ -251,27 +240,6 @@
 		rType = 0;
 		vrLen = 2025;
 		vrLoc = 77;
-	};
-	F83260DF1363DA430045F9DC /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F83260691363D49B0045F9DC /* ChartListViewController.m */;
-		name = "ChartListViewController.m: 112";
-		rLen = 0;
-		rLoc = 2934;
-		rType = 0;
-		vrLen = 1348;
-		vrLoc = 2299;
-	};
-	F83260E41363DA7E0045F9DC /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* PlotCreator-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = "/Users/honcheng/Dropbox/Open Source Projects/PlotCreator/PlotCreator/PlotCreator-Info.plist";
-		rLen = 0;
-		rLoc = 9223372036854775807;
 	};
 	F832611C1363DD5C0045F9DC /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -323,25 +291,57 @@
 		vrLen = 1690;
 		vrLoc = 362;
 	};
-	F83261401363DE940045F9DC /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F83260C11363D91E0045F9DC /* PieChartViewController2.m */;
-		name = "PieChartViewController2.m: 24";
-		rLen = 0;
-		rLoc = 523;
-		rType = 0;
-		vrLen = 1578;
-		vrLoc = 282;
-	};
-	F83261461363DECC0045F9DC /* PBXTextBookmark */ = {
+	F84721CB1363E1DB00BE6859 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = F83260C11363D91E0045F9DC /* PieChartViewController2.m */;
 		name = "PieChartViewController2.m: 37";
 		rLen = 0;
 		rLoc = 1298;
 		rType = 0;
-		vrLen = 1756;
-		vrLoc = 365;
+		vrLen = 1871;
+		vrLoc = 293;
+	};
+	F84721CC1363E1DB00BE6859 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = F897D6ED13630F560025FE6E /* sample_piechart_data.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/honcheng/Dropbox/Open Source Projects/plotcreator/iOSPlot/Sample Data/sample_piechart_data.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	F84721CD1363E1DB00BE6859 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* PlotCreator-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/honcheng/Dropbox/Open Source Projects/plotcreator/iOSPlot/PlotCreator-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	F84721CE1363E1DB00BE6859 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F83260691363D49B0045F9DC /* ChartListViewController.m */;
+		name = "ChartListViewController.m: 112";
+		rLen = 0;
+		rLoc = 2930;
+		rType = 0;
+		vrLen = 1513;
+		vrLoc = 2140;
+	};
+	F84721DA1363E1E700BE6859 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F83260691363D49B0045F9DC /* ChartListViewController.m */;
+		name = "ChartListViewController.m: 24";
+		rLen = 0;
+		rLoc = 387;
+		rType = 0;
+		vrLen = 1018;
+		vrLoc = 0;
 	};
 	F897D6D113630CF40025FE6E /* PlotCreator */ = {
 		isa = PBXExecutable;

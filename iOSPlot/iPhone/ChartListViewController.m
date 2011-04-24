@@ -26,7 +26,7 @@
 		[titleLabel setBackgroundColor:[UIColor clearColor]];
 		[titleLabel setTextColor:[UIColor whiteColor]];
 		[titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:20]];
-		[titleLabel setText:@"PlotCreator"];
+		[titleLabel setText:@"iOSPlot"];
 		[self.navigationItem setTitleView:titleLabel];
 		[titleLabel release];
 		[titleLabel setTextAlignment:UITextAlignmentCenter];
