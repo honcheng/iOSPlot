@@ -16,6 +16,11 @@
 		2860E32F111B888700E27156 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2860E32D111B888700E27156 /* MainWindow_iPad.xib */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		F8325FC91363CE810045F9DC /* HelveticaNeue.ttc in Resources */ = {isa = PBXBuildFile; fileRef = F8325FC81363CE810045F9DC /* HelveticaNeue.ttc */; };
+		F832606A1363D49B0045F9DC /* ChartListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F83260691363D49B0045F9DC /* ChartListViewController.m */; };
+		F83260901363D5CF0045F9DC /* GenericViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F832608F1363D5CF0045F9DC /* GenericViewController.m */; };
+		F83260AA1363D8170045F9DC /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = F83260A81363D8170045F9DC /* back_button.png */; };
+		F83260AB1363D8170045F9DC /* back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F83260A91363D8170045F9DC /* back_button@2x.png */; };
+		F83260C21363D91E0045F9DC /* PieChartViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = F83260C11363D91E0045F9DC /* PieChartViewController2.m */; };
 		F897D6EE13630F560025FE6E /* sample_piechart_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = F897D6ED13630F560025FE6E /* sample_piechart_data.plist */; };
 		F897D6F113630FD40025FE6E /* PCPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = F897D6F013630FD40025FE6E /* PCPieChart.m */; };
 		F897D700136311E60025FE6E /* PieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F897D6FF136311E60025FE6E /* PieChartViewController.m */; };
@@ -36,6 +41,14 @@
 		32CA4F630368D1EE00C91783 /* PlotCreator_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotCreator_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* PlotCreator-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PlotCreator-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		F8325FC81363CE810045F9DC /* HelveticaNeue.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = HelveticaNeue.ttc; sourceTree = "<group>"; };
+		F83260681363D49B0045F9DC /* ChartListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartListViewController.h; sourceTree = "<group>"; };
+		F83260691363D49B0045F9DC /* ChartListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartListViewController.m; sourceTree = "<group>"; };
+		F832608E1363D5CF0045F9DC /* GenericViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericViewController.h; sourceTree = "<group>"; };
+		F832608F1363D5CF0045F9DC /* GenericViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericViewController.m; sourceTree = "<group>"; };
+		F83260A81363D8170045F9DC /* back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back_button.png; path = Images/back_button.png; sourceTree = "<group>"; };
+		F83260A91363D8170045F9DC /* back_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back_button@2x.png"; path = "Images/back_button@2x.png"; sourceTree = "<group>"; };
+		F83260C01363D91E0045F9DC /* PieChartViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartViewController2.h; sourceTree = "<group>"; };
+		F83260C11363D91E0045F9DC /* PieChartViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartViewController2.m; sourceTree = "<group>"; };
 		F897D6ED13630F560025FE6E /* sample_piechart_data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = sample_piechart_data.plist; path = "Sample Data/sample_piechart_data.plist"; sourceTree = "<group>"; };
 		F897D6EF13630FD40025FE6E /* PCPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCPieChart.h; path = Shared/PCPieChart.h; sourceTree = "<group>"; };
 		F897D6F013630FD40025FE6E /* PCPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCPieChart.m; path = Shared/PCPieChart.m; sourceTree = "<group>"; };
@@ -73,6 +86,12 @@
 				2860E327111B887F00E27156 /* MainWindow_iPhone.xib */,
 				F897D6FE136311E60025FE6E /* PieChartViewController.h */,
 				F897D6FF136311E60025FE6E /* PieChartViewController.m */,
+				F83260C01363D91E0045F9DC /* PieChartViewController2.h */,
+				F83260C11363D91E0045F9DC /* PieChartViewController2.m */,
+				F83260681363D49B0045F9DC /* ChartListViewController.h */,
+				F83260691363D49B0045F9DC /* ChartListViewController.m */,
+				F832608E1363D5CF0045F9DC /* GenericViewController.h */,
+				F832608F1363D5CF0045F9DC /* GenericViewController.m */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -114,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				F8325FC81363CE810045F9DC /* HelveticaNeue.ttc */,
+				F83260A81363D8170045F9DC /* back_button.png */,
+				F83260A91363D8170045F9DC /* back_button@2x.png */,
 				F897D6E513630F4B0025FE6E /* Sample Data */,
 				32CA4F630368D1EE00C91783 /* PlotCreator_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
@@ -192,6 +213,8 @@
 				2860E32F111B888700E27156 /* MainWindow_iPad.xib in Resources */,
 				F897D6EE13630F560025FE6E /* sample_piechart_data.plist in Resources */,
 				F8325FC91363CE810045F9DC /* HelveticaNeue.ttc in Resources */,
+				F83260AA1363D8170045F9DC /* back_button.png in Resources */,
+				F83260AB1363D8170045F9DC /* back_button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +230,9 @@
 				2860E32E111B888700E27156 /* AppDelegate_iPad.m in Sources */,
 				F897D6F113630FD40025FE6E /* PCPieChart.m in Sources */,
 				F897D700136311E60025FE6E /* PieChartViewController.m in Sources */,
+				F832606A1363D49B0045F9DC /* ChartListViewController.m in Sources */,
+				F83260901363D5CF0045F9DC /* GenericViewController.m in Sources */,
+				F83260C21363D91E0045F9DC /* PieChartViewController2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

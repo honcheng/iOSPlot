@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate_iPhone.h"
-#import "PieChartViewController.h"
+#import "ChartListViewController.h"
 
 @interface UINavigationBar (CustomNavBar)
 @end
@@ -33,9 +33,9 @@
     
     [self.window makeKeyAndVisible];
 	
-	PieChartViewController *pieChartViewController = [[PieChartViewController alloc] init];
-	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:pieChartViewController];
-	[pieChartViewController release];
+	ChartListViewController *chartListViewController = [[ChartListViewController alloc] init];
+	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:chartListViewController];
+	[chartListViewController release];
 	[self.window addSubview:navigationController.view];
     
     return YES;

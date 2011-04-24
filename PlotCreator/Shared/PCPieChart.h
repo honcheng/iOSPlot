@@ -36,9 +36,11 @@
     NSMutableArray *components;
     int diameter;
 	UIFont *titleFont, *percentageFont;
+	BOOL showArrow, sameColorLabel;
 }
 @property (nonatomic, assign) int diameter;
 @property (nonatomic, retain) NSMutableArray *components;
 @property (nonatomic, retain) UIFont *titleFont, *percentageFont;
+@property (nonatomic, assign) BOOL showArrow, sameColorLabel;
 
 @end

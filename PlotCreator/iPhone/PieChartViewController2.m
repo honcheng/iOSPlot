@@ -1,15 +1,15 @@
     //
-//  PieChartViewController.m
+//  PieChartViewController2.m
 //  PlotCreator
 //
-//  Created by honcheng on 4/23/11.
+//  Created by honcheng on 4/24/11.
 //  Copyright 2011 honcheng. All rights reserved.
 //
 
-#import "PieChartViewController.h"
+#import "PieChartViewController2.h"
 #import "PCPieChart.h"
 
-@implementation PieChartViewController
+@implementation PieChartViewController2
 
 - (id)init
 {
@@ -23,6 +23,8 @@
 		int height = 220;
 		int width = 320;
 		PCPieChart *pieChart = [[PCPieChart alloc] initWithFrame:CGRectMake(([self.view bounds].size.width-width)/2,([self.view bounds].size.height-height)/2,width,height)];
+		[pieChart setShowArrow:NO];
+		[pieChart setSameColorLabel:YES];
 		[pieChart setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin];
 		[pieChart setDiameter:160];
 		[self.view addSubview:pieChart];
@@ -63,6 +65,8 @@
 	}
 	return self;
 }
+
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Overriden to allow any orientation.

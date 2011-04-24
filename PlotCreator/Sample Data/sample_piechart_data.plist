@@ -26,13 +26,13 @@
 			<key>title</key>
 			<string>DDD</string>
 			<key>value</key>
-			<integer>20</integer>
+			<integer>30</integer>
 		</dict>
 		<dict>
 			<key>title</key>
 			<string>EEE</string>
 			<key>value</key>
-			<integer>90</integer>
+			<integer>40</integer>
 		</dict>
 	</array>
 </dict>
