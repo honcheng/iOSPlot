@@ -267,6 +267,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
+								<string>2860E32A111B888700E27156</string>
 								<string>2860E324111B887F00E27156</string>
 								<string>28EEBF621118D79A00187D67</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
@@ -276,8 +277,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>16</integer>
-									<integer>14</integer>
+									<integer>12</integer>
+									<integer>5</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -301,7 +302,7 @@
 							<real>250</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>161 156 1238 834 0 0 1680 1028 </string>
+						<string>325 159 1238 834 0 0 1680 1028 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -319,7 +320,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PCPieChart.m</string>
+								<string>PieChartViewController2.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,14 +328,13 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PCPieChart.m</string>
+										<string>PieChartViewController2.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F83261151363DC660045F9DC</string>
+										<string>F83261461363DECC0045F9DC</string>
 										<key>history</key>
 										<array>
-											<string>F897D729136318F50025FE6E</string>
 											<string>F897D72B136318F50025FE6E</string>
 											<string>F8325FCC1363CEA50045F9DC</string>
 											<string>F832609C1363D6510045F9DC</string>
@@ -343,13 +343,16 @@
 											<string>F83260C51363D97B0045F9DC</string>
 											<string>F83260C61363D97B0045F9DC</string>
 											<string>F83260C71363D97B0045F9DC</string>
-											<string>F83260C81363D97B0045F9DC</string>
 											<string>F83260DC1363DA430045F9DC</string>
 											<string>F83260DD1363DA430045F9DC</string>
 											<string>F83260DF1363DA430045F9DC</string>
-											<string>F83260E31363DA7E0045F9DC</string>
 											<string>F83260E41363DA7E0045F9DC</string>
-											<string>F83260E51363DA7E0045F9DC</string>
+											<string>F832611C1363DD5C0045F9DC</string>
+											<string>F832611D1363DD5C0045F9DC</string>
+											<string>F832611E1363DD5C0045F9DC</string>
+											<string>F832611F1363DD5C0045F9DC</string>
+											<string>F832613F1363DE940045F9DC</string>
+											<string>F83261401363DE940045F9DC</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -363,7 +366,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {966, 602}}</string>
 								<key>RubberWindowFrame</key>
-								<string>161 156 1238 834 0 0 1680 1028 </string>
+								<string>325 159 1238 834 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -383,7 +386,7 @@
 								<key>Frame</key>
 								<string>{{0, 607}, {966, 186}}</string>
 								<key>RubberWindowFrame</key>
-								<string>161 156 1238 834 0 0 1680 1028 </string>
+								<string>325 159 1238 834 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -553,7 +556,7 @@
 		<string>/Users/honcheng/Dropbox/Open Source Projects/PlotCreator/PlotCreator/PlotCreator.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>161 156 1238 834 0 0 1680 1028 </string>
+	<string>325 159 1238 834 0 0 1680 1028 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
