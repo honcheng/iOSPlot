@@ -6,43 +6,33 @@
 	<array>
 		<dict>
 			<key>title</key>
-			<string>title AAA</string>
-			<key>subtitle</key>
-			<string>subtitle AAA</string>
+			<string>AAA</string>
 			<key>value</key>
 			<integer>12</integer>
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>title BBB</string>
-			<key>subtitle</key>
-			<string>subtitle BBB</string>
+			<string>BBB</string>
 			<key>value</key>
-			<integer>23</integer>
+			<integer>30</integer>
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>title CCC</string>
-			<key>subtitle</key>
-			<string>subtitle CCC</string>
+			<string>CCC</string>
 			<key>value</key>
-			<integer>40</integer>
+			<integer>10</integer>
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>title DDD</string>
-			<key>subtitle</key>
-			<string>subtitle DDD</string>
+			<string>DDD</string>
 			<key>value</key>
 			<integer>20</integer>
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>title EEE</string>
-			<key>subtitle</key>
-			<string>subtitle EEE</string>
+			<string>EEE</string>
 			<key>value</key>
-			<integer>70</integer>
+			<integer>90</integer>
 		</dict>
 	</array>
 </dict>

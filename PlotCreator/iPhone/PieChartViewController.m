@@ -16,11 +16,22 @@
 	self = [super init];
 	if (self)
 	{
-		[self.view setBackgroundColor:[UIColor colorWithWhite:0.9 alpha:1]];
+		[self.view setBackgroundColor:[UIColor colorWithWhite:1 alpha:1]];
 		
-		PCPieChart *pieChart = [[PCPieChart alloc] initWithFrame:CGRectMake(10,([self.view bounds].size.height-200)/2,[self.view bounds].size.width-20,200)];
+		UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,150,30)];
+		[titleLabel setBackgroundColor:[UIColor clearColor]];
+		[titleLabel setTextColor:[UIColor whiteColor]];
+		[titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:20]];
+		[titleLabel setText:@"Pie Chart"];
+		[self.navigationItem setTitleView:titleLabel];
+		[titleLabel release];
+		[titleLabel setTextAlignment:UITextAlignmentCenter];
+		
+		int height = 220;
+		int width = 320;
+		PCPieChart *pieChart = [[PCPieChart alloc] initWithFrame:CGRectMake(([self.view bounds].size.width-width)/2,([self.view bounds].size.height-height)/2,width,height)];
 		[pieChart setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin];
-		[pieChart setDiameter:150];
+		[pieChart setDiameter:160];
 		[self.view addSubview:pieChart];
 		[pieChart release];
 		
