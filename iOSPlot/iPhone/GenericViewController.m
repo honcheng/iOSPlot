@@ -36,6 +36,7 @@
 		[self.navigationItem setLeftBarButtonItem:backButtonitem];
 		[backButtonitem release];
 		[backButton addTarget:self action:@selector(onBackButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+		[backButton setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
 	}
 	return self;
 }

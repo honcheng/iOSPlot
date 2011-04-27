@@ -9,6 +9,7 @@
 #import "ChartListViewController.h"
 #import "PieChartViewController.h"
 #import "PieChartViewController2.h"
+#import "LineChartViewController.h"
 
 @implementation ChartListViewController
 
@@ -34,43 +35,6 @@
 	return self;
 }
 
-#pragma mark -
-#pragma mark View lifecycle
-
-/*
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-*/
-
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-*/
-
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Override to allow orientations other than the default portrait orientation.
     return YES;
@@ -88,7 +52,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 2;
+    return 3;
 }
 
 
@@ -113,6 +77,10 @@
 	{
 		[cell.textLabel setText:@"Pie Chart without arrows"];
 	}
+	else if (indexPath.row==2)
+	{
+		[cell.textLabel setText:@"Line Chart"];
+	}
     
     return cell;
 }
@@ -134,7 +102,12 @@
 		[self.navigationController pushViewController:detailViewController animated:YES];
 		[detailViewController release];
 	}
-	 
+	else if (indexPath.row==2)
+	{
+		LineChartViewController *detailViewController = [[LineChartViewController alloc] init];
+		[self.navigationController pushViewController:detailViewController animated:YES];
+		[detailViewController release];
+	}
 }
 
 
