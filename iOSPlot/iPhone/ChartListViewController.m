@@ -51,7 +51,7 @@
 		UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,150,30)];
 		[titleLabel setBackgroundColor:[UIColor clearColor]];
 		[titleLabel setTextColor:[UIColor whiteColor]];
-		[titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:20]];
+		[titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]];
 		[titleLabel setText:@"iOSPlot"];
 		[self.navigationItem setTitleView:titleLabel];
 		[titleLabel release];
@@ -89,7 +89,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-		[cell.textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:20]];
+		[cell.textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]];
 		[cell setSelectionStyle:UITableViewCellSelectionStyleGray];
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 	}
@@ -114,7 +114,7 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+	
 	if (indexPath.row==0)
 	{
 		PieChartViewController *detailViewController = [[PieChartViewController alloc] init];

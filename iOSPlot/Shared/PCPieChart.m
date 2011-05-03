@@ -76,8 +76,8 @@
         // Initialization code
         [self setBackgroundColor:[UIColor clearColor]];
 		
-		self.titleFont = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:10];//[UIFont boldSystemFontOfSize:20];
-		self.percentageFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:25];//[UIFont boldSystemFontOfSize:14];
+		self.titleFont = [UIFont fontWithName:@"GeezaPro" size:10];//[UIFont boldSystemFontOfSize:20];
+		self.percentageFont = [UIFont fontWithName:@"HiraKakuProN-W6" size:20];//[UIFont boldSystemFontOfSize:14];
 		self.showArrow = YES;
 		self.sameColorLabel = NO;
 		
@@ -127,7 +127,6 @@
 		UIGraphicsPopContext();
 		CGContextSetShadow(ctx, CGSizeMake(0.0f, 0.0f), 0);
 		
-		
 		float nextStartDeg = 0;
 		float endDeg = 0;
 		NSMutableArray *tmpComponents = [NSMutableArray array];
@@ -138,7 +137,7 @@
 			float perc = [component value]/total;
 			endDeg = nextStartDeg+perc*360;
 			
-			CGContextSetRGBFillColor(ctx, [[component.colour objectAtIndex:0] floatValue], [[component.colour objectAtIndex:1] floatValue], [[component.colour objectAtIndex:2] floatValue], [[component.colour objectAtIndex:3] floatValue]);
+			CGContextSetFillColorWithColor(ctx, [component.colour CGColor]);
 			CGContextMoveToPoint(ctx, origin_x, origin_y);
 			CGContextAddArc(ctx, origin_x, origin_y, inner_radius, (nextStartDeg-90)*M_PI/180.0, (endDeg-90)*M_PI/180.0, 0);
 			CGContextClosePath(ctx);
@@ -189,7 +188,7 @@
 				// display percentage label
 				if (self.sameColorLabel)
 				{
-					CGContextSetRGBFillColor(ctx, [[component.colour objectAtIndex:0] floatValue], [[component.colour objectAtIndex:1] floatValue], [[component.colour objectAtIndex:2] floatValue], [[component.colour objectAtIndex:3] floatValue]);
+					CGContextSetFillColorWithColor(ctx, [component.colour CGColor]);
 				}
 				else 
 				{
@@ -321,7 +320,7 @@
 				// display percentage label
 				if (self.sameColorLabel)
 				{
-					CGContextSetRGBFillColor(ctx, [[component.colour objectAtIndex:0] floatValue], [[component.colour objectAtIndex:1] floatValue], [[component.colour objectAtIndex:2] floatValue], [[component.colour objectAtIndex:3] floatValue]);
+					CGContextSetFillColorWithColor(ctx, [component.colour CGColor]);
 					//CGContextSetRGBStrokeColor(ctx, 1.0f, 1.0f, 1.0f, 0.5);
 					//CGContextSetTextDrawingMode(ctx, kCGTextFillStroke);
 				}
@@ -424,7 +423,7 @@
 						}
 					}
 				}
-
+				
 				// display title on the left
 				CGContextSetRGBFillColor(ctx, 0.4f, 0.4f, 0.4f, 1.0f);
 				right_label_y += optimumSize.height - 4;
