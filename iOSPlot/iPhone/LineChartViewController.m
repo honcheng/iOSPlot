@@ -1,6 +1,6 @@
 /**
- * Copyright (c) 2010 Muh Hon Cheng
- * Created by honcheng on 12/11/10.
+ * Copyright (c) 2011 Muh Hon Cheng
+ * Created by honcheng on 28/4/11.
  * 
  * Permission is hereby granted, free of charge, to any person obtaining 
  * a copy of this software and associated documentation files (the 
@@ -26,12 +26,13 @@
  * THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  * 
  * @author 		Muh Hon Cheng <honcheng@gmail.com>
- * @copyright	2010	Muh Hon Cheng
+ * @copyright	2011	Muh Hon Cheng
  * @version
  * 
  */
 
 #import "LineChartViewController.h"
+#import "SBJSON.h"
 
 @implementation LineChartViewController
 
@@ -48,9 +49,14 @@
 		[self.view addSubview:lineChartView];
 		[lineChartView release];
 		
-		NSString *sampleFile = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"sample_linechart_data.plist"];
-		NSDictionary *sampleInfo = [NSDictionary dictionaryWithContentsOfFile:sampleFile];
-		NSMutableArray *components = [NSMutableArray array];
+		NSString *sampleFile = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"sample_linechart_data.json"];
+		NSString *jsonString = [NSString stringWithContentsOfFile:sampleFile encoding:NSUTF8StringEncoding error:nil];
+
+        SBJSON *jsonParser = [SBJSON new];
+        NSDictionary *sampleInfo = [jsonParser objectWithString:jsonString];
+        [jsonParser release];
+        
+        NSMutableArray *components = [NSMutableArray array];
 		for (int i=0; i<[[sampleInfo objectForKey:@"data"] count]; i++)
 		{
 			NSDictionary *point = [[sampleInfo objectForKey:@"data"] objectAtIndex:i];

@@ -1,6 +1,6 @@
 /**
- * Copyright (c) 2010 Muh Hon Cheng
- * Created by honcheng on 12/11/10.
+ * Copyright (c) 2011 Muh Hon Cheng
+ * Created by honcheng on 28/4/11.
  * 
  * Permission is hereby granted, free of charge, to any person obtaining 
  * a copy of this software and associated documentation files (the 
@@ -26,7 +26,7 @@
  * THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  * 
  * @author 		Muh Hon Cheng <honcheng@gmail.com>
- * @copyright	2010	Muh Hon Cheng
+ * @copyright	2011	Muh Hon Cheng
  * @version
  * 
  */

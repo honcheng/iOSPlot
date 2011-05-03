@@ -1,6 +1,6 @@
 /**
- * Copyright (c) 2010 Muh Hon Cheng
- * Created by honcheng on 12/11/10.
+ * Copyright (c) 2011 Muh Hon Cheng
+ * Created by honcheng on 28/4/11.
  * 
  * Permission is hereby granted, free of charge, to any person obtaining 
  * a copy of this software and associated documentation files (the 
@@ -26,7 +26,7 @@
  * THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  * 
  * @author 		Muh Hon Cheng <honcheng@gmail.com>
- * @copyright	2010	Muh Hon Cheng
+ * @copyright	2011	Muh Hon Cheng
  * @version
  * 
  */
@@ -166,10 +166,13 @@
 
 		for (int x_axis_index=0; x_axis_index<[component.points count]; x_axis_index++)
         {
-			float value = [[component.points objectAtIndex:x_axis_index] floatValue];
+            id object = [component.points objectAtIndex:x_axis_index];
 			
-            if (value>0)
+			
+            if (object!=[NSNull null] && object)
             {
+                float value = [object floatValue];
+                
                 NSArray *colour = component.colour;
                 
                 CGContextSetRGBStrokeColor(ctx, [[colour objectAtIndex:0] floatValue], [[colour objectAtIndex:1] floatValue], [[colour objectAtIndex:2] floatValue], [[colour objectAtIndex:3] floatValue]);
@@ -227,38 +230,43 @@
         for (int j=0; j<[components count]; j++)
         {
 			NSArray *items = [[components objectAtIndex:j] points];
-            float value = [[items objectAtIndex:i] floatValue];
-            int x = margin + div_width*i;
-            int y = top_margin + (max_value-value)/self.interval*div_height;
-            int y1 = y - circle_diameter/2 - font.pointSize;
-            int y2 = y + circle_diameter/2;
+            id object = [items objectAtIndex:i];
+            if (object!=[NSNull null] && object)
+            {
+                float value = [object floatValue];
+                int x = margin + div_width*i;
+                int y = top_margin + (max_value-value)/self.interval*div_height;
+                int y1 = y - circle_diameter/2 - font.pointSize;
+                int y2 = y + circle_diameter/2;
+                
+                if (y1 > y_level)
+                {
+                    CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
+                    NSString *perc_label = [NSString stringWithFormat:@"%.1f%%", value];
+                    CGRect textFrame = CGRectMake(x-25,y1, 50,20);
+                    [perc_label drawInRect:textFrame withFont:font lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentCenter];
+                    y_level = y1 + 20;
+                }
+                else if (y2 < y_level+20 && y2 < self.frame.size.height-top_margin-bottom_margin)
+                {
+                    CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
+                    NSString *perc_label = [NSString stringWithFormat:@"%.1f%%", value];
+                    CGRect textFrame = CGRectMake(x-25,y2, 50,20);
+                    [perc_label drawInRect:textFrame withFont:font lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentCenter];
+                    y_level = y2 + 20;
+                }
+                else
+                {
+                    CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
+                    NSString *perc_label = [NSString stringWithFormat:@"%.1f%%", value];
+                    CGRect textFrame = CGRectMake(x-50,y-10, 50,20);
+                    [perc_label drawInRect:textFrame withFont:font lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentCenter];
+                    y_level = y1 + 20;
+                }
+                
+                if (y+circle_diameter/2>y_level) y_level = y+circle_diameter/2;
+            }
             
-            if (y1 > y_level)
-            {
-                CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-                NSString *perc_label = [NSString stringWithFormat:@"%.1f%%", value];
-                CGRect textFrame = CGRectMake(x-25,y1, 50,20);
-                [perc_label drawInRect:textFrame withFont:font lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentCenter];
-                y_level = y1 + 20;
-            }
-            else if (y2 < y_level+20 && y2 < self.frame.size.height-top_margin-bottom_margin)
-            {
-                CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-                NSString *perc_label = [NSString stringWithFormat:@"%.1f%%", value];
-                CGRect textFrame = CGRectMake(x-25,y2, 50,20);
-                [perc_label drawInRect:textFrame withFont:font lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentCenter];
-                y_level = y2 + 20;
-            }
-            else
-            {
-                CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-                NSString *perc_label = [NSString stringWithFormat:@"%.1f%%", value];
-                CGRect textFrame = CGRectMake(x-50,y-10, 50,20);
-                [perc_label drawInRect:textFrame withFont:font lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentCenter];
-                y_level = y1 + 20;
-            }
-            
-            if (y+circle_diameter/2>y_level) y_level = y+circle_diameter/2;
         }
     }
     

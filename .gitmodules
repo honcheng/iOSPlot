@@ -1,0 +1,3 @@
+[submodule "iOSPlot/SBJSON"]
+	path = iOSPlot/SBJSON
+	url = git@github.com:honcheng/SBJSON-library.git

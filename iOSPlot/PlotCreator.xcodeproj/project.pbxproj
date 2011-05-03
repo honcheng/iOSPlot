@@ -21,12 +21,18 @@
 		F83260AA1363D8170045F9DC /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = F83260A81363D8170045F9DC /* back_button.png */; };
 		F83260AB1363D8170045F9DC /* back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F83260A91363D8170045F9DC /* back_button@2x.png */; };
 		F83260C21363D91E0045F9DC /* PieChartViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = F83260C11363D91E0045F9DC /* PieChartViewController2.m */; };
-		F88CC4C213684E950096327F /* sample_linechart_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = F88CC4C113684E950096327F /* sample_linechart_data.plist */; };
 		F88CC4C813684F0E0096327F /* PCLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = F88CC4C713684F0E0096327F /* PCLineChartView.m */; };
 		F88CC4D313684FD30096327F /* LineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F88CC4D213684FD30096327F /* LineChartViewController.m */; };
 		F897D6EE13630F560025FE6E /* sample_piechart_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = F897D6ED13630F560025FE6E /* sample_piechart_data.plist */; };
 		F897D6F113630FD40025FE6E /* PCPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = F897D6F013630FD40025FE6E /* PCPieChart.m */; };
 		F897D700136311E60025FE6E /* PieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F897D6FF136311E60025FE6E /* PieChartViewController.m */; };
+		F8C1B415136F7FC8002DDF6C /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C1B40A136F7FC8002DDF6C /* NSObject+SBJSON.m */; };
+		F8C1B416136F7FC8002DDF6C /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C1B40C136F7FC8002DDF6C /* NSString+SBJSON.m */; };
+		F8C1B417136F7FC8002DDF6C /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C1B40E136F7FC8002DDF6C /* SBJSON.m */; };
+		F8C1B418136F7FC8002DDF6C /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C1B410136F7FC8002DDF6C /* SBJsonBase.m */; };
+		F8C1B419136F7FC8002DDF6C /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C1B412136F7FC8002DDF6C /* SBJsonParser.m */; };
+		F8C1B41A136F7FC8002DDF6C /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C1B414136F7FC8002DDF6C /* SBJsonWriter.m */; };
+		F8C1B41C136F8056002DDF6C /* sample_linechart_data.json in Resources */ = {isa = PBXBuildFile; fileRef = F8C1B41B136F8056002DDF6C /* sample_linechart_data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +58,6 @@
 		F83260A91363D8170045F9DC /* back_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back_button@2x.png"; path = "Images/back_button@2x.png"; sourceTree = "<group>"; };
 		F83260C01363D91E0045F9DC /* PieChartViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartViewController2.h; sourceTree = "<group>"; };
 		F83260C11363D91E0045F9DC /* PieChartViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartViewController2.m; sourceTree = "<group>"; };
-		F88CC4C113684E950096327F /* sample_linechart_data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = sample_linechart_data.plist; path = "Sample Data/sample_linechart_data.plist"; sourceTree = "<group>"; };
 		F88CC4C613684F0E0096327F /* PCLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCLineChartView.h; path = Shared/PCLineChartView.h; sourceTree = "<group>"; };
 		F88CC4C713684F0E0096327F /* PCLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCLineChartView.m; path = Shared/PCLineChartView.m; sourceTree = "<group>"; };
 		F88CC4D113684FD30096327F /* LineChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineChartViewController.h; sourceTree = "<group>"; };
@@ -62,6 +67,20 @@
 		F897D6F013630FD40025FE6E /* PCPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCPieChart.m; path = Shared/PCPieChart.m; sourceTree = "<group>"; };
 		F897D6FE136311E60025FE6E /* PieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartViewController.h; sourceTree = "<group>"; };
 		F897D6FF136311E60025FE6E /* PieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartViewController.m; sourceTree = "<group>"; };
+		F8C1B408136F7FC8002DDF6C /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = SBJSON/JSON/JSON.h; sourceTree = "<group>"; };
+		F8C1B409136F7FC8002DDF6C /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJSON.h"; path = "SBJSON/JSON/NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		F8C1B40A136F7FC8002DDF6C /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJSON.m"; path = "SBJSON/JSON/NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		F8C1B40B136F7FC8002DDF6C /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SBJSON.h"; path = "SBJSON/JSON/NSString+SBJSON.h"; sourceTree = "<group>"; };
+		F8C1B40C136F7FC8002DDF6C /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SBJSON.m"; path = "SBJSON/JSON/NSString+SBJSON.m"; sourceTree = "<group>"; };
+		F8C1B40D136F7FC8002DDF6C /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJSON.h; path = SBJSON/JSON/SBJSON.h; sourceTree = "<group>"; };
+		F8C1B40E136F7FC8002DDF6C /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJSON.m; path = SBJSON/JSON/SBJSON.m; sourceTree = "<group>"; };
+		F8C1B40F136F7FC8002DDF6C /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonBase.h; path = SBJSON/JSON/SBJsonBase.h; sourceTree = "<group>"; };
+		F8C1B410136F7FC8002DDF6C /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonBase.m; path = SBJSON/JSON/SBJsonBase.m; sourceTree = "<group>"; };
+		F8C1B411136F7FC8002DDF6C /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonParser.h; path = SBJSON/JSON/SBJsonParser.h; sourceTree = "<group>"; };
+		F8C1B412136F7FC8002DDF6C /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonParser.m; path = SBJSON/JSON/SBJsonParser.m; sourceTree = "<group>"; };
+		F8C1B413136F7FC8002DDF6C /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = SBJSON/JSON/SBJsonWriter.h; sourceTree = "<group>"; };
+		F8C1B414136F7FC8002DDF6C /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = SBJSON/JSON/SBJsonWriter.m; sourceTree = "<group>"; };
+		F8C1B41B136F8056002DDF6C /* sample_linechart_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_linechart_data.json; path = "Sample Data/sample_linechart_data.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +138,7 @@
 		28EEBF621118D79A00187D67 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F8C1B407136F7FB7002DDF6C /* SBJSON */,
 				F897D6EF13630FD40025FE6E /* PCPieChart.h */,
 				F897D6F013630FD40025FE6E /* PCPieChart.m */,
 				F88CC4C613684F0E0096327F /* PCLineChartView.h */,
@@ -167,10 +187,30 @@
 		F897D6E513630F4B0025FE6E /* Sample Data */ = {
 			isa = PBXGroup;
 			children = (
-				F88CC4C113684E950096327F /* sample_linechart_data.plist */,
+				F8C1B41B136F8056002DDF6C /* sample_linechart_data.json */,
 				F897D6ED13630F560025FE6E /* sample_piechart_data.plist */,
 			);
 			name = "Sample Data";
+			sourceTree = "<group>";
+		};
+		F8C1B407136F7FB7002DDF6C /* SBJSON */ = {
+			isa = PBXGroup;
+			children = (
+				F8C1B408136F7FC8002DDF6C /* JSON.h */,
+				F8C1B409136F7FC8002DDF6C /* NSObject+SBJSON.h */,
+				F8C1B40A136F7FC8002DDF6C /* NSObject+SBJSON.m */,
+				F8C1B40B136F7FC8002DDF6C /* NSString+SBJSON.h */,
+				F8C1B40C136F7FC8002DDF6C /* NSString+SBJSON.m */,
+				F8C1B40D136F7FC8002DDF6C /* SBJSON.h */,
+				F8C1B40E136F7FC8002DDF6C /* SBJSON.m */,
+				F8C1B40F136F7FC8002DDF6C /* SBJsonBase.h */,
+				F8C1B410136F7FC8002DDF6C /* SBJsonBase.m */,
+				F8C1B411136F7FC8002DDF6C /* SBJsonParser.h */,
+				F8C1B412136F7FC8002DDF6C /* SBJsonParser.m */,
+				F8C1B413136F7FC8002DDF6C /* SBJsonWriter.h */,
+				F8C1B414136F7FC8002DDF6C /* SBJsonWriter.m */,
+			);
+			name = SBJSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,7 +268,7 @@
 				F8325FC91363CE810045F9DC /* HelveticaNeue.ttc in Resources */,
 				F83260AA1363D8170045F9DC /* back_button.png in Resources */,
 				F83260AB1363D8170045F9DC /* back_button@2x.png in Resources */,
-				F88CC4C213684E950096327F /* sample_linechart_data.plist in Resources */,
+				F8C1B41C136F8056002DDF6C /* sample_linechart_data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +289,12 @@
 				F83260C21363D91E0045F9DC /* PieChartViewController2.m in Sources */,
 				F88CC4C813684F0E0096327F /* PCLineChartView.m in Sources */,
 				F88CC4D313684FD30096327F /* LineChartViewController.m in Sources */,
+				F8C1B415136F7FC8002DDF6C /* NSObject+SBJSON.m in Sources */,
+				F8C1B416136F7FC8002DDF6C /* NSString+SBJSON.m in Sources */,
+				F8C1B417136F7FC8002DDF6C /* SBJSON.m in Sources */,
+				F8C1B418136F7FC8002DDF6C /* SBJsonBase.m in Sources */,
+				F8C1B419136F7FC8002DDF6C /* SBJsonParser.m in Sources */,
+				F8C1B41A136F7FC8002DDF6C /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

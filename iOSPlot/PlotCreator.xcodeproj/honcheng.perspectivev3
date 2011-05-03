@@ -269,12 +269,13 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>2860E32A111B888700E27156</string>
+								<string>2860E324111B887F00E27156</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>3</integer>
-									<integer>1</integer>
+									<integer>14</integer>
+									<integer>5</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -296,7 +297,7 @@
 							<real>185</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>247 220 810 487 0 0 1366 746 </string>
+						<string>386 215 810 487 0 0 1366 746 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -314,7 +315,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>F801A551136D85E300BA1B35</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>AppDelegate_iPad.h</string>
+								<string>ChartListViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -322,11 +323,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>F801A552136D85E300BA1B35</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>AppDelegate_iPad.h</string>
+										<string>ChartListViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F801A565136D85E300BA1B35</string>
+										<string>F801A6C4136D94A600BA1B35</string>
 										<key>history</key>
 										<array>
 											<string>F801A553136D85E300BA1B35</string>
@@ -334,19 +335,19 @@
 											<string>F801A555136D85E300BA1B35</string>
 											<string>F801A556136D85E300BA1B35</string>
 											<string>F801A557136D85E300BA1B35</string>
-											<string>F801A558136D85E300BA1B35</string>
 											<string>F801A559136D85E300BA1B35</string>
 											<string>F801A55A136D85E300BA1B35</string>
 											<string>F801A55B136D85E300BA1B35</string>
 											<string>F801A55C136D85E300BA1B35</string>
 											<string>F801A55D136D85E300BA1B35</string>
-											<string>F801A55E136D85E300BA1B35</string>
 											<string>F801A55F136D85E300BA1B35</string>
 											<string>F801A560136D85E300BA1B35</string>
 											<string>F801A561136D85E300BA1B35</string>
-											<string>F801A562136D85E300BA1B35</string>
 											<string>F801A563136D85E300BA1B35</string>
-											<string>F801A564136D85E300BA1B35</string>
+											<string>F801A6C1136D94A600BA1B35</string>
+											<string>F801A6C2136D94A600BA1B35</string>
+											<string>F801A6C3136D94A600BA1B35</string>
+											<string>F801A55E136D85E300BA1B35</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -360,18 +361,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {603, 403}}</string>
+								<string>{{0, 0}, {603, 401}}</string>
 								<key>RubberWindowFrame</key>
-								<string>247 220 810 487 0 0 1366 746 </string>
+								<string>386 215 810 487 0 0 1366 746 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>403pt</string>
+							<string>401pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>38pt</string>
+							<string>40pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -385,9 +386,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {603, 11}}</string>
+										<string>{{10, 27}, {603, 13}}</string>
 										<key>RubberWindowFrame</key>
-										<string>247 220 810 487 0 0 1366 746 </string>
+										<string>386 215 810 487 0 0 1366 746 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -469,11 +470,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>F801A566136D85E300BA1B35</string>
+				<string>F801A6C5136D94A600BA1B35</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>F801A567136D85E300BA1B35</string>
+				<string>F801A6C6136D94A600BA1B35</string>
 				<string>F801A551136D85E300BA1B35</string>
-				<string>F801A568136D85E300BA1B35</string>
+				<string>F801A6C7136D94A600BA1B35</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -646,7 +647,7 @@
 		<string>/Users/honcheng/Dropbox/Open Source Projects/PlotCreator/iOSPlot/PlotCreator.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>247 220 810 487 0 0 1366 746 </string>
+	<string>386 215 810 487 0 0 1366 746 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>

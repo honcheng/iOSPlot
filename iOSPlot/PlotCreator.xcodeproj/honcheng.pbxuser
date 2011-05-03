@@ -15,9 +15,9 @@
 	};
 	2860E326111B887F00E27156 /* AppDelegate_iPhone.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {542, 1690}}";
-			sepNavSelRange = "{1290, 0}";
-			sepNavVisRange = "{0, 1271}";
+			sepNavIntBoundsRect = "{{0, 0}, {542, 1651}}";
+			sepNavSelRange = "{1360, 313}";
+			sepNavVisRange = "{871, 840}";
 		};
 	};
 	2860E32B111B888700E27156 /* AppDelegate_iPad.h */ = {
@@ -84,8 +84,8 @@
 					PBXSymbolsDataSource_ReferenceNameID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 325944699;
-			PBXWorkspaceStateSaveDate = 325944699;
+			PBXPerProjectTemplateStateSaveDate = 325945083;
+			PBXWorkspaceStateSaveDate = 325945083;
 		};
 		perUserProjectItems = {
 			F801A553136D85E300BA1B35 /* PBXTextBookmark */ = F801A553136D85E300BA1B35 /* PBXTextBookmark */;
@@ -93,7 +93,6 @@
 			F801A555136D85E300BA1B35 /* PBXTextBookmark */ = F801A555136D85E300BA1B35 /* PBXTextBookmark */;
 			F801A556136D85E300BA1B35 /* PBXTextBookmark */ = F801A556136D85E300BA1B35 /* PBXTextBookmark */;
 			F801A557136D85E300BA1B35 /* PBXTextBookmark */ = F801A557136D85E300BA1B35 /* PBXTextBookmark */;
-			F801A558136D85E300BA1B35 /* PBXTextBookmark */ = F801A558136D85E300BA1B35 /* PBXTextBookmark */;
 			F801A559136D85E300BA1B35 /* PBXTextBookmark */ = F801A559136D85E300BA1B35 /* PBXTextBookmark */;
 			F801A55A136D85E300BA1B35 /* PBXTextBookmark */ = F801A55A136D85E300BA1B35 /* PBXTextBookmark */;
 			F801A55B136D85E300BA1B35 /* PBXTextBookmark */ = F801A55B136D85E300BA1B35 /* PBXTextBookmark */;
@@ -103,10 +102,11 @@
 			F801A55F136D85E300BA1B35 /* PBXTextBookmark */ = F801A55F136D85E300BA1B35 /* PBXTextBookmark */;
 			F801A560136D85E300BA1B35 /* PBXTextBookmark */ = F801A560136D85E300BA1B35 /* PBXTextBookmark */;
 			F801A561136D85E300BA1B35 /* PBXTextBookmark */ = F801A561136D85E300BA1B35 /* PBXTextBookmark */;
-			F801A562136D85E300BA1B35 /* PBXTextBookmark */ = F801A562136D85E300BA1B35 /* PBXTextBookmark */;
 			F801A563136D85E300BA1B35 /* PBXTextBookmark */ = F801A563136D85E300BA1B35 /* PBXTextBookmark */;
-			F801A564136D85E300BA1B35 /* PBXTextBookmark */ = F801A564136D85E300BA1B35 /* PBXTextBookmark */;
-			F801A565136D85E300BA1B35 /* PBXTextBookmark */ = F801A565136D85E300BA1B35 /* PBXTextBookmark */;
+			F801A6C1136D94A600BA1B35 /* PBXTextBookmark */ = F801A6C1136D94A600BA1B35 /* PBXTextBookmark */;
+			F801A6C2136D94A600BA1B35 /* PBXTextBookmark */ = F801A6C2136D94A600BA1B35 /* PBXTextBookmark */;
+			F801A6C3136D94A600BA1B35 /* PBXTextBookmark */ = F801A6C3136D94A600BA1B35 /* PBXTextBookmark */;
+			F801A6C4136D94A600BA1B35 /* PBXTextBookmark */ = F801A6C4136D94A600BA1B35 /* PBXTextBookmark */;
 		};
 		sourceControlManager = F897D6E213630D020025FE6E /* Source Control */;
 		userBuildSettings = {
@@ -168,16 +168,6 @@
 		rType = 0;
 		vrLen = 791;
 		vrLoc = 682;
-	};
-	F801A558136D85E300BA1B35 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2860E326111B887F00E27156 /* AppDelegate_iPhone.m */;
-		name = "AppDelegate_iPhone.m: 32";
-		rLen = 0;
-		rLoc = 1290;
-		rType = 0;
-		vrLen = 1271;
-		vrLoc = 0;
 	};
 	F801A559136D85E300BA1B35 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -269,16 +259,6 @@
 		vrLen = 775;
 		vrLoc = 678;
 	};
-	F801A562136D85E300BA1B35 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F832608F1363D5CF0045F9DC /* GenericViewController.m */;
-		name = "GenericViewController.m: 32";
-		rLen = 0;
-		rLoc = 1290;
-		rType = 0;
-		vrLen = 715;
-		vrLoc = 728;
-	};
 	F801A563136D85E300BA1B35 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 2860E32C111B888700E27156 /* AppDelegate_iPad.m */;
@@ -289,17 +269,7 @@
 		vrLen = 950;
 		vrLoc = 164;
 	};
-	F801A564136D85E300BA1B35 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2860E32B111B888700E27156 /* AppDelegate_iPad.h */;
-		name = "AppDelegate_iPad.h: 32";
-		rLen = 0;
-		rLoc = 1290;
-		rType = 0;
-		vrLen = 838;
-		vrLoc = 682;
-	};
-	F801A565136D85E300BA1B35 /* PBXTextBookmark */ = {
+	F801A6C1136D94A600BA1B35 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 2860E32B111B888700E27156 /* AppDelegate_iPad.h */;
 		name = "AppDelegate_iPad.h: 32";
@@ -308,6 +278,36 @@
 		rType = 0;
 		vrLen = 1271;
 		vrLoc = 0;
+	};
+	F801A6C2136D94A600BA1B35 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2860E326111B887F00E27156 /* AppDelegate_iPhone.m */;
+		name = "AppDelegate_iPhone.m: 37";
+		rLen = 313;
+		rLoc = 1360;
+		rType = 0;
+		vrLen = 840;
+		vrLoc = 871;
+	};
+	F801A6C3136D94A600BA1B35 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F832608F1363D5CF0045F9DC /* GenericViewController.m */;
+		name = "GenericViewController.m: 32";
+		rLen = 0;
+		rLoc = 1290;
+		rType = 0;
+		vrLen = 1325;
+		vrLoc = 1366;
+	};
+	F801A6C4136D94A600BA1B35 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F83260691363D49B0045F9DC /* ChartListViewController.m */;
+		name = "ChartListViewController.m: 45";
+		rLen = 504;
+		rLoc = 1522;
+		rType = 0;
+		vrLen = 763;
+		vrLoc = 1477;
 	};
 	F83260681363D49B0045F9DC /* ChartListViewController.h */ = {
 		uiCtxt = {
@@ -318,9 +318,9 @@
 	};
 	F83260691363D49B0045F9DC /* ChartListViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {542, 2223}}";
-			sepNavSelRange = "{1290, 0}";
-			sepNavVisRange = "{728, 805}";
+			sepNavIntBoundsRect = "{{0, 0}, {663, 2067}}";
+			sepNavSelRange = "{1522, 504}";
+			sepNavVisRange = "{1477, 763}";
 		};
 	};
 	F832608E1363D5CF0045F9DC /* GenericViewController.h */ = {
@@ -332,9 +332,9 @@
 	};
 	F832608F1363D5CF0045F9DC /* GenericViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {579, 1625}}";
+			sepNavIntBoundsRect = "{{0, 0}, {852, 1300}}";
 			sepNavSelRange = "{1290, 0}";
-			sepNavVisRange = "{728, 715}";
+			sepNavVisRange = "{1366, 1325}";
 		};
 	};
 	F83260C01363D91E0045F9DC /* PieChartViewController2.h */ = {
