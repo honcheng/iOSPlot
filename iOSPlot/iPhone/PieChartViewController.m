@@ -50,13 +50,15 @@
 		PCPieChart *pieChart = [[PCPieChart alloc] initWithFrame:CGRectMake(([self.view bounds].size.width-width)/2,([self.view bounds].size.height-height)/2,width,height)];
 		[pieChart setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin];
 		[pieChart setDiameter:width/2];
+		[pieChart setSameColorLabel:YES];
+		
 		[self.view addSubview:pieChart];
 		[pieChart release];
 		
 		if ([[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPad)
 		{
-			pieChart.titleFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:30];
-			pieChart.percentageFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:50];
+			pieChart.titleFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:30];
+			pieChart.percentageFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:50];
 		}
 		
 		NSString *sampleFile = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"sample_piechart_data.plist"];

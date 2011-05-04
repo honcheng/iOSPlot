@@ -32,7 +32,7 @@
  */
 
 #import "LineChartViewController.h"
-#import "SBJSON.h"
+#import "JSONKit.h"
 
 @implementation LineChartViewController
 
@@ -46,15 +46,15 @@
 		
 		lineChartView = [[PCLineChartView alloc] initWithFrame:CGRectMake(10,10,[self.view bounds].size.width-20,[self.view bounds].size.height-20)];
 		[lineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+		lineChartView.minValue = -40;
+		lineChartView.maxValue = 100;
 		[self.view addSubview:lineChartView];
 		[lineChartView release];
 		
 		NSString *sampleFile = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"sample_linechart_data.json"];
 		NSString *jsonString = [NSString stringWithContentsOfFile:sampleFile encoding:NSUTF8StringEncoding error:nil];
-
-        SBJSON *jsonParser = [SBJSON new];
-        NSDictionary *sampleInfo = [jsonParser objectWithString:jsonString];
-        [jsonParser release];
+		
+        NSDictionary *sampleInfo = [jsonString objectFromJSONString];
         
         NSMutableArray *components = [NSMutableArray array];
 		for (int i=0; i<[[sampleInfo objectForKey:@"data"] count]; i++)
@@ -63,7 +63,8 @@
 			PCLineChartViewComponent *component = [[PCLineChartViewComponent alloc] init];
 			[component setTitle:[point objectForKey:@"title"]];
 			[component setPoints:[point objectForKey:@"data"]];
-				
+			[component setShouldLabelValues:NO];
+			
 			if (i==0)
 			{
 				[component setColour:PCColorYellow];
