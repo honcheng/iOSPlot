@@ -35,6 +35,7 @@
 #import "PieChartViewController.h"
 #import "PieChartViewController2.h"
 #import "LineChartViewController.h"
+#import "HalfPieChartViewController.h"
 
 @implementation ChartListViewController
 
@@ -77,7 +78,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 3;
+    return 4;
 }
 
 
@@ -102,7 +103,11 @@
 	{
 		[cell.textLabel setText:@"Pie Chart without arrows"];
 	}
-	else if (indexPath.row==2)
+    else if (indexPath.row==2)
+	{
+		[cell.textLabel setText:@"Half Pie Chart (not completed yet)"];
+	}
+	else if (indexPath.row==3)
 	{
 		[cell.textLabel setText:@"Line Chart"];
 	}
@@ -127,7 +132,13 @@
 		[self.navigationController pushViewController:detailViewController animated:YES];
 		[detailViewController release];
 	}
-	else if (indexPath.row==2)
+    else if (indexPath.row==2)
+	{
+		HalfPieChartViewController *detailViewController = [[HalfPieChartViewController alloc] init];
+		[self.navigationController pushViewController:detailViewController animated:YES];
+		[detailViewController release];
+	}
+	else if (indexPath.row==3)
 	{
 		LineChartViewController *detailViewController = [[LineChartViewController alloc] init];
 		[self.navigationController pushViewController:detailViewController animated:YES];

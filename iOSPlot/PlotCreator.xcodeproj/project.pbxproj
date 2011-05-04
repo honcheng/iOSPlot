@@ -21,6 +21,8 @@
 		F83260AA1363D8170045F9DC /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = F83260A81363D8170045F9DC /* back_button.png */; };
 		F83260AB1363D8170045F9DC /* back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F83260A91363D8170045F9DC /* back_button@2x.png */; };
 		F83260C21363D91E0045F9DC /* PieChartViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = F83260C11363D91E0045F9DC /* PieChartViewController2.m */; };
+		F87DE41A1370D68300347F69 /* PCHalfPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = F87DE4191370D68300347F69 /* PCHalfPieChart.m */; };
+		F87DE41D1370D82D00347F69 /* HalfPieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F87DE41C1370D82D00347F69 /* HalfPieChartViewController.m */; };
 		F88CC4C813684F0E0096327F /* PCLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = F88CC4C713684F0E0096327F /* PCLineChartView.m */; };
 		F88CC4D313684FD30096327F /* LineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F88CC4D213684FD30096327F /* LineChartViewController.m */; };
 		F897D6EE13630F560025FE6E /* sample_piechart_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = F897D6ED13630F560025FE6E /* sample_piechart_data.plist */; };
@@ -53,6 +55,10 @@
 		F83260A91363D8170045F9DC /* back_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back_button@2x.png"; path = "Images/back_button@2x.png"; sourceTree = "<group>"; };
 		F83260C01363D91E0045F9DC /* PieChartViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieChartViewController2.h; path = iPhone/PieChartViewController2.h; sourceTree = "<group>"; };
 		F83260C11363D91E0045F9DC /* PieChartViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PieChartViewController2.m; path = iPhone/PieChartViewController2.m; sourceTree = "<group>"; };
+		F87DE4181370D68300347F69 /* PCHalfPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCHalfPieChart.h; sourceTree = "<group>"; };
+		F87DE4191370D68300347F69 /* PCHalfPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCHalfPieChart.m; sourceTree = "<group>"; };
+		F87DE41B1370D82D00347F69 /* HalfPieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HalfPieChartViewController.h; sourceTree = "<group>"; };
+		F87DE41C1370D82D00347F69 /* HalfPieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HalfPieChartViewController.m; sourceTree = "<group>"; };
 		F88CC4C613684F0E0096327F /* PCLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCLineChartView.h; path = Shared/PCLineChartView.h; sourceTree = "<group>"; };
 		F88CC4C713684F0E0096327F /* PCLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCLineChartView.m; path = Shared/PCLineChartView.m; sourceTree = "<group>"; };
 		F88CC4D113684FD30096327F /* LineChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineChartViewController.h; path = iPhone/LineChartViewController.h; sourceTree = "<group>"; };
@@ -116,6 +122,8 @@
 				F897D6FF136311E60025FE6E /* PieChartViewController.m */,
 				F83260C01363D91E0045F9DC /* PieChartViewController2.h */,
 				F83260C11363D91E0045F9DC /* PieChartViewController2.m */,
+				F87DE41B1370D82D00347F69 /* HalfPieChartViewController.h */,
+				F87DE41C1370D82D00347F69 /* HalfPieChartViewController.m */,
 				F83260681363D49B0045F9DC /* ChartListViewController.h */,
 				F83260691363D49B0045F9DC /* ChartListViewController.m */,
 				F88CC4D113684FD30096327F /* LineChartViewController.h */,
@@ -169,6 +177,8 @@
 				F897D6F013630FD40025FE6E /* PCPieChart.m */,
 				F88CC4C613684F0E0096327F /* PCLineChartView.h */,
 				F88CC4C713684F0E0096327F /* PCLineChartView.m */,
+				F87DE4181370D68300347F69 /* PCHalfPieChart.h */,
+				F87DE4191370D68300347F69 /* PCHalfPieChart.m */,
 			);
 			name = iOSPlot;
 			sourceTree = "<group>";
@@ -267,6 +277,8 @@
 				F88CC4C813684F0E0096327F /* PCLineChartView.m in Sources */,
 				F88CC4D313684FD30096327F /* LineChartViewController.m in Sources */,
 				3794799813706B8400C0E457 /* JSONKit.m in Sources */,
+				F87DE41A1370D68300347F69 /* PCHalfPieChart.m in Sources */,
+				F87DE41D1370D82D00347F69 /* HalfPieChartViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

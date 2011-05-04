@@ -8,3 +8,7 @@ iOSPlot
   Allow legend labels to appear on either the right or left side of the chart (or not at all).
   Use the rendered string width of the legend labels to determine right/left side margin.
   If a legend string is significantly long (200% percentage of default margin width?), truncate or abbreviate it to X characters.
+
+*todo list for half pie chart*
+  Use gesture/tap to show the value label
+  Display legend
