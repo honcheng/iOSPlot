@@ -57,8 +57,8 @@
 		
 		if ([[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPad)
 		{
-			pieChart.titleFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:30];
-			pieChart.percentageFont = [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:50];
+			pieChart.titleFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:30];
+			pieChart.percentageFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:50];
 		}
 		
 		NSString *sampleFile = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"sample_piechart_data.plist"];

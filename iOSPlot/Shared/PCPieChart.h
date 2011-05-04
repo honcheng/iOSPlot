@@ -38,11 +38,11 @@
 {
     float value, startDeg, endDeg;
     NSString *title;
-    NSArray *colour;
+    UIColor *colour;
     
 }
 @property (nonatomic, assign) float value, startDeg, endDeg;
-@property (nonatomic, retain) NSArray *colour;
+@property (nonatomic, retain) UIColor *colour;
 @property (nonatomic, retain) NSString *title;
 
 
@@ -50,12 +50,12 @@
 + (id)pieComponentWithTitle:(NSString*)_title value:(float)_value;
 @end
 
-#define PCColorBlue [NSArray arrayWithObjects:[NSNumber numberWithFloat:0.0],[NSNumber numberWithFloat:153/255.0],[NSNumber numberWithFloat:204/255.0],[NSNumber numberWithFloat:1.0],nil]
-#define PCColorGreen [NSArray arrayWithObjects:[NSNumber numberWithFloat:153/255.0],[NSNumber numberWithFloat:204/255.0],[NSNumber numberWithFloat:51/255.0],[NSNumber numberWithFloat:1.0],nil]
-#define PCColorOrange [NSArray arrayWithObjects:[NSNumber numberWithFloat:1.0],[NSNumber numberWithFloat:153/255.0],[NSNumber numberWithFloat:51/255.0],[NSNumber numberWithFloat:1.0],nil]
-#define PCColorRed [NSArray arrayWithObjects:[NSNumber numberWithFloat:1.0],[NSNumber numberWithFloat:51/255.0],[NSNumber numberWithFloat:51/255.0],[NSNumber numberWithFloat:1.0],nil]
-#define PCColorYellow [NSArray arrayWithObjects:[NSNumber numberWithFloat:255/255.0],[NSNumber numberWithFloat:220/255.0],[NSNumber numberWithFloat:0.0],[NSNumber numberWithFloat:1.0],nil]
-#define PCColorDefault [NSArray arrayWithObjects:[NSNumber numberWithFloat:0.5],[NSNumber numberWithFloat:0.5],[NSNumber numberWithFloat:0.5],[NSNumber numberWithFloat:1.0],nil]
+#define PCColorBlue [UIColor colorWithRed:0.0 green:153/255.0 blue:204/255.0 alpha:1.0]
+#define PCColorGreen [UIColor colorWithRed:153/255.0 green:204/255.0 blue:51/255.0 alpha:1.0]
+#define PCColorOrange [UIColor colorWithRed:1.0 green:153/255.0 blue:51/255.0 alpha:1.0]
+#define PCColorRed [UIColor colorWithRed:1.0 green:51/255.0 blue:51/255.0 alpha:1.0]
+#define PCColorYellow [UIColor colorWithRed:1.0 green:220/255.0 blue:0.0 alpha:1.0]
+#define PCColorDefault [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0]
 
 @interface PCPieChart : UIView {
     NSMutableArray *components;
