@@ -35,6 +35,13 @@
 
 @implementation PCLineChartViewComponent
 @synthesize title, points, colour, shouldLabelValues;
+-(void) dealloc
+{
+    [points release];
+    [colour release];
+    [title release];
+    [super dealloc];
+}
 @end
 
 @implementation PCLineChartView
@@ -258,7 +265,8 @@
 
 - (void)dealloc
 {
-    [self.components release];
+    [components release];
+    [xLabels release];
 	self.yLabelFont = self.xLabelFont = self.valueLabelFont = self.legendFont = nil;
     [super dealloc];
 }
