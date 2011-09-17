@@ -61,6 +61,13 @@
     return text;
 }
 
+- (void)dealloc
+{
+    [colour release];
+    [title release];
+    [super dealloc];
+}
+
 @end
 
 @implementation PCPieChart
