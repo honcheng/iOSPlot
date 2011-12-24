@@ -49,6 +49,7 @@
 @synthesize interval, minValue, maxValue;
 @synthesize xLabels;
 @synthesize yLabelFont, xLabelFont, valueLabelFont, legendFont;
+@synthesize autoscaleYAxis, numYIntervals;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -60,6 +61,7 @@
         interval = 20;
 		maxValue = 100;
 		minValue = 0;
+        numYIntervals = 5;
 		yLabelFont = [[UIFont fontWithName:@"GeezaPro-Bold" size:14] retain]; 
 		xLabelFont = [[UIFont fontWithName:@"HiraKakuProN-W6" size:12] retain];
 		valueLabelFont = [[UIFont fontWithName:@"HiraKakuProN-W6" size:10] retain];
@@ -75,19 +77,36 @@
     UIGraphicsPushContext(ctx);
     CGContextSetRGBFillColor(ctx, 0.2f, 0.2f, 0.2f, 1.0f);
     
-    int n_div = (maxValue-minValue)/self.interval + 1;
+    int n_div;
+    int power;
+    float scale_min, scale_max, div_height;
     float top_margin = 35;
     float bottom_margin = 25;
 	float x_label_height = 20;
-    float div_height = (self.frame.size.height-top_margin-bottom_margin-x_label_height)/(n_div-1);
 	
+    if (autoscaleYAxis) {
+        scale_min = 0.0;
+        power = floor(log10(maxValue/5)); 
+        float increment = maxValue / (5 * pow(10,power));
+        increment = (increment <= 5) ? ceil(increment) : 10;
+        increment = increment * pow(10,power);
+        scale_max = 5 * increment;
+        self.interval = scale_max / numYIntervals;
+    } else {
+        scale_min = minValue;
+        scale_max = maxValue;
+    }
+    n_div = (scale_max-scale_min)/self.interval + 1;
+    div_height = (self.frame.size.height-top_margin-bottom_margin-x_label_height)/(n_div-1);
+    
     for (int i=0; i<n_div; i++)
     {
-        float y_axis = maxValue - i*self.interval;
+        float y_axis = scale_max - i*self.interval;
 		
         int y = top_margin + div_height*i;
         CGRect textFrame = CGRectMake(0,y-8,25,20);
-        NSString *text = [NSString stringWithFormat:@"%.0f", y_axis];
+        NSString *formatString = [NSString stringWithFormat:@"%%.%if", (power < 0) ? -power : 0];
+        NSString *text = [NSString stringWithFormat:formatString, y_axis];
         [text drawInRect:textFrame 
 				withFont:yLabelFont 
 		   lineBreakMode:UILineBreakModeWordWrap 
@@ -142,7 +161,7 @@
                 CGContextSetLineWidth(ctx, circle_stroke_width);
                 
                 int x = margin + div_width*x_axis_index;
-                int y = top_margin + (maxValue-value)/self.interval*div_height;
+                int y = top_margin + (scale_max-value)/self.interval*div_height;
                 
                 CGRect circleRect = CGRectMake(x-circle_diameter/2, y-circle_diameter/2, circle_diameter,circle_diameter);
                 CGContextStrokeEllipseInRect(ctx, circleRect);
@@ -193,7 +212,7 @@
             {
                 float value = [object floatValue];
                 int x = margin + div_width*i;
-                int y = top_margin + (maxValue-value)/self.interval*div_height;
+                int y = top_margin + (scale_max-value)/self.interval*div_height;
                 int y1 = y - circle_diameter/2 - valueLabelFont.pointSize;
                 int y2 = y + circle_diameter/2;
                 

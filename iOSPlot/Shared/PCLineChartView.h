@@ -59,15 +59,22 @@
     NSMutableArray *components;
 	NSMutableArray *xLabels;
 	UIFont *yLabelFont, *xLabelFont, *valueLabelFont, *legendFont;
-    int interval;
+    float interval;
 	float minValue;
 	float maxValue;
+    
+    // Use these to autoscale the y axis to 'nice' values.
+    // If used, minValue is ignored (0) and interval computed internally
+    BOOL autoscaleYAxis;
+    NSUInteger numYIntervals;   // Use n*5 for best results
 }
 
-@property (nonatomic, assign) int interval;
+@property (nonatomic, assign) float interval;
 @property (nonatomic, assign) float minValue;
 @property (nonatomic, assign) float maxValue;
 @property (nonatomic, retain) NSMutableArray *components, *xLabels;
 @property (nonatomic, retain) UIFont *yLabelFont, *xLabelFont, *valueLabelFont, *legendFont;
+@property (nonatomic, assign) BOOL autoscaleYAxis;
+@property (nonatomic, assign) NSUInteger numYIntervals;
 
 @end
