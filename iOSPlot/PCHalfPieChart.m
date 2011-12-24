@@ -59,6 +59,13 @@
     return text;
 }
 
+- (void)dealloc
+{
+    [colour release];
+    [title release];
+    [super dealloc];
+}
+
 @end
 
 @implementation PCHalfPieChart
@@ -196,10 +203,12 @@
 
 - (void)dealloc
 {
-    [self.title release];
-    [self.subtitle release];
-    [self.titleFont release];
-    [self.subtitleFont release];
+    
+    [title release];
+    [subtitle release];
+    [components release];
+    [titleFont release];
+    [subtitleFont release];
     [super dealloc];
 }
 
