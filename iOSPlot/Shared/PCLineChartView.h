@@ -76,5 +76,6 @@
 @property (nonatomic, retain) UIFont *yLabelFont, *xLabelFont, *valueLabelFont, *legendFont;
 @property (nonatomic, assign) BOOL autoscaleYAxis;
 @property (nonatomic, assign) NSUInteger numYIntervals;
+@property (nonatomic, assign) NSUInteger numXIntervals;
 
 @end
