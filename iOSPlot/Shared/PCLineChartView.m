@@ -50,6 +50,7 @@
 @synthesize xLabels;
 @synthesize yLabelFont, xLabelFont, valueLabelFont, legendFont;
 @synthesize autoscaleYAxis, numYIntervals;
+@synthesize numXIntervals;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -62,6 +63,7 @@
 		maxValue = 100;
 		minValue = 0;
         numYIntervals = 5;
+        numXIntervals = 1;
 		yLabelFont = [[UIFont fontWithName:@"GeezaPro-Bold" size:14] retain]; 
 		xLabelFont = [[UIFont fontWithName:@"HiraKakuProN-W6" size:12] retain];
 		valueLabelFont = [[UIFont fontWithName:@"HiraKakuProN-W6" size:10] retain];
@@ -122,15 +124,18 @@
     
     float margin = 45;
     float div_width = (self.frame.size.width-2*margin)/([self.xLabels count]-1);
-    for (int i=0; i<[self.xLabels count]; i++)
+    for (NSUInteger i=0; i<[self.xLabels count]; i++)
     {
-        int x = margin + div_width*i;
-        NSString *x_label = [NSString stringWithFormat:@"%@", [self.xLabels objectAtIndex:i]];
-        CGRect textFrame = CGRectMake(x-100, self.frame.size.height-x_label_height,200,x_label_height);
-        [x_label drawInRect:textFrame
-				   withFont:xLabelFont 
-			  lineBreakMode:UILineBreakModeWordWrap 
-				  alignment:UITextAlignmentCenter];
+        if (i % numXIntervals == 1 ) {
+            int x = (int) (margin + div_width * i);
+            NSString *x_label = [NSString stringWithFormat:@"%@", [self.xLabels objectAtIndex:i]];
+            CGRect textFrame = CGRectMake(x - 100, self.frame.size.height - x_label_height, 200, x_label_height);
+            [x_label drawInRect:textFrame
+                       withFont:xLabelFont
+                  lineBreakMode:UILineBreakModeWordWrap
+                      alignment:UITextAlignmentCenter];
+        };
+
     }
     
 	CGColorRef shadowColor = [[UIColor lightGrayColor] CGColor];
