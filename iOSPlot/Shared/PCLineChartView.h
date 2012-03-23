@@ -39,11 +39,12 @@
     NSArray *points;
     UIColor *colour;
 	BOOL shouldLabelValues;
+    NSString *labelFormat;
 }
 @property (nonatomic, assign) BOOL shouldLabelValues;
 @property (nonatomic, retain) NSArray *points;
 @property (nonatomic, retain) UIColor *colour;
-@property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) NSString *title, *labelFormat;
 @end
 
 

@@ -34,14 +34,26 @@
 #import "PCLineChartView.h"
 
 @implementation PCLineChartViewComponent
-@synthesize title, points, colour, shouldLabelValues;
+@synthesize title, points, colour, shouldLabelValues, labelFormat;
 -(void) dealloc
 {
+    [labelFormat release];
     [points release];
     [colour release];
     [title release];
     [super dealloc];
 }
+
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        self.labelFormat = @"%.1f%%";
+    }
+    return self;
+}
+
 @end
 
 @implementation PCLineChartView
@@ -126,7 +138,7 @@
     float div_width = (self.frame.size.width-2*margin)/([self.xLabels count]-1);
     for (NSUInteger i=0; i<[self.xLabels count]; i++)
     {
-        if (i % numXIntervals == 1 ) {
+        if (i % numXIntervals == 1 || numXIntervals==1) {
             int x = (int) (margin + div_width * i);
             NSString *x_label = [NSString stringWithFormat:@"%@", [self.xLabels objectAtIndex:i]];
             CGRect textFrame = CGRectMake(x - 100, self.frame.size.height - x_label_height, 200, x_label_height);
@@ -232,7 +244,7 @@
 					if (y1 > y_level)
 					{
 						CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-						NSString *perc_label = [NSString stringWithFormat:@"%.1f%%", value];
+						NSString *perc_label = [NSString stringWithFormat:[[components objectAtIndex:j] labelFormat], value];
 						CGRect textFrame = CGRectMake(x-25,y1, 50,20);
 						[perc_label drawInRect:textFrame 
 									  withFont:valueLabelFont 
@@ -243,7 +255,7 @@
 					else if (y2 < y_level+20 && y2 < self.frame.size.height-top_margin-bottom_margin)
 					{
 						CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-						NSString *perc_label = [NSString stringWithFormat:@"%.1f%%", value];
+						NSString *perc_label = [NSString stringWithFormat:[[components objectAtIndex:j] labelFormat], value];
 						CGRect textFrame = CGRectMake(x-25,y2, 50,20);
 						[perc_label drawInRect:textFrame 
 									  withFont:valueLabelFont 
@@ -254,7 +266,7 @@
 					else
 					{
 						CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-						NSString *perc_label = [NSString stringWithFormat:@"%.1f%%", value];
+						NSString *perc_label = [NSString stringWithFormat:[[components objectAtIndex:j] labelFormat], value];
 						CGRect textFrame = CGRectMake(x-50,y-10, 50,20);
 						[perc_label drawInRect:textFrame 
 									  withFont:valueLabelFont 
