@@ -152,6 +152,10 @@
         int last_x = 0;
         int last_y = 0;
         
+        if (!component.colour)
+        {
+            component.colour = PCColorBlue;
+        }
 		
 		for (int x_axis_index=0; x_axis_index<[component.points count]; x_axis_index++)
         {
@@ -191,7 +195,10 @@
                 if (x_axis_index==[component.points count]-1)
                 {
                     NSMutableDictionary *info = [NSMutableDictionary dictionary];
-                    [info setObject:component.title forKey:@"title"];
+                    if (component.title)
+                    {
+                        [info setObject:component.title forKey:@"title"];
+                    }
                     [info setObject:[NSNumber numberWithFloat:x+circle_diameter/2+15] forKey:@"x"];
                     [info setObject:[NSNumber numberWithFloat:y-10] forKey:@"y"];
 					[info setObject:component.colour forKey:@"colour"];
