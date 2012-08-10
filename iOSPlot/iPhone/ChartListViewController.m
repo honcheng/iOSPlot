@@ -45,18 +45,10 @@
 
 - (id)init
 {
-	self = [super init];
+	self = [super initWithStyle:UITableViewStylePlain];
 	if (self)
 	{
-		
-		UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,150,30)];
-		[titleLabel setBackgroundColor:[UIColor clearColor]];
-		[titleLabel setTextColor:[UIColor whiteColor]];
-		[titleLabel setFont:[UIFont boldSystemFontOfSize:16]];
-		[titleLabel setText:@"iOSPlot"];
-		[self.navigationItem setTitleView:titleLabel];
-		[titleLabel release];
-		[titleLabel setTextAlignment:UITextAlignmentCenter];
+		[self setTitle:@"iOSPlot"];
 	}
 	return self;
 }
@@ -83,13 +75,14 @@
 
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 		[cell.textLabel setFont:[UIFont boldSystemFontOfSize:16]];
 		[cell setSelectionStyle:UITableViewCellSelectionStyleGray];
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
@@ -124,25 +117,21 @@
 	{
 		PieChartViewController *detailViewController = [[PieChartViewController alloc] init];
 		[self.navigationController pushViewController:detailViewController animated:YES];
-		[detailViewController release];
 	}
     else if (indexPath.row==1)
 	{
 		PieChartViewController2 *detailViewController = [[PieChartViewController2 alloc] init];
 		[self.navigationController pushViewController:detailViewController animated:YES];
-		[detailViewController release];
 	}
     else if (indexPath.row==2)
 	{
 		HalfPieChartViewController *detailViewController = [[HalfPieChartViewController alloc] init];
 		[self.navigationController pushViewController:detailViewController animated:YES];
-		[detailViewController release];
 	}
 	else if (indexPath.row==3)
 	{
 		LineChartViewController *detailViewController = [[LineChartViewController alloc] init];
 		[self.navigationController pushViewController:detailViewController animated:YES];
-		[detailViewController release];
 	}
 }
 
@@ -163,9 +152,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

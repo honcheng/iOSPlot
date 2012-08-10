@@ -8,8 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HalfPieChartViewController : UIViewController {
-    
-}
-
+@interface HalfPieChartViewController : UIViewController
 @end

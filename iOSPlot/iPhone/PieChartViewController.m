@@ -53,7 +53,6 @@
 		[pieChart setSameColorLabel:YES];
 		
 		[self.view addSubview:pieChart];
-		[pieChart release];
 		
 		if ([[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPad)
 		{
@@ -118,9 +117,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

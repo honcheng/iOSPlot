@@ -34,8 +34,6 @@
 #import <UIKit/UIKit.h>
 #import "PCLineChartView.h"
 
-@interface LineChartViewController : UIViewController {
-	PCLineChartView *lineChartView;
-}
-
+@interface LineChartViewController : UIViewController
+@property (nonatomic, strong) PCLineChartView *lineChartView;
 @end

@@ -34,23 +34,22 @@
 #import "PCPieChart.h"
 
 @implementation PCPieComponent
-@synthesize value, title, colour, startDeg, endDeg;
 
-- (id)initWithTitle:(NSString*)_title value:(float)_value
+- (id)initWithTitle:(NSString*)title value:(float)value
 {
     self = [super init];
     if (self)
     {
-        self.title = _title;
-        self.value = _value;
-        self.colour = PCColorDefault;
+        _title = title;
+        _value = value;
+        _colour = PCColorDefault;
     }
     return self;
 }
 
-+ (id)pieComponentWithTitle:(NSString*)_title value:(float)_value
++ (id)pieComponentWithTitle:(NSString*)title value:(float)value
 {
-    return [[[super alloc] initWithTitle:_title value:_value] autorelease];
+    return [[super alloc] initWithTitle:title value:value];
 }
 
 - (NSString*)description
@@ -61,20 +60,9 @@
     return text;
 }
 
-- (void)dealloc
-{
-    [colour release];
-    [title release];
-    [super dealloc];
-}
-
 @end
 
 @implementation PCPieChart
-@synthesize  components;
-@synthesize diameter;
-@synthesize titleFont, percentageFont;
-@synthesize showArrow, sameColorLabel;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -83,11 +71,10 @@
         // Initialization code
         [self setBackgroundColor:[UIColor clearColor]];
 		
-		self.titleFont = [UIFont boldSystemFontOfSize:10];
-		self.percentageFont = [UIFont boldSystemFontOfSize:20];
-		self.showArrow = YES;
-		self.sameColorLabel = NO;
-		
+		_titleFont = [UIFont boldSystemFontOfSize:10];
+		_percentageFont = [UIFont boldSystemFontOfSize:20];
+		_showArrow = YES;
+		_sameColorLabel = NO;
 	}
     return self;
 }
@@ -98,30 +85,28 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
-    
     float margin = 15;
     if (self.diameter==0)
     {
-        diameter = MIN(rect.size.width, rect.size.height) - 2*margin;
+        self.diameter = MIN(rect.size.width, rect.size.height) - 2*margin;
     }
-    float x = (rect.size.width - diameter)/2;
-    float y = (rect.size.height - diameter)/2;
+    float x = (rect.size.width - self.diameter)/2;
+    float y = (rect.size.height - self.diameter)/2;
     float gap = 1;
-    float inner_radius = diameter/2;
-    float origin_x = x + diameter/2;
-    float origin_y = y + diameter/2;
+    float inner_radius = self.diameter/2;
+    float origin_x = x + self.diameter/2;
+    float origin_y = y + self.diameter/2;
     
     // label stuff
     float left_label_y = LABEL_TOP_MARGIN;
     float right_label_y = LABEL_TOP_MARGIN;
     
     
-    if ([components count]>0)
+    if ([self.components count]>0)
     {
         
         float total = 0;
-        for (PCPieComponent *component in components)
+        for (PCPieComponent *component in self.components)
         {
             total += component.value;
         }
@@ -130,7 +115,7 @@
 		UIGraphicsPushContext(ctx);
 		CGContextSetRGBFillColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);  // white color
 		CGContextSetShadow(ctx, CGSizeMake(0.0f, 0.0f), margin);
-		CGContextFillEllipseInRect(ctx, CGRectMake(x, y, diameter, diameter));  // a white filled circle with a diameter of 100 pixels, centered in (60, 60)
+		CGContextFillEllipseInRect(ctx, CGRectMake(x, y, self.diameter, self.diameter));  // a white filled circle with a diameter of 100 pixels, centered in (60, 60)
 		UIGraphicsPopContext();
 		CGContextSetShadow(ctx, CGSizeMake(0.0f, 0.0f), 0);
 		
@@ -138,9 +123,9 @@
 		float endDeg = 0;
 		NSMutableArray *tmpComponents = [NSMutableArray array];
 		int last_insert = -1;
-		for (int i=0; i<[components count]; i++)
+		for (int i=0; i<[self.components count]; i++)
 		{
-			PCPieComponent *component  = [components objectAtIndex:i];
+			PCPieComponent *component  = [self.components objectAtIndex:i];
 			float perc = [component value]/total;
 			endDeg = nextStartDeg+perc*360;
 			
@@ -244,7 +229,7 @@
 					{
 						
 						CGContextMoveToPoint(ctx, 5 + max_text_width, left_label_y + optimumSize.height/2);
-						if (left_label_y + optimumSize.height/2 > y + diameter)
+						if (left_label_y + optimumSize.height/2 > y + self.diameter)
 						{
 							CGContextAddLineToPoint(ctx, x1, left_label_y + optimumSize.height/2);
 							CGContextAddLineToPoint(ctx, x1, y1);
@@ -339,7 +324,7 @@
 				//CGContextSetRGBFillColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);
 				CGContextSetShadow(ctx, CGSizeMake(0.0f, 0.0f), 2);
 				
-				float text_x = x + diameter + 10;
+				float text_x = x + self.diameter + 10;
 				NSString *percentageText = [NSString stringWithFormat:@"%.1f%%", component.value/total*100];
 				CGSize optimumSize = [percentageText sizeWithFont:self.percentageFont constrainedToSize:CGSizeMake(max_text_width,100)];
 				CGRect percFrame = CGRectMake(text_x, right_label_y, optimumSize.width, optimumSize.height);
@@ -440,22 +425,9 @@
 				[component.title drawInRect:titleFrame withFont:self.titleFont];
 				right_label_y += optimumSize.height + 10;
 			}
-			
-			
 			nextStartDeg = endDeg;
 		}
     }
-	
-	
 }
-
-- (void)dealloc
-{
-	[self.titleFont release];
-	[self.percentageFont release];
-    [self.components release];
-    [super dealloc];
-}
-
 
 @end

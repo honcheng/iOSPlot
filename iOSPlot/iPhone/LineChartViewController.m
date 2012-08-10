@@ -44,12 +44,11 @@
 		[self.view setBackgroundColor:[UIColor colorWithWhite:1 alpha:1]];
 		[self setTitle:@"Line Chart"];
 		
-		lineChartView = [[PCLineChartView alloc] initWithFrame:CGRectMake(10,10,[self.view bounds].size.width-20,[self.view bounds].size.height-20)];
-		[lineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-		lineChartView.minValue = -40;
-		lineChartView.maxValue = 100;
-		[self.view addSubview:lineChartView];
-		[lineChartView release];
+		_lineChartView = [[PCLineChartView alloc] initWithFrame:CGRectMake(10,10,[self.view bounds].size.width-20,[self.view bounds].size.height-20)];
+		[_lineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+		_lineChartView.minValue = -40;
+		_lineChartView.maxValue = 100;
+		[self.view addSubview:_lineChartView];
 		
 		NSString *sampleFile = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"sample_linechart_data.json"];
 		NSString *jsonString = [NSString stringWithContentsOfFile:sampleFile encoding:NSUTF8StringEncoding error:nil];
@@ -87,40 +86,18 @@
 			}
 			
 			[components addObject:component];
-            [component release];
 		}
-		[lineChartView setComponents:components];
-		[lineChartView setXLabels:[sampleInfo objectForKey:@"x_labels"]];
+		[_lineChartView setComponents:components];
+		[_lineChartView setXLabels:[sampleInfo objectForKey:@"x_labels"]];
 	}
 	return self;
 }
 
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Overriden to allow any orientation.
-	[lineChartView setNeedsDisplay];
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+	[self.lineChartView setNeedsDisplay];
     return YES;
 }
-
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc. that aren't in use.
-}
-
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-
-- (void)dealloc {
-    [super dealloc];
-}
-
 
 @end

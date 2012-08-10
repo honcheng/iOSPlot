@@ -27,7 +27,6 @@
 		[pieChart setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin];
 		//[pieChart setDiameter:width/2];
 		[self.view addSubview:pieChart];
-		[pieChart release];
 		
 		if ([[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPad)
 		{
@@ -73,10 +72,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {

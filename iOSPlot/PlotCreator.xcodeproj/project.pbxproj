@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,6 @@
 		2860E32E111B888700E27156 /* AppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2860E32C111B888700E27156 /* AppDelegate_iPad.m */; };
 		2860E32F111B888700E27156 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2860E32D111B888700E27156 /* MainWindow_iPad.xib */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		3794799813706B8400C0E457 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3794799713706B8400C0E457 /* JSONKit.m */; };
 		F832606A1363D49B0045F9DC /* ChartListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F83260691363D49B0045F9DC /* ChartListViewController.m */; };
 		F83260AA1363D8170045F9DC /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = F83260A81363D8170045F9DC /* back_button.png */; };
 		F83260AB1363D8170045F9DC /* back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F83260A91363D8170045F9DC /* back_button@2x.png */; };
@@ -27,6 +26,7 @@
 		F897D6EE13630F560025FE6E /* sample_piechart_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = F897D6ED13630F560025FE6E /* sample_piechart_data.plist */; };
 		F897D6F113630FD40025FE6E /* PCPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = F897D6F013630FD40025FE6E /* PCPieChart.m */; };
 		F897D700136311E60025FE6E /* PieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F897D6FF136311E60025FE6E /* PieChartViewController.m */; };
+		F8B8196215D573FB0005945A /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B8196115D573FB0005945A /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F8C1B41C136F8056002DDF6C /* sample_linechart_data.json in Resources */ = {isa = PBXBuildFile; fileRef = F8C1B41B136F8056002DDF6C /* sample_linechart_data.json */; };
 /* End PBXBuildFile section */
 
@@ -43,8 +43,6 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Shared/main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* PlotCreator_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotCreator_Prefix.pch; sourceTree = "<group>"; };
-		3794799613706B8400C0E457 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = JSONKit/JSONKit.h; sourceTree = "<group>"; };
-		3794799713706B8400C0E457 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = JSONKit/JSONKit.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* PlotCreator-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PlotCreator-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		F83260681363D49B0045F9DC /* ChartListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChartListViewController.h; path = iPhone/ChartListViewController.h; sourceTree = "<group>"; };
 		F83260691363D49B0045F9DC /* ChartListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChartListViewController.m; path = iPhone/ChartListViewController.m; sourceTree = "<group>"; };
@@ -65,6 +63,8 @@
 		F897D6F013630FD40025FE6E /* PCPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCPieChart.m; path = Shared/PCPieChart.m; sourceTree = "<group>"; };
 		F897D6FE136311E60025FE6E /* PieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieChartViewController.h; path = iPhone/PieChartViewController.h; sourceTree = "<group>"; };
 		F897D6FF136311E60025FE6E /* PieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PieChartViewController.m; path = iPhone/PieChartViewController.m; sourceTree = "<group>"; };
+		F8B8196015D573FB0005945A /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = JSONKit/JSONKit.h; sourceTree = "<group>"; };
+		F8B8196115D573FB0005945A /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = JSONKit/JSONKit.m; sourceTree = "<group>"; };
 		F8C1B41B136F8056002DDF6C /* sample_linechart_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_linechart_data.json; path = "Sample Data/sample_linechart_data.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,8 +190,8 @@
 		F8C1B407136F7FB7002DDF6C /* JSONKit */ = {
 			isa = PBXGroup;
 			children = (
-				3794799613706B8400C0E457 /* JSONKit.h */,
-				3794799713706B8400C0E457 /* JSONKit.m */,
+				F8B8196015D573FB0005945A /* JSONKit.h */,
+				F8B8196115D573FB0005945A /* JSONKit.m */,
 			);
 			name = JSONKit;
 			sourceTree = "<group>";
@@ -221,8 +221,11 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PlotCreator" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -270,9 +273,9 @@
 				F83260C21363D91E0045F9DC /* PieChartViewController2.m in Sources */,
 				F88CC4C813684F0E0096327F /* PCLineChartView.m in Sources */,
 				F88CC4D313684FD30096327F /* LineChartViewController.m in Sources */,
-				3794799813706B8400C0E457 /* JSONKit.m in Sources */,
 				F87DE41A1370D68300347F69 /* PCHalfPieChart.m in Sources */,
 				F87DE41D1370D82D00347F69 /* HalfPieChartViewController.m in Sources */,
+				F8B8196215D573FB0005945A /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +286,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -290,6 +294,7 @@
 				GCC_PREFIX_HEADER = PlotCreator_Prefix.pch;
 				INFOPLIST_FILE = "PlotCreator-Info.plist";
 				PRODUCT_NAME = PlotCreator;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Debug;
 		};
@@ -297,11 +302,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PlotCreator_Prefix.pch;
 				INFOPLIST_FILE = "PlotCreator-Info.plist";
 				PRODUCT_NAME = PlotCreator;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -314,7 +321,6 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -329,7 +335,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

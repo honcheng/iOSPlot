@@ -33,8 +33,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PieChartViewController : UIViewController {
-
-}
-
+@interface PieChartViewController : UIViewController
 @end

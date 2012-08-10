@@ -34,22 +34,13 @@
 #import "PCLineChartView.h"
 
 @implementation PCLineChartViewComponent
-@synthesize title, points, colour, shouldLabelValues, labelFormat;
--(void) dealloc
-{
-    [labelFormat release];
-    [points release];
-    [colour release];
-    [title release];
-    [super dealloc];
-}
 
 - (id)init
 {
     self = [super init];
     if (self)
     {
-        self.labelFormat = @"%.1f%%";
+        _labelFormat = @"%.1f%%";
     }
     return self;
 }
@@ -57,12 +48,6 @@
 @end
 
 @implementation PCLineChartView
-@synthesize components;
-@synthesize interval, minValue, maxValue;
-@synthesize xLabels;
-@synthesize yLabelFont, xLabelFont, valueLabelFont, legendFont;
-@synthesize autoscaleYAxis, numYIntervals;
-@synthesize numXIntervals;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -71,15 +56,15 @@
         // Initialization code
         
         [self setBackgroundColor:[UIColor clearColor]];
-        interval = 20;
-		maxValue = 100;
-		minValue = 0;
-		yLabelFont = [UIFont boldSystemFontOfSize:14];
-		xLabelFont = [UIFont boldSystemFontOfSize:12];
-		valueLabelFont = [UIFont boldSystemFontOfSize:10];
-		legendFont = [UIFont boldSystemFontOfSize:10];
-        numYIntervals = 5;
-        numXIntervals = 1;
+        _interval = 20;
+		_maxValue = 100;
+		_minValue = 0;
+		_yLabelFont = [UIFont boldSystemFontOfSize:14];
+		_xLabelFont = [UIFont boldSystemFontOfSize:12];
+		_valueLabelFont = [UIFont boldSystemFontOfSize:10];
+		_legendFont = [UIFont boldSystemFontOfSize:10];
+        _numYIntervals = 5;
+        _numXIntervals = 1;
 		
     }
     return self;
@@ -98,17 +83,17 @@
     float bottom_margin = 25;
 	float x_label_height = 20;
 	
-    if (autoscaleYAxis) {
+    if (self.autoscaleYAxis) {
         scale_min = 0.0;
-        power = floor(log10(maxValue/5)); 
-        float increment = maxValue / (5 * pow(10,power));
+        power = floor(log10(self.maxValue/5)); 
+        float increment = self.maxValue / (5 * pow(10,power));
         increment = (increment <= 5) ? ceil(increment) : 10;
         increment = increment * pow(10,power);
         scale_max = 5 * increment;
-        self.interval = scale_max / numYIntervals;
+        self.interval = scale_max / self.numYIntervals;
     } else {
-        scale_min = minValue;
-        scale_max = maxValue;
+        scale_min = self.minValue;
+        scale_max = self.maxValue;
     }
     n_div = (scale_max-scale_min)/self.interval + 1;
     div_height = (self.frame.size.height-top_margin-bottom_margin-x_label_height)/(n_div-1);
@@ -127,7 +112,7 @@
         NSString *text = [NSString stringWithFormat:formatString, y_axis];
 
         [text drawInRect:textFrame 
-				withFont:yLabelFont 
+				withFont:self.yLabelFont 
 		   lineBreakMode:UILineBreakModeWordWrap 
 			   alignment:UITextAlignmentRight];
 		
@@ -143,12 +128,12 @@
     float div_width = (self.frame.size.width-2*margin)/([self.xLabels count]-1);
     for (NSUInteger i=0; i<[self.xLabels count]; i++)
     {
-        if (i % numXIntervals == 1 || numXIntervals==1) {
+        if (i % self.numXIntervals == 1 || self.numXIntervals==1) {
             int x = (int) (margin + div_width * i);
             NSString *x_label = [NSString stringWithFormat:@"%@", [self.xLabels objectAtIndex:i]];
             CGRect textFrame = CGRectMake(x - 100, self.frame.size.height - x_label_height, 200, x_label_height);
             [x_label drawInRect:textFrame
-                       withFont:xLabelFont
+                       withFont:self.xLabelFont
                   lineBreakMode:UILineBreakModeWordWrap
                       alignment:UITextAlignmentCenter];
         };
@@ -233,26 +218,26 @@
     {
         int y_level = top_margin;
 		
-        for (int j=0; j<[components count]; j++)
+        for (int j=0; j<[self.components count]; j++)
         {
-			NSArray *items = [[components objectAtIndex:j] points];
+			NSArray *items = [[self.components objectAtIndex:j] points];
             id object = [items objectAtIndex:i];
             if (object!=[NSNull null] && object)
             {
                 float value = [object floatValue];
                 int x = margin + div_width*i;
                 int y = top_margin + (scale_max-value)/self.interval*div_height;
-                int y1 = y - circle_diameter/2 - valueLabelFont.pointSize;
+                int y1 = y - circle_diameter/2 - self.valueLabelFont.pointSize;
                 int y2 = y + circle_diameter/2;
                 
-				if ([[components objectAtIndex:j] shouldLabelValues]) {
+				if ([[self.components objectAtIndex:j] shouldLabelValues]) {
 					if (y1 > y_level)
 					{
 						CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-						NSString *perc_label = [NSString stringWithFormat:[[components objectAtIndex:j] labelFormat], value];
+						NSString *perc_label = [NSString stringWithFormat:[[self.components objectAtIndex:j] labelFormat], value];
 						CGRect textFrame = CGRectMake(x-25,y1, 50,20);
 						[perc_label drawInRect:textFrame 
-									  withFont:valueLabelFont 
+									  withFont:self.valueLabelFont 
 								 lineBreakMode:UILineBreakModeWordWrap 
 									 alignment:UITextAlignmentCenter];
 						y_level = y1 + 20;
@@ -260,10 +245,10 @@
 					else if (y2 < y_level+20 && y2 < self.frame.size.height-top_margin-bottom_margin)
 					{
 						CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-						NSString *perc_label = [NSString stringWithFormat:[[components objectAtIndex:j] labelFormat], value];
+						NSString *perc_label = [NSString stringWithFormat:[[self.components objectAtIndex:j] labelFormat], value];
 						CGRect textFrame = CGRectMake(x-25,y2, 50,20);
 						[perc_label drawInRect:textFrame 
-									  withFont:valueLabelFont 
+									  withFont:self.valueLabelFont 
 								 lineBreakMode:UILineBreakModeWordWrap 
 									 alignment:UITextAlignmentCenter];
 						y_level = y2 + 20;
@@ -271,10 +256,10 @@
 					else
 					{
 						CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-						NSString *perc_label = [NSString stringWithFormat:[[components objectAtIndex:j] labelFormat], value];
+						NSString *perc_label = [NSString stringWithFormat:[[self.components objectAtIndex:j] labelFormat], value];
 						CGRect textFrame = CGRectMake(x-50,y-10, 50,20);
 						[perc_label drawInRect:textFrame 
-									  withFont:valueLabelFont 
+									  withFont:self.valueLabelFont 
 								 lineBreakMode:UILineBreakModeWordWrap 
 									 alignment:UITextAlignmentCenter];
 						y_level = y1 + 20;
@@ -305,18 +290,11 @@
         }
         
         CGRect textFrame = CGRectMake(x,y,margin,15);
-        [title drawInRect:textFrame withFont:legendFont];
+        [title drawInRect:textFrame withFont:self.legendFont];
         
         y_level = y + 15;
     }
 }
 
-- (void)dealloc
-{
-    [components release];
-    [xLabels release];
-	self.yLabelFont = self.xLabelFont = self.valueLabelFont = self.legendFont = nil;
-    [super dealloc];
-}
 
 @end

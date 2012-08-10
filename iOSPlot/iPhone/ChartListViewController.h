@@ -34,8 +34,5 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ChartListViewController : UITableViewController {
-
-}
-
+@interface ChartListViewController : UITableViewController
 @end

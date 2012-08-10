@@ -34,21 +34,21 @@
 #import "PCHalfPieChart.h"
 
 @implementation PCHalfPieComponent
-@synthesize value, title,  colour;
 
-- (id)initWithTitle:(NSString*)_title value:(float)_value
+- (id)initWithTitle:(NSString*)title value:(float)value
 {
     self = [super init];
     if (self)
     {
-        self.title = _title;
-        self.value = _value;
+        _title = title;
+        _value = value;
     }
     return self;
 }
 
-+ (id)halfPieComponentWithTitle:(NSString*)_title value:(float)_value{
-    return [[[super alloc] initWithTitle:_title value:_value] autorelease];
++ (id)halfPieComponentWithTitle:(NSString*)title value:(float)value
+{
+    return [[super alloc] initWithTitle:title value:value];
 }
 
 - (NSString*)description
@@ -59,19 +59,9 @@
     return text;
 }
 
-- (void)dealloc
-{
-    [colour release];
-    [title release];
-    [super dealloc];
-}
-
 @end
 
 @implementation PCHalfPieChart
-@synthesize  components;
-@synthesize title, subtitle;
-@synthesize titleFont, subtitleFont;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -80,8 +70,8 @@
         // Initialization code
         [self setBackgroundColor:[UIColor clearColor]];
         
-        self.titleFont = [UIFont systemFontOfSize:13];
-        self.subtitleFont = [UIFont boldSystemFontOfSize:20];
+        _titleFont = [UIFont systemFontOfSize:13];
+        _subtitleFont = [UIFont boldSystemFontOfSize:20];
     
     }
     return self;
@@ -89,7 +79,6 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    
     float origin_x = self.frame.size.width/2;
     float origin_y = self.frame.size.height;
     int margin = self.frame.size.width*0.01;//5;
@@ -115,10 +104,10 @@
     CGContextClosePath(ctx);
     CGContextFillPath(ctx);
     
-    if ([components count]>0)
+    if ([self.components count]>0)
     {
         int total = 0;
-        for (PCHalfPieComponent *component in components)
+        for (PCHalfPieComponent *component in self.components)
         {
             total += component.value;
         }
@@ -126,7 +115,7 @@
         float start_degree = 0;
         float end_degree = 0;
         CGContextSetShadow(ctx, CGSizeMake(0.0f, 0.0f), 0);
-        for (PCHalfPieComponent *component in components)
+        for (PCHalfPieComponent *component in self.components)
         {
             float degree = component.value/total*180;
             end_degree = start_degree + degree;
@@ -197,15 +186,5 @@
     }
 }
 
-- (void)dealloc
-{
-    
-    [title release];
-    [subtitle release];
-    [components release];
-    [titleFont release];
-    [subtitleFont release];
-    [super dealloc];
-}
 
 @end
