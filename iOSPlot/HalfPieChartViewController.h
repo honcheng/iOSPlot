@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GenericViewController.h"
 
-@interface HalfPieChartViewController : GenericViewController {
+@interface HalfPieChartViewController : UIViewController {
     
 }
 

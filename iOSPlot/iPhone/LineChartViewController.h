@@ -32,10 +32,9 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "GenericViewController.h"
 #import "PCLineChartView.h"
 
-@interface LineChartViewController : GenericViewController {
+@interface LineChartViewController : UIViewController {
 	PCLineChartView *lineChartView;
 }
 

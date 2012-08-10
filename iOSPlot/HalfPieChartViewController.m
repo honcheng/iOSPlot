@@ -18,7 +18,7 @@
         // Custom initialization
         
         [self.view setBackgroundColor:[UIColor colorWithWhite:1 alpha:1]];
-		[self.titleLabel setText:@"Half Pie Chart"];
+		[self setTitle:@"Half Pie Chart"];
 		
 		
 		int height = [self.view bounds].size.height-20;

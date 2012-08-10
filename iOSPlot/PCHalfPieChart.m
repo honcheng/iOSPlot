@@ -74,7 +74,7 @@
         [self setBackgroundColor:[UIColor clearColor]];
         
         self.titleFont = [UIFont systemFontOfSize:13];
-        self.subtitleFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:20];
+        self.subtitleFont = [UIFont boldSystemFontOfSize:20];
     
     }
     return self;
@@ -129,11 +129,7 @@
             CGContextAddArc(ctx, origin_x, origin_y, outer_cirlce_radius, (start_degree+180)*M_PI/180.0, (end_degree+180)*M_PI/180.0, 0);
             CGContextClosePath(ctx);
             CGContextFillPath(ctx);
-            
-            //NSString *display_value = [NSString stringWithFormat:@"%.1f%", component.value/total*100];
-            //CGRect displayFrame = CGRectMake(component.point.x, component.point.y, 100, 100);
-            //[display_value drawInRect:displayFrame withFont:[UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:27]];
-            
+
             start_degree = end_degree;
         }
         

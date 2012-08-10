@@ -42,7 +42,7 @@
 	if (self)
 	{
 		[self.view setBackgroundColor:[UIColor colorWithWhite:1 alpha:1]];
-		[self.titleLabel setText:@"Pie Chart"];
+		[self setTitle:@"Pie Chart"];
 		
 		
 		int height = [self.view bounds].size.width/3*2.; // 220;

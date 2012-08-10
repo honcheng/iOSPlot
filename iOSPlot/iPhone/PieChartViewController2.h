@@ -32,9 +32,8 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "GenericViewController.h"
 
-@interface PieChartViewController2 : GenericViewController {
+@interface PieChartViewController2 : UIViewController {
 
 }
 

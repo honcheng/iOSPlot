@@ -53,10 +53,10 @@
         interval = 20;
 		maxValue = 100;
 		minValue = 0;
-		yLabelFont = [[UIFont fontWithName:@"GeezaPro-Bold" size:14] retain]; 
-		xLabelFont = [[UIFont fontWithName:@"HiraKakuProN-W6" size:12] retain];
-		valueLabelFont = [[UIFont fontWithName:@"HiraKakuProN-W6" size:10] retain];
-		legendFont = [[UIFont fontWithName:@"HiraKakuProN-W6" size:10] retain];
+		yLabelFont = [UIFont boldSystemFontOfSize:14];
+		xLabelFont = [UIFont boldSystemFontOfSize:12];
+		valueLabelFont = [UIFont boldSystemFontOfSize:10];
+		legendFont = [UIFont boldSystemFontOfSize:10];
 		
     }
     return self;
@@ -81,6 +81,7 @@
         int y = top_margin + div_height*i;
         CGRect textFrame = CGRectMake(0,y-8,25,20);
         NSString *text = [NSString stringWithFormat:@"%.0f", y_axis];
+        NSLog(@">>>>%@", text);
         [text drawInRect:textFrame 
 				withFont:yLabelFont 
 		   lineBreakMode:UILineBreakModeWordWrap 

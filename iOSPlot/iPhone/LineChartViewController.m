@@ -42,7 +42,7 @@
 	if (self)
 	{
 		[self.view setBackgroundColor:[UIColor colorWithWhite:1 alpha:1]];
-		[self.titleLabel setText:@"Line Chart"];
+		[self setTitle:@"Line Chart"];
 		
 		lineChartView = [[PCLineChartView alloc] initWithFrame:CGRectMake(10,10,[self.view bounds].size.width-20,[self.view bounds].size.height-20)];
 		[lineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
