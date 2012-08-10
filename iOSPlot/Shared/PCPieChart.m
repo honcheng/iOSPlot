@@ -194,7 +194,21 @@
 				NSString *percentageText = [NSString stringWithFormat:@"%.1f%%", component.value/total*100];
 				CGSize optimumSize = [percentageText sizeWithFont:self.percentageFont constrainedToSize:CGSizeMake(max_text_width,100)];
 				CGRect percFrame = CGRectMake(5, left_label_y,  max_text_width, optimumSize.height);
-				[percentageText drawInRect:percFrame withFont:self.percentageFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
+        
+        if (self.hasOutline) {
+          CGContextSaveGState(ctx);
+          
+          CGContextSetLineWidth(ctx, 1.0f);
+          CGContextSetLineJoin(ctx, kCGLineJoinRound);
+          CGContextSetTextDrawingMode (ctx, kCGTextFillStroke);
+          CGContextSetRGBStrokeColor(ctx, 0.2f, 0.2f, 0.2f, 0.8f);
+          
+          [percentageText drawInRect:percFrame withFont:self.percentageFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
+          
+          CGContextRestoreGState(ctx);
+        } else {
+          [percentageText drawInRect:percFrame withFont:self.percentageFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
+        }
 				
 				if (self.showArrow)
 				{
@@ -328,7 +342,21 @@
 				NSString *percentageText = [NSString stringWithFormat:@"%.1f%%", component.value/total*100];
 				CGSize optimumSize = [percentageText sizeWithFont:self.percentageFont constrainedToSize:CGSizeMake(max_text_width,100)];
 				CGRect percFrame = CGRectMake(text_x, right_label_y, optimumSize.width, optimumSize.height);
-				[percentageText drawInRect:percFrame withFont:self.percentageFont];
+        
+        if (self.hasOutline) {
+          CGContextSaveGState(ctx);
+          
+          CGContextSetLineWidth(ctx, 1.0f);
+          CGContextSetLineJoin(ctx, kCGLineJoinRound);
+          CGContextSetTextDrawingMode (ctx, kCGTextFillStroke);
+          CGContextSetRGBStrokeColor(ctx, 0.2f, 0.2f, 0.2f, 0.8f);
+          
+          [percentageText drawInRect:percFrame withFont:self.percentageFont];
+          
+          CGContextRestoreGState(ctx);
+        } else {
+          [percentageText drawInRect:percFrame withFont:self.percentageFont];
+        }
 				
 				if (self.showArrow)
 				{
