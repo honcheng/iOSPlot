@@ -61,6 +61,13 @@
     return text;
 }
 
+- (void)dealloc
+{
+    [colour release];
+    [title release];
+    [super dealloc];
+}
+
 @end
 
 @implementation PCPieChart
@@ -342,6 +349,7 @@
 				{
 					// draw line to point to chart
 					CGContextSetRGBStrokeColor(ctx, 0.2f, 0.2f, 0.2f, 1);
+                    CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
 					//CGContextSetRGBStrokeColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);
 					//CGContextSetRGBFillColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);
 					//CGContextSetShadow(ctx, CGSizeMake(0.0f, 0.0f), 5);

@@ -87,6 +87,7 @@
 			}
 			
 			[components addObject:component];
+            [component release];
 		}
 		[lineChartView setComponents:components];
 		[lineChartView setXLabels:[sampleInfo objectForKey:@"x_labels"]];
