@@ -62,6 +62,14 @@
 
 @end
 
+@interface PCPieChart() <UIGestureRecognizerDelegate>
+
+@property (strong, nonatomic) UITapGestureRecognizer  *tapGesture;
+
+-(void)TapByUser:(id)sender;
+
+@end
+
 @implementation PCPieChart
 
 - (id)initWithFrame:(CGRect)frame
@@ -75,6 +83,12 @@
 		_percentageFont = [UIFont boldSystemFontOfSize:20];
 		_showArrow = YES;
 		_sameColorLabel = NO;
+        
+        _tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(TapByUser:)];
+        _tapGesture.delegate=self;
+        _tapGesture.numberOfTapsRequired=1;
+        [self addGestureRecognizer:_tapGesture];
+        
 	}
     return self;
 }
@@ -457,5 +471,55 @@
 		}
     }
 }
+
+-(void)TapByUser:(id)sender
+{
+    CGRect rect = self.frame;
+    float x = (rect.size.width - self.diameter)/2;
+    float y = (rect.size.height - self.diameter)/2;
+    //float gap = 1;
+    //float inner_radius = diameter/2;
+    float origin_x = x + self.diameter/2;
+    float origin_y = y + self.diameter/2;
+    
+    
+    //Find by what angle it has to rotate
+    CGPoint touchPointOnSelf=[(UITapGestureRecognizer *)sender locationInView:self];
+    
+    
+    if (powf(touchPointOnSelf.x-origin_x, 2.f) + powf(touchPointOnSelf.y-origin_y,2.f) <= powf(self.diameter/2.f,2.f))
+        NSLog(@"Touch inside");
+    else {
+        NSLog(@"Touch outside");
+        return;
+    }
+    
+    float angle=atan2f((touchPointOnSelf.y - origin_y), (touchPointOnSelf.x -  origin_x));
+    angle += M_PI * 0.5f; // Chart alligment.
+    
+    
+    if(angle<0)
+        angle+=2* M_PI;
+    
+    float total = 0;
+    for (PCPieComponent *component in self.components)
+    {
+        total += component.value;
+    }
+    float startDeg = 0;
+    float endDeg = 0;
+    
+    for (PCPieComponent *component in self.components) {
+        float perc = [component value]/total;
+        endDeg = startDeg+perc*2*M_PI;
+        if (angle > startDeg && angle < endDeg) {
+            NSLog(@"Portion %@ with value %f %% was touched", component.title, component.value);
+            break;
+        }
+        startDeg = endDeg;
+    }
+    
+}
+
 
 @end
