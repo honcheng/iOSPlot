@@ -536,7 +536,9 @@
     //Find by what angle it has to rotate
     CGPoint touchPointOnSelf=[(UITapGestureRecognizer *)sender locationInView:self];
     
-    if (powf(touchPointOnSelf.x-origin_x, 2.f) + powf(touchPointOnSelf.y-origin_y,2.f) <= powf(_diameterInnerCircle*0.5f,2.f)) {
+    
+    if (_showInnerCircle
+        && powf(touchPointOnSelf.x-origin_x, 2.f) + powf(touchPointOnSelf.y-origin_y,2.f) <= powf(_diameterInnerCircle*0.5f,2.f)) {
         NSLog(@"Touch inside Inner Circle");
         return;
     }
