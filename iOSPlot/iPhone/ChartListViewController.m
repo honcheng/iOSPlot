@@ -34,6 +34,7 @@
 #import "ChartListViewController.h"
 #import "PieChartViewController.h"
 #import "PieChartViewController2.h"
+#import "PieChartViewController3.h"
 #import "LineChartViewController.h"
 #import "HalfPieChartViewController.h"
 
@@ -70,7 +71,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 4;
+    return 5;
 }
 
 
@@ -88,22 +89,27 @@
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 	}
     
-    if (indexPath.row==0)
-	{
-		[cell.textLabel setText:@"Pie Chart with arrows"];
-	}
-	else if (indexPath.row==1)
-	{
-		[cell.textLabel setText:@"Pie Chart without arrows"];
-	}
-    else if (indexPath.row==2)
-	{
-		[cell.textLabel setText:@"Half Pie Chart (not completed yet)"];
-	}
-	else if (indexPath.row==3)
-	{
-		[cell.textLabel setText:@"Line Chart"];
-	}
+    
+    switch (indexPath.row) {
+        case 0:
+            [cell.textLabel setText:@"Pie Chart with arrows"];
+            break;
+        case 1:
+            [cell.textLabel setText:@"Pie Chart without arrows"];
+            break;
+        case 2:
+            [cell.textLabel setText:@"Pie Chart with innner circle"];
+            break;
+        case 3:
+            [cell.textLabel setText:@"Half Pie Chart (not completed yet)"];
+            break;
+        case 4:
+            [cell.textLabel setText:@"Line Chart"];
+            break;
+            
+        default:
+            break;
+    }
     
     return cell;
 }
@@ -113,26 +119,28 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-	if (indexPath.row==0)
-	{
-		PieChartViewController *detailViewController = [[PieChartViewController alloc] init];
-		[self.navigationController pushViewController:detailViewController animated:YES];
-	}
-    else if (indexPath.row==1)
-	{
-		PieChartViewController2 *detailViewController = [[PieChartViewController2 alloc] init];
-		[self.navigationController pushViewController:detailViewController animated:YES];
-	}
-    else if (indexPath.row==2)
-	{
-		HalfPieChartViewController *detailViewController = [[HalfPieChartViewController alloc] init];
-		[self.navigationController pushViewController:detailViewController animated:YES];
-	}
-	else if (indexPath.row==3)
-	{
-		LineChartViewController *detailViewController = [[LineChartViewController alloc] init];
-		[self.navigationController pushViewController:detailViewController animated:YES];
-	}
+    UIViewController *detailViewController;
+    switch (indexPath.row) {
+        case 0:
+             detailViewController= [[PieChartViewController alloc] init];
+            break;
+        case 1:
+            detailViewController = [[PieChartViewController2 alloc] init];
+            break;
+        case 2:
+            detailViewController = [[PieChartViewController3 alloc] init];
+            break;
+        case 3:
+            detailViewController = [[HalfPieChartViewController alloc] init];
+            break;
+        case 4:
+            detailViewController = [[LineChartViewController alloc] init];
+            break;
+            
+        default:
+            break;
+    }
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 
