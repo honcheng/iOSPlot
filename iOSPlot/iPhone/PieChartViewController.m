@@ -51,6 +51,9 @@
 		[pieChart setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin];
 		[pieChart setDiameter:width/2];
 		[pieChart setSameColorLabel:YES];
+        
+        [pieChart setShowInnerCircle:YES];
+        [pieChart setTitleInnerCircle:@"Center Title"];
 		
 		[self.view addSubview:pieChart];
 		

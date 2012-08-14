@@ -48,11 +48,14 @@
 #define PCColorRed [UIColor colorWithRed:1.0 green:51/255.0 blue:51/255.0 alpha:1.0]
 #define PCColorYellow [UIColor colorWithRed:1.0 green:220/255.0 blue:0.0 alpha:1.0]
 #define PCColorDefault [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0]
+#define PCColorInnerCircle [UIColor colorWithRed:0.85 green:0.80 blue:0.85 alpha:1.0]
+#define PCColorTextInnerCircle [UIColor colorWithRed:0.05 green:0.15 blue:0.05 alpha:1.0]
 
 @interface PCPieChart : UIView
 @property (nonatomic, assign) int diameter;
 @property (nonatomic, strong) NSMutableArray *components;
 @property (nonatomic, strong) UIFont *titleFont, *percentageFont;
-@property (nonatomic, assign) BOOL showArrow, sameColorLabel;
+@property (nonatomic, strong) NSString *titleInnerCircle;
+@property (nonatomic, assign) BOOL showArrow, sameColorLabel, showInnerCircle;
 @property (nonatomic, assign, getter = hasOutline) BOOL outline;
 @end

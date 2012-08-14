@@ -66,6 +66,9 @@
 
 @property (strong, nonatomic) UITapGestureRecognizer  *tapGesture;
 
+@property (nonatomic, assign) int diameterInnerCircle;
+@property (nonatomic, strong) UIFont *titleFontInnerCircle;
+
 -(void)TapByUser:(id)sender;
 
 @end
@@ -107,9 +110,13 @@
     float x = (rect.size.width - self.diameter)/2;
     float y = (rect.size.height - self.diameter)/2;
     float gap = 1;
-    float inner_radius = self.diameter/2;
+    float radius = self.diameter/2;
     float origin_x = x + self.diameter/2;
     float origin_y = y + self.diameter/2;
+    
+    _diameterInnerCircle = self.diameter / 3.f;
+    float x_innerCircle = x + radius - _diameterInnerCircle / 2.f;
+    float y_innerCircle = y + radius - _diameterInnerCircle / 2.f;
     
     // label stuff
     float left_label_y = LABEL_TOP_MARGIN;
@@ -145,14 +152,14 @@
 			
 			CGContextSetFillColorWithColor(ctx, [component.colour CGColor]);
 			CGContextMoveToPoint(ctx, origin_x, origin_y);
-			CGContextAddArc(ctx, origin_x, origin_y, inner_radius, (nextStartDeg-90)*M_PI/180.0, (endDeg-90)*M_PI/180.0, 0);
+			CGContextAddArc(ctx, origin_x, origin_y, radius, (nextStartDeg-90)*M_PI/180.0, (endDeg-90)*M_PI/180.0, 0);
 			CGContextClosePath(ctx);
 			CGContextFillPath(ctx);
 			
 			CGContextSetRGBStrokeColor(ctx, 1, 1, 1, 1);
 			CGContextSetLineWidth(ctx, gap);
 			CGContextMoveToPoint(ctx, origin_x, origin_y);
-			CGContextAddArc(ctx, origin_x, origin_y, inner_radius, (nextStartDeg-90)*M_PI/180.0, (endDeg-90)*M_PI/180.0, 0);
+			CGContextAddArc(ctx, origin_x, origin_y, radius, (nextStartDeg-90)*M_PI/180.0, (endDeg-90)*M_PI/180.0, 0);
 			CGContextClosePath(ctx);
 			CGContextStrokePath(ctx);
 			
@@ -234,8 +241,8 @@
 					//CGContextSetShadow(ctx, CGSizeMake(0.0f, 0.0f), 5);
 					
 					
-					int x1 = inner_radius/4*3*cos((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_x; 
-					int y1 = inner_radius/4*3*sin((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_y;
+					int x1 = radius/4*3*cos((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_x; 
+					int y1 = radius/4*3*sin((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_y;
 					CGContextSetLineWidth(ctx, 1);
 					if (left_label_y + optimumSize.height/2 < y)//(left_label_y==LABEL_TOP_MARGIN)
 					{
@@ -382,8 +389,8 @@
 					//CGContextSetShadow(ctx, CGSizeMake(0.0f, 0.0f), 5);
 					
 					CGContextSetLineWidth(ctx, 1);
-					int x1 = inner_radius/4*3*cos((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_x; 
-					int y1 = inner_radius/4*3*sin((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_y;
+					int x1 = radius/4*3*cos((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_x; 
+					int y1 = radius/4*3*sin((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_y;
 					
 					
 					if (right_label_y + optimumSize.height/2 < y)//(right_label_y==LABEL_TOP_MARGIN)
@@ -469,6 +476,49 @@
 			}
 			nextStartDeg = endDeg;
 		}
+        
+        if (_showInnerCircle) {
+            CGContextRef ctx = UIGraphicsGetCurrentContext();
+            UIGraphicsPushContext(ctx);
+            CGFloat r,g,b,a;
+            UIColor *color = PCColorInnerCircle;
+            [color getRed:&r green:&g blue:&b alpha:&a];
+            CGContextSetRGBFillColor(ctx, r, g, b, a);  // white color
+            CGContextSetShadow(ctx, CGSizeMake(0.3f, 0.2f), margin);
+            CGContextFillEllipseInRect(ctx,
+                                       CGRectMake(x_innerCircle,
+                                                  y_innerCircle,
+                                                  _diameterInnerCircle,
+                                                  _diameterInnerCircle));
+            UIGraphicsPopContext();
+            
+            if (_titleInnerCircle) {
+                float width = cosf(25) * _diameterInnerCircle;
+                if (width < 8)
+                    width = 8;
+                float height = fabsf(sinf(25) * _diameterInnerCircle);
+                int fontSize = height;
+                _titleFontInnerCircle = [UIFont boldSystemFontOfSize:fontSize];
+                
+                CGFloat r,g,b,a;
+                UIColor *color = PCColorTextInnerCircle;
+                [color getRed:&r green:&g blue:&b alpha:&a];
+                
+                CGFloat text_x = x_innerCircle + (_diameterInnerCircle - width) * 0.5f;
+                CGFloat text_y = y_innerCircle + (_diameterInnerCircle - height) * 0.5f;
+                
+                
+                CGRect titleFrame = CGRectMake(text_x, text_y, width, height);
+                
+                UIGraphicsPushContext(ctx);
+                CGContextSetRGBFillColor(ctx, r, g, b, a);
+                [_titleInnerCircle drawInRect:titleFrame
+                                     withFont:_titleFontInnerCircle
+                                lineBreakMode:UILineBreakModeWordWrap
+                                    alignment:UITextAlignmentCenter];
+                UIGraphicsPopContext();
+            }
+        }
     }
 }
 
@@ -486,8 +536,13 @@
     //Find by what angle it has to rotate
     CGPoint touchPointOnSelf=[(UITapGestureRecognizer *)sender locationInView:self];
     
+    if (powf(touchPointOnSelf.x-origin_x, 2.f) + powf(touchPointOnSelf.y-origin_y,2.f) <= powf(_diameterInnerCircle*0.5f,2.f)) {
+        NSLog(@"Touch inside Inner Circle");
+        return;
+    }
+
     
-    if (powf(touchPointOnSelf.x-origin_x, 2.f) + powf(touchPointOnSelf.y-origin_y,2.f) <= powf(self.diameter/2.f,2.f))
+    if (powf(touchPointOnSelf.x-origin_x, 2.f) + powf(touchPointOnSelf.y-origin_y,2.f) <= powf(_diameter*0.5f,2.f))
         NSLog(@"Touch inside");
     else {
         NSLog(@"Touch outside");
@@ -513,7 +568,8 @@
         float perc = [component value]/total;
         endDeg = startDeg+perc*2*M_PI;
         if (angle > startDeg && angle < endDeg) {
-            NSLog(@"Portion %@ with value %f %% was touched", component.title, component.value);
+            NSLog(@"Portion %@ with value %f%% and percent %.1f%% was touched",
+                  component.title, component.value, component.value/total*100.f);
             break;
         }
         startDeg = endDeg;
