@@ -38,6 +38,8 @@
 @property (nonatomic, assign) float value, startDeg, endDeg;
 @property (nonatomic, strong) UIColor *colour;
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *titlePopover;
+@property (nonatomic, copy) NSString *contentPopover;
 - (id)initWithTitle:(NSString*)title value:(float)value;
 + (id)pieComponentWithTitle:(NSString*)title value:(float)value;
 @end
@@ -56,6 +58,6 @@
 @property (nonatomic, strong) NSMutableArray *components;
 @property (nonatomic, strong) UIFont *titleFont, *percentageFont;
 @property (nonatomic, strong) NSString *titleInnerCircle;
-@property (nonatomic, assign) BOOL showArrow, sameColorLabel, showInnerCircle;
+@property (nonatomic, assign) BOOL showArrow, sameColorLabel, showInnerCircle, showValuesInChart;
 @property (nonatomic, assign, getter = hasOutline) BOOL outline;
 @end
