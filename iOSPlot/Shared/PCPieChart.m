@@ -1,34 +1,34 @@
 /**
  * Copyright (c) 2011 Muh Hon Cheng
  * Created by honcheng on 28/4/11.
- * 
- * Permission is hereby granted, free of charge, to any person obtaining 
- * a copy of this software and associated documentation files (the 
- * "Software"), to deal in the Software without restriction, including 
- * without limitation the rights to use, copy, modify, merge, publish, 
- * distribute, sublicense, and/or sell copies of the Software, and to 
- * permit persons to whom the Software is furnished to do so, subject 
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject
  * to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be 
+ *
+ * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT 
- * WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
- * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR 
- * PURPOSE AND NONINFRINGEMENT. IN NO EVENT 
- * SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE 
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
- * TORT OR OTHERWISE, ARISING FROM, OUT OF OR 
- * IN CONNECTION WITH THE SOFTWARE OR 
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT
+ * WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR
+ * PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+ * SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ * TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+ * IN CONNECTION WITH THE SOFTWARE OR
  * THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- * 
+ *
  * @author 		Muh Hon Cheng <honcheng@gmail.com>
  * @copyright	2011	Muh Hon Cheng
  * @version
- * 
+ *
  */
 
 #import "PCPieChart.h"
@@ -96,6 +96,22 @@
     return self;
 }
 
+- (void)setShowArrow:(BOOL)showArrow
+{
+    _showArrow = showArrow;
+    if (_showArrow) {
+        _showValuesInChart = NO;
+    }
+}
+
+- (void)setShowValuesInChart:(BOOL)showValuesInChart
+{
+    _showValuesInChart = showValuesInChart;
+    if (_showValuesInChart) {
+        _showArrow = NO;
+    }
+}
+
 #define LABEL_TOP_MARGIN 15
 #define ARROW_HEAD_LENGTH 6
 #define ARROW_HEAD_WIDTH 4
@@ -121,8 +137,7 @@
     // label stuff
     float left_label_y = LABEL_TOP_MARGIN;
     float right_label_y = LABEL_TOP_MARGIN;
-    
-    
+        
     if ([self.components count]>0)
     {
         
@@ -185,8 +200,6 @@
 			nextStartDeg = endDeg;
 		}
 		
-		nextStartDeg = 0;
-		endDeg = 0;
 		float max_text_width = x -  10;
 		for (int i=0; i<[tmpComponents count]; i++)
 		{
@@ -194,296 +207,291 @@
 			nextStartDeg = component.startDeg;
 			endDeg = component.endDeg;
 			
-			if (nextStartDeg > 180 ||  (nextStartDeg < 180 && endDeg> 270) )
-			{
-				// left
-				
-				// display percentage label
-				if (self.sameColorLabel)
-				{
-					CGContextSetFillColorWithColor(ctx, [component.colour CGColor]);
-				}
-				else 
-				{
-					CGContextSetRGBFillColor(ctx, 0.1f, 0.1f, 0.1f, 1.0f);
-				}
-				//CGContextSetRGBStrokeColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);
-				//CGContextSetRGBFillColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);
-				CGContextSetShadow(ctx, CGSizeMake(0.0f, 0.0f), 3);
-				
-				//float text_x = x + 10;
-				NSString *percentageText = [NSString stringWithFormat:@"%.1f%%", component.value/total*100];
-				CGSize optimumSize = [percentageText sizeWithFont:self.percentageFont constrainedToSize:CGSizeMake(max_text_width,100)];
-				CGRect percFrame = CGRectMake(5, left_label_y,  max_text_width, optimumSize.height);
-        
-        if (self.hasOutline) {
-          CGContextSaveGState(ctx);
-          
-          CGContextSetLineWidth(ctx, 1.0f);
-          CGContextSetLineJoin(ctx, kCGLineJoinRound);
-          CGContextSetTextDrawingMode (ctx, kCGTextFillStroke);
-          CGContextSetRGBStrokeColor(ctx, 0.2f, 0.2f, 0.2f, 0.8f);
-          
-          [percentageText drawInRect:percFrame withFont:self.percentageFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
-          
-          CGContextRestoreGState(ctx);
-        } else {
-          [percentageText drawInRect:percFrame withFont:self.percentageFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
-        }
-				
-				if (self.showArrow)
-				{
-					// draw line to point to chart
-					CGContextSetRGBStrokeColor(ctx, 0.2f, 0.2f, 0.2f, 1);
-					CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-					//CGContextSetRGBStrokeColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);
-					//CGContextSetRGBFillColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);
-					//CGContextSetShadow(ctx, CGSizeMake(0.0f, 0.0f), 5);
-					
-					
-					int x1 = radius/4*3*cos((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_x; 
-					int y1 = radius/4*3*sin((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_y;
-					CGContextSetLineWidth(ctx, 1);
-					if (left_label_y + optimumSize.height/2 < y)//(left_label_y==LABEL_TOP_MARGIN)
-					{
-						
-						CGContextMoveToPoint(ctx, 5 + max_text_width, left_label_y + optimumSize.height/2);
-						CGContextAddLineToPoint(ctx, x1, left_label_y + optimumSize.height/2);
-						CGContextAddLineToPoint(ctx, x1, y1);
-						CGContextStrokePath(ctx);
-						
-						//CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-						CGContextMoveToPoint(ctx, x1-ARROW_HEAD_WIDTH/2, y1);
-						CGContextAddLineToPoint(ctx, x1, y1+ARROW_HEAD_LENGTH);
-						CGContextAddLineToPoint(ctx, x1+ARROW_HEAD_WIDTH/2, y1);
-						CGContextClosePath(ctx);
-						CGContextFillPath(ctx);
-						
-					}
-					else
-					{
-						
-						CGContextMoveToPoint(ctx, 5 + max_text_width, left_label_y + optimumSize.height/2);
-						if (left_label_y + optimumSize.height/2 > y + self.diameter)
-						{
-							CGContextAddLineToPoint(ctx, x1, left_label_y + optimumSize.height/2);
-							CGContextAddLineToPoint(ctx, x1, y1);
-							CGContextStrokePath(ctx);
-							
-							//CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-							CGContextMoveToPoint(ctx, x1-ARROW_HEAD_WIDTH/2, y1);
-							CGContextAddLineToPoint(ctx, x1, y1-ARROW_HEAD_LENGTH);
-							CGContextAddLineToPoint(ctx, x1+ARROW_HEAD_WIDTH/2, y1);
-							CGContextClosePath(ctx);
-							CGContextFillPath(ctx);
-						}
-						else
-						{
-							float y_diff = y1 - (left_label_y + optimumSize.height/2);
-							if ( (y_diff < 2*ARROW_HEAD_LENGTH && y_diff>0) || (-1*y_diff < 2*ARROW_HEAD_LENGTH && y_diff<0))
-							{
-								
-								// straight arrow
-								y1 = left_label_y + optimumSize.height/2;
-								
-								CGContextAddLineToPoint(ctx, x1, y1);
-								CGContextStrokePath(ctx);
-								
-								//CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-								CGContextMoveToPoint(ctx, x1, y1-ARROW_HEAD_WIDTH/2);
-								CGContextAddLineToPoint(ctx, x1+ARROW_HEAD_LENGTH, y1);
-								CGContextAddLineToPoint(ctx, x1, y1+ARROW_HEAD_WIDTH/2);
-								CGContextClosePath(ctx);
-								CGContextFillPath(ctx);
-							}
-							else if (left_label_y + optimumSize.height/2<y1)
-							{
-								// arrow point down
-								
-								y1 -= ARROW_HEAD_LENGTH;
-								CGContextAddLineToPoint(ctx, x1, left_label_y + optimumSize.height/2);
-								CGContextAddLineToPoint(ctx, x1, y1);
-								CGContextStrokePath(ctx);
-								
-								//CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-								CGContextMoveToPoint(ctx, x1-ARROW_HEAD_WIDTH/2, y1);
-								CGContextAddLineToPoint(ctx, x1, y1+ARROW_HEAD_LENGTH);
-								CGContextAddLineToPoint(ctx, x1+ARROW_HEAD_WIDTH/2, y1);
-								CGContextClosePath(ctx);
-								CGContextFillPath(ctx);
-							} 
-							else
-							{
-								// arrow point up
-								
-								y1 += ARROW_HEAD_LENGTH;
-								CGContextAddLineToPoint(ctx, x1, left_label_y + optimumSize.height/2);
-								CGContextAddLineToPoint(ctx, x1, y1);
-								CGContextStrokePath(ctx);
-								
-								//CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-								CGContextMoveToPoint(ctx, x1-ARROW_HEAD_WIDTH/2, y1);
-								CGContextAddLineToPoint(ctx, x1, y1-ARROW_HEAD_LENGTH);
-								CGContextAddLineToPoint(ctx, x1+ARROW_HEAD_WIDTH/2, y1);
-								CGContextClosePath(ctx);
-								CGContextFillPath(ctx);
-							}
-						}
-					}
-					
-				}
-				// display title on the left
-				CGContextSetRGBFillColor(ctx, 0.4f, 0.4f, 0.4f, 1.0f);
-				left_label_y += optimumSize.height - 4;
-				optimumSize = [component.title sizeWithFont:self.titleFont constrainedToSize:CGSizeMake(max_text_width,100)];
-				CGRect titleFrame = CGRectMake(5, left_label_y, max_text_width, optimumSize.height);
-				[component.title drawInRect:titleFrame withFont:self.titleFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
-				left_label_y += optimumSize.height + 10;
-			}
-			else 
-			{
-				// right
-				
-				// display percentage label
-				if (self.sameColorLabel)
-				{
-					CGContextSetFillColorWithColor(ctx, [component.colour CGColor]);
-					//CGContextSetRGBStrokeColor(ctx, 1.0f, 1.0f, 1.0f, 0.5);
-					//CGContextSetTextDrawingMode(ctx, kCGTextFillStroke);
-				}
-				else 
-				{
-					CGContextSetRGBFillColor(ctx, 0.1f, 0.1f, 0.1f, 1.0f);
-				}
-				//CGContextSetRGBStrokeColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);
-				//CGContextSetRGBFillColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);
-				CGContextSetShadow(ctx, CGSizeMake(0.0f, 0.0f), 2);
-				
-				float text_x = x + self.diameter + 10;
-				NSString *percentageText = [NSString stringWithFormat:@"%.1f%%", component.value/total*100];
-				CGSize optimumSize = [percentageText sizeWithFont:self.percentageFont constrainedToSize:CGSizeMake(max_text_width,100)];
-				CGRect percFrame = CGRectMake(text_x, right_label_y, optimumSize.width, optimumSize.height);
-        
-        if (self.hasOutline) {
-          CGContextSaveGState(ctx);
-          
-          CGContextSetLineWidth(ctx, 1.0f);
-          CGContextSetLineJoin(ctx, kCGLineJoinRound);
-          CGContextSetTextDrawingMode (ctx, kCGTextFillStroke);
-          CGContextSetRGBStrokeColor(ctx, 0.2f, 0.2f, 0.2f, 0.8f);
-          
-          [percentageText drawInRect:percFrame withFont:self.percentageFont];
-          
-          CGContextRestoreGState(ctx);
-        } else {
-          [percentageText drawInRect:percFrame withFont:self.percentageFont];
-        }
-				
-				if (self.showArrow)
-				{
-					// draw line to point to chart
-					CGContextSetRGBStrokeColor(ctx, 0.2f, 0.2f, 0.2f, 1);
-                    CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-					//CGContextSetRGBStrokeColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);
-					//CGContextSetRGBFillColor(ctx, 1.0f, 1.0f, 1.0f, 1.0f);
-					//CGContextSetShadow(ctx, CGSizeMake(0.0f, 0.0f), 5);
-					
-					CGContextSetLineWidth(ctx, 1);
-					int x1 = radius/4*3*cos((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_x; 
-					int y1 = radius/4*3*sin((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_y;
-					
-					
-					if (right_label_y + optimumSize.height/2 < y)//(right_label_y==LABEL_TOP_MARGIN)
-					{
-						
-						CGContextMoveToPoint(ctx, text_x - 3, right_label_y + optimumSize.height/2);
-						CGContextAddLineToPoint(ctx, x1, right_label_y + optimumSize.height/2);
-						CGContextAddLineToPoint(ctx, x1, y1);
-						CGContextStrokePath(ctx);
-						
-						//CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-						CGContextMoveToPoint(ctx, x1-ARROW_HEAD_WIDTH/2, y1);
-						CGContextAddLineToPoint(ctx, x1, y1+ARROW_HEAD_LENGTH);
-						CGContextAddLineToPoint(ctx, x1+ARROW_HEAD_WIDTH/2, y1);
-						CGContextClosePath(ctx);
-						CGContextFillPath(ctx);
-					}
-					else
-					{
-						float y_diff = y1 - (right_label_y + optimumSize.height/2);
-						if ( (y_diff < 2*ARROW_HEAD_LENGTH && y_diff>0) || (-1*y_diff < 2*ARROW_HEAD_LENGTH && y_diff<0))
-						{
-							// straight arrow
-							y1 = right_label_y + optimumSize.height/2;
-							
-							CGContextMoveToPoint(ctx, text_x, right_label_y + optimumSize.height/2);
-							CGContextAddLineToPoint(ctx, x1, y1);
-							CGContextStrokePath(ctx);
-							
-							//CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-							CGContextMoveToPoint(ctx, x1, y1-ARROW_HEAD_WIDTH/2);
-							CGContextAddLineToPoint(ctx, x1-ARROW_HEAD_LENGTH, y1);
-							CGContextAddLineToPoint(ctx, x1, y1+ARROW_HEAD_WIDTH/2);
-							CGContextClosePath(ctx);
-							CGContextFillPath(ctx);
-						}
-						else if (right_label_y + optimumSize.height/2<y1)
-						{
-							// arrow point down
-							
-							y1 -= ARROW_HEAD_LENGTH;
-							
-							CGContextMoveToPoint(ctx, text_x, right_label_y + optimumSize.height/2);
-							CGContextAddLineToPoint(ctx, x1, right_label_y + optimumSize.height/2);
-							//CGContextAddLineToPoint(ctx, x1+5, y1);
-							CGContextAddLineToPoint(ctx, x1, y1);
-							CGContextStrokePath(ctx); 
-							
-							//CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-							CGContextMoveToPoint(ctx, x1+ARROW_HEAD_WIDTH/2, y1);
-							CGContextAddLineToPoint(ctx, x1, y1+ARROW_HEAD_LENGTH);
-							CGContextAddLineToPoint(ctx, x1-ARROW_HEAD_WIDTH/2, y1);
-							CGContextClosePath(ctx);
-							CGContextFillPath(ctx);
-						} 
-						else //if (nextStartDeg<180 && endDeg>180)
-						{
-							// arrow point up
-							y1 += ARROW_HEAD_LENGTH;
-							
-							CGContextMoveToPoint(ctx, text_x, right_label_y + optimumSize.height/2);
-							CGContextAddLineToPoint(ctx, x1, right_label_y + optimumSize.height/2);
-							CGContextAddLineToPoint(ctx, x1, y1);
-							CGContextStrokePath(ctx);
-							
-							//CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
-							CGContextMoveToPoint(ctx, x1+ARROW_HEAD_WIDTH/2, y1);
-							CGContextAddLineToPoint(ctx, x1, y1-ARROW_HEAD_LENGTH);
-							CGContextAddLineToPoint(ctx, x1-ARROW_HEAD_WIDTH/2, y1);
-							CGContextClosePath(ctx);
-							CGContextFillPath(ctx);
-						}
-					}
-				}
-				
-				// display title on the left
-				CGContextSetRGBFillColor(ctx, 0.4f, 0.4f, 0.4f, 1.0f);
-				right_label_y += optimumSize.height - 4;
-				optimumSize = [component.title sizeWithFont:self.titleFont constrainedToSize:CGSizeMake(max_text_width,100)];
-				CGRect titleFrame = CGRectMake(text_x, right_label_y, optimumSize.width, optimumSize.height);
-				[component.title drawInRect:titleFrame withFont:self.titleFont];
-				right_label_y += optimumSize.height + 10;
-			}
-			nextStartDeg = endDeg;
+            if (_showValuesInChart) {
+                float angle_rad = (-nextStartDeg - endDeg + 180)*0.5f / 180.f * M_PI;
+                float origin_x_label =  cosf(angle_rad) * _diameter * 0.5f * 0.66f;
+                float origin_y_label =  - sinf(angle_rad) * _diameter * 0.5f * 0.66f;
+                
+                CGContextSetShadow(ctx, CGSizeMake(0.2f, 0.1f), 3);
+                CGContextSetRGBFillColor(ctx, 0.4f, 0.4f, 0.4f, 1.0f);
+                
+                //float text_x = x + 10;
+                NSString *percentageText = [NSString stringWithFormat:@"%.1f%%", component.value/total*100];
+                CGSize optimumSize = [percentageText sizeWithFont:self.titleFont constrainedToSize:CGSizeMake(max_text_width,100)];
+                CGRect percFrame = CGRectMake(origin_x+origin_x_label - _diameter * 0.33f,
+                                              origin_y+origin_y_label,
+                                              max_text_width,
+                                              optimumSize.height);
+                [percentageText drawInRect:percFrame withFont:self.titleFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
+                
+                
+            }
+            else {
+                if (nextStartDeg > 180 ||  (nextStartDeg < 180 && endDeg> 270) )
+                {
+                    // left
+                    
+                    // display percentage label
+                    if (self.sameColorLabel)
+                    {
+                        CGContextSetFillColorWithColor(ctx, [component.colour CGColor]);
+                    }
+                    else
+                    {
+                        CGContextSetRGBFillColor(ctx, 0.1f, 0.1f, 0.1f, 1.0f);
+                    }
+                    CGContextSetShadow(ctx, CGSizeMake(0.0f, 0.0f), 3);
+                    
+                    //float text_x = x + 10;
+                    NSString *percentageText = [NSString stringWithFormat:@"%.1f%%", component.value/total*100];
+                    CGSize optimumSize = [percentageText sizeWithFont:self.percentageFont constrainedToSize:CGSizeMake(max_text_width,100)];
+                    CGRect percFrame = CGRectMake(5, left_label_y,  max_text_width, optimumSize.height);
+                    
+                    if (self.hasOutline) {
+                        CGContextSaveGState(ctx);
+                        
+                        CGContextSetLineWidth(ctx, 1.0f);
+                        CGContextSetLineJoin(ctx, kCGLineJoinRound);
+                        CGContextSetTextDrawingMode (ctx, kCGTextFillStroke);
+                        CGContextSetRGBStrokeColor(ctx, 0.2f, 0.2f, 0.2f, 0.8f);
+                        
+                        [percentageText drawInRect:percFrame withFont:self.percentageFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
+                        
+                        CGContextRestoreGState(ctx);
+                    } else {
+                        [percentageText drawInRect:percFrame withFont:self.percentageFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
+                    }
+                    
+                    if (self.showArrow)
+                    {
+                        // draw line to point to chart
+                        CGContextSetRGBStrokeColor(ctx, 0.2f, 0.2f, 0.2f, 1);
+                        CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
+                        
+                        int x1 = radius/4*3*cos((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_x;
+                        int y1 = radius/4*3*sin((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_y;
+                        CGContextSetLineWidth(ctx, 1);
+                        if (left_label_y + optimumSize.height/2 < y)//(left_label_y==LABEL_TOP_MARGIN)
+                        {
+                            
+                            CGContextMoveToPoint(ctx, 5 + max_text_width, left_label_y + optimumSize.height/2);
+                            CGContextAddLineToPoint(ctx, x1, left_label_y + optimumSize.height/2);
+                            CGContextAddLineToPoint(ctx, x1, y1);
+                            CGContextStrokePath(ctx);
+                            
+                            CGContextMoveToPoint(ctx, x1-ARROW_HEAD_WIDTH/2, y1);
+                            CGContextAddLineToPoint(ctx, x1, y1+ARROW_HEAD_LENGTH);
+                            CGContextAddLineToPoint(ctx, x1+ARROW_HEAD_WIDTH/2, y1);
+                            CGContextClosePath(ctx);
+                            CGContextFillPath(ctx);
+                            
+                        }
+                        else
+                        {
+                            
+                            CGContextMoveToPoint(ctx, 5 + max_text_width, left_label_y + optimumSize.height/2);
+                            if (left_label_y + optimumSize.height/2 > y + self.diameter)
+                            {
+                                CGContextAddLineToPoint(ctx, x1, left_label_y + optimumSize.height/2);
+                                CGContextAddLineToPoint(ctx, x1, y1);
+                                CGContextStrokePath(ctx);
+                                
+                                CGContextMoveToPoint(ctx, x1-ARROW_HEAD_WIDTH/2, y1);
+                                CGContextAddLineToPoint(ctx, x1, y1-ARROW_HEAD_LENGTH);
+                                CGContextAddLineToPoint(ctx, x1+ARROW_HEAD_WIDTH/2, y1);
+                                CGContextClosePath(ctx);
+                                CGContextFillPath(ctx);
+                            }
+                            else
+                            {
+                                float y_diff = y1 - (left_label_y + optimumSize.height/2);
+                                if ( (y_diff < 2*ARROW_HEAD_LENGTH && y_diff>0) || (-1*y_diff < 2*ARROW_HEAD_LENGTH && y_diff<0))
+                                {
+                                    
+                                    // straight arrow
+                                    y1 = left_label_y + optimumSize.height/2;
+                                    
+                                    CGContextAddLineToPoint(ctx, x1, y1);
+                                    CGContextStrokePath(ctx);
+                                    
+                                    CGContextMoveToPoint(ctx, x1, y1-ARROW_HEAD_WIDTH/2);
+                                    CGContextAddLineToPoint(ctx, x1+ARROW_HEAD_LENGTH, y1);
+                                    CGContextAddLineToPoint(ctx, x1, y1+ARROW_HEAD_WIDTH/2);
+                                    CGContextClosePath(ctx);
+                                    CGContextFillPath(ctx);
+                                }
+                                else if (left_label_y + optimumSize.height/2<y1)
+                                {
+                                    // arrow point down
+                                    
+                                    y1 -= ARROW_HEAD_LENGTH;
+                                    CGContextAddLineToPoint(ctx, x1, left_label_y + optimumSize.height/2);
+                                    CGContextAddLineToPoint(ctx, x1, y1);
+                                    CGContextStrokePath(ctx);
+                                    
+                                    CGContextMoveToPoint(ctx, x1-ARROW_HEAD_WIDTH/2, y1);
+                                    CGContextAddLineToPoint(ctx, x1, y1+ARROW_HEAD_LENGTH);
+                                    CGContextAddLineToPoint(ctx, x1+ARROW_HEAD_WIDTH/2, y1);
+                                    CGContextClosePath(ctx);
+                                    CGContextFillPath(ctx);
+                                }
+                                else
+                                {
+                                    // arrow point up
+                                    
+                                    y1 += ARROW_HEAD_LENGTH;
+                                    CGContextAddLineToPoint(ctx, x1, left_label_y + optimumSize.height/2);
+                                    CGContextAddLineToPoint(ctx, x1, y1);
+                                    CGContextStrokePath(ctx);
+                                    
+                                    CGContextMoveToPoint(ctx, x1-ARROW_HEAD_WIDTH/2, y1);
+                                    CGContextAddLineToPoint(ctx, x1, y1-ARROW_HEAD_LENGTH);
+                                    CGContextAddLineToPoint(ctx, x1+ARROW_HEAD_WIDTH/2, y1);
+                                    CGContextClosePath(ctx);
+                                    CGContextFillPath(ctx);
+                                }
+                            }
+                        }
+                        
+                    }
+                    // display title on the left
+                    CGContextSetRGBFillColor(ctx, 0.4f, 0.4f, 0.4f, 1.0f);
+                    left_label_y += optimumSize.height - 4;
+                    optimumSize = [component.title sizeWithFont:self.titleFont constrainedToSize:CGSizeMake(max_text_width,100)];
+                    CGRect titleFrame = CGRectMake(5, left_label_y, max_text_width, optimumSize.height);
+                    if (_showValuesInChart == NO) {
+                        [component.title drawInRect:titleFrame withFont:self.titleFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
+                    }
+                    left_label_y += optimumSize.height + 10;
+                }
+                else
+                {
+                    // right
+                    
+                    // display percentage label
+                    if (self.sameColorLabel)
+                        CGContextSetFillColorWithColor(ctx, [component.colour CGColor]);
+                    else
+                        CGContextSetRGBFillColor(ctx, 0.1f, 0.1f, 0.1f, 1.0f);
+                    CGContextSetShadow(ctx, CGSizeMake(0.0f, 0.0f), 2);
+                    
+                    float text_x = x + self.diameter + 10;
+                    NSString *percentageText = [NSString stringWithFormat:@"%.1f%%", component.value/total*100];
+                    CGSize optimumSize = [percentageText sizeWithFont:self.percentageFont constrainedToSize:CGSizeMake(max_text_width,100)];
+                    CGRect percFrame = CGRectMake(text_x, right_label_y, optimumSize.width, optimumSize.height);
+                    
+                    if (self.hasOutline) {
+                        CGContextSaveGState(ctx);
+                        
+                        CGContextSetLineWidth(ctx, 1.0f);
+                        CGContextSetLineJoin(ctx, kCGLineJoinRound);
+                        CGContextSetTextDrawingMode (ctx, kCGTextFillStroke);
+                        CGContextSetRGBStrokeColor(ctx, 0.2f, 0.2f, 0.2f, 0.8f);
+                        
+                        [percentageText drawInRect:percFrame withFont:self.percentageFont];
+                        
+                        CGContextRestoreGState(ctx);
+                    } else {
+                        [percentageText drawInRect:percFrame withFont:self.percentageFont];
+                    }
+                    
+                    if (self.showArrow)
+                    {
+                        // draw line to point to chart
+                        CGContextSetRGBStrokeColor(ctx, 0.2f, 0.2f, 0.2f, 1);
+                        CGContextSetRGBFillColor(ctx, 0.0f, 0.0f, 0.0f, 1.0f);
+                        
+                        CGContextSetLineWidth(ctx, 1);
+                        int x1 = radius/4*3*cos((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_x;
+                        int y1 = radius/4*3*sin((nextStartDeg+component.value/total*360/2-90)*M_PI/180.0)+origin_y;
+                        
+                        
+                        if (right_label_y + optimumSize.height/2 < y)//(right_label_y==LABEL_TOP_MARGIN)
+                        {
+                            
+                            CGContextMoveToPoint(ctx, text_x - 3, right_label_y + optimumSize.height/2);
+                            CGContextAddLineToPoint(ctx, x1, right_label_y + optimumSize.height/2);
+                            CGContextAddLineToPoint(ctx, x1, y1);
+                            CGContextStrokePath(ctx);
+                            
+                            CGContextMoveToPoint(ctx, x1-ARROW_HEAD_WIDTH/2, y1);
+                            CGContextAddLineToPoint(ctx, x1, y1+ARROW_HEAD_LENGTH);
+                            CGContextAddLineToPoint(ctx, x1+ARROW_HEAD_WIDTH/2, y1);
+                            CGContextClosePath(ctx);
+                            CGContextFillPath(ctx);
+                        }
+                        else
+                        {
+                            float y_diff = y1 - (right_label_y + optimumSize.height/2);
+                            if ( (y_diff < 2*ARROW_HEAD_LENGTH && y_diff>0) || (-1*y_diff < 2*ARROW_HEAD_LENGTH && y_diff<0))
+                            {
+                                // straight arrow
+                                y1 = right_label_y + optimumSize.height/2;
+                                
+                                CGContextMoveToPoint(ctx, text_x, right_label_y + optimumSize.height/2);
+                                CGContextAddLineToPoint(ctx, x1, y1);
+                                CGContextStrokePath(ctx);
+                                
+                                CGContextMoveToPoint(ctx, x1, y1-ARROW_HEAD_WIDTH/2);
+                                CGContextAddLineToPoint(ctx, x1-ARROW_HEAD_LENGTH, y1);
+                                CGContextAddLineToPoint(ctx, x1, y1+ARROW_HEAD_WIDTH/2);
+                                CGContextClosePath(ctx);
+                                CGContextFillPath(ctx);
+                            }
+                            else if (right_label_y + optimumSize.height/2<y1)
+                            {
+                                // arrow point down
+                                
+                                y1 -= ARROW_HEAD_LENGTH;
+                                
+                                CGContextMoveToPoint(ctx, text_x, right_label_y + optimumSize.height/2);
+                                CGContextAddLineToPoint(ctx, x1, right_label_y + optimumSize.height/2);
+                                //CGContextAddLineToPoint(ctx, x1+5, y1);
+                                CGContextAddLineToPoint(ctx, x1, y1);
+                                CGContextStrokePath(ctx);
+                                
+                                CGContextMoveToPoint(ctx, x1+ARROW_HEAD_WIDTH/2, y1);
+                                CGContextAddLineToPoint(ctx, x1, y1+ARROW_HEAD_LENGTH);
+                                CGContextAddLineToPoint(ctx, x1-ARROW_HEAD_WIDTH/2, y1);
+                                CGContextClosePath(ctx);
+                                CGContextFillPath(ctx);
+                            }
+                            else //if (nextStartDeg<180 && endDeg>180)
+                            {
+                                // arrow point up
+                                y1 += ARROW_HEAD_LENGTH;
+                                
+                                CGContextMoveToPoint(ctx, text_x, right_label_y + optimumSize.height/2);
+                                CGContextAddLineToPoint(ctx, x1, right_label_y + optimumSize.height/2);
+                                CGContextAddLineToPoint(ctx, x1, y1);
+                                CGContextStrokePath(ctx);
+                                
+                                CGContextMoveToPoint(ctx, x1+ARROW_HEAD_WIDTH/2, y1);
+                                CGContextAddLineToPoint(ctx, x1, y1-ARROW_HEAD_LENGTH);
+                                CGContextAddLineToPoint(ctx, x1-ARROW_HEAD_WIDTH/2, y1);
+                                CGContextClosePath(ctx);
+                                CGContextFillPath(ctx);
+                            }
+                        }
+                    }
+                    
+                    // display title on the left
+                    CGContextSetRGBFillColor(ctx, 0.4f, 0.4f, 0.4f, 1.0f);
+                    right_label_y += optimumSize.height - 4;
+                    optimumSize = [component.title sizeWithFont:self.titleFont constrainedToSize:CGSizeMake(max_text_width,100)];
+                    CGRect titleFrame = CGRectMake(text_x, right_label_y, optimumSize.width, optimumSize.height);
+                    if (_showValuesInChart == NO) {
+                        [component.title drawInRect:titleFrame withFont:self.titleFont];
+                    }
+                    right_label_y += optimumSize.height + 10;
+                }
+            }
 		}
         
         if (_showInnerCircle) {
             CGContextRef ctx = UIGraphicsGetCurrentContext();
             UIGraphicsPushContext(ctx);
-            CGFloat r,g,b,a;
-            UIColor *color = PCColorInnerCircle;
-            [color getRed:&r green:&g blue:&b alpha:&a];
-            CGContextSetRGBFillColor(ctx, r, g, b, a);  // white color
+            CGContextSetFillColorWithColor(ctx, [PCColorInnerCircle CGColor]);
             CGContextSetShadow(ctx, CGSizeMake(0.3f, 0.2f), margin);
             CGContextFillEllipseInRect(ctx,
                                        CGRectMake(x_innerCircle,
@@ -500,10 +508,6 @@
                 int fontSize = height;
                 _titleFontInnerCircle = [UIFont boldSystemFontOfSize:fontSize];
                 
-                CGFloat r,g,b,a;
-                UIColor *color = PCColorTextInnerCircle;
-                [color getRed:&r green:&g blue:&b alpha:&a];
-                
                 CGFloat text_x = x_innerCircle + (_diameterInnerCircle - width) * 0.5f;
                 CGFloat text_y = y_innerCircle + (_diameterInnerCircle - height) * 0.5f;
                 
@@ -511,7 +515,7 @@
                 CGRect titleFrame = CGRectMake(text_x, text_y, width, height);
                 
                 UIGraphicsPushContext(ctx);
-                CGContextSetRGBFillColor(ctx, r, g, b, a);
+                CGContextSetFillColorWithColor(ctx, [PCColorTextInnerCircle CGColor]);
                 [_titleInnerCircle drawInRect:titleFrame
                                      withFont:_titleFontInnerCircle
                                 lineBreakMode:UILineBreakModeWordWrap
@@ -542,7 +546,7 @@
         NSLog(@"Touch inside Inner Circle");
         return;
     }
-
+    
     
     if (powf(touchPointOnSelf.x-origin_x, 2.f) + powf(touchPointOnSelf.y-origin_y,2.f) <= powf(_diameter*0.5f,2.f))
         NSLog(@"Touch inside");

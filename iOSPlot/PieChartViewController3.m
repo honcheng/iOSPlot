@@ -29,6 +29,7 @@
         
         [pieChart setShowInnerCircle:YES];
         [pieChart setTitleInnerCircle:@"Center Title"];
+        [pieChart setShowValuesInChart:YES];
 		
 		[self.view addSubview:pieChart];
 		
