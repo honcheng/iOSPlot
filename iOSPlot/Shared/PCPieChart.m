@@ -209,8 +209,8 @@
 			
             if (_showValuesInChart) {
                 float angle_rad = (-nextStartDeg - endDeg + 180)*0.5f / 180.f * M_PI;
-                float origin_x_label =  cosf(angle_rad) * _diameter * 0.5f * 0.66f;
-                float origin_y_label =  - sinf(angle_rad) * _diameter * 0.5f * 0.66f;
+                float origin_x_label =  cosf(angle_rad) * _diameter * 0.5f * 0.75f;
+                float origin_y_label =  - sinf(angle_rad) * _diameter * 0.5f * 0.75f;
                 
                 CGContextSetShadow(ctx, CGSizeMake(0.2f, 0.1f), 3);
                 CGContextSetRGBFillColor(ctx, 0.4f, 0.4f, 0.4f, 1.0f);
@@ -218,8 +218,8 @@
                 //float text_x = x + 10;
                 NSString *percentageText = [NSString stringWithFormat:@"%.1f%%", component.value/total*100];
                 CGSize optimumSize = [percentageText sizeWithFont:self.titleFont constrainedToSize:CGSizeMake(max_text_width,100)];
-                CGRect percFrame = CGRectMake(origin_x+origin_x_label - _diameter * 0.33f,
-                                              origin_y+origin_y_label,
+                CGRect percFrame = CGRectMake(origin_x+origin_x_label - _diameter * 0.25f - optimumSize.width * 0.5f,
+                                              origin_y+origin_y_label - optimumSize.height * 0.5f,
                                               max_text_width,
                                               optimumSize.height);
                 [percentageText drawInRect:percFrame withFont:self.titleFont lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentRight];
