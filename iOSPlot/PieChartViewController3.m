@@ -8,6 +8,13 @@
 
 #import "PieChartViewController3.h"
 #import "PCPieChart.h"
+#import "PieChartPopover.h"
+
+@interface PieChartViewController3()<PCPieComponentDelegate>
+
+-(UIViewController*)ViewController: (PCPieComponent*)pieComponent;
+
+@end
 
 @implementation PieChartViewController3
 
@@ -23,7 +30,7 @@
 		int height = [self.view bounds].size.width/3*2.; // 220;
 		int width = [self.view bounds].size.width; //320;
 		PCPieChart *pieChart = [[PCPieChart alloc] initWithFrame:CGRectMake(([self.view bounds].size.width-width)/2,([self.view bounds].size.height-height)/2,width,height)];
-		[pieChart setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin];
+		[pieChart setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin];
 		[pieChart setDiameter:width/2];
 		[pieChart setSameColorLabel:YES];
         
@@ -46,6 +53,7 @@
 		{
 			NSDictionary *item = [[sampleInfo objectForKey:@"data"] objectAtIndex:i];
 			PCPieComponent *component = [PCPieComponent pieComponentWithTitle:[item objectForKey:@"title"] value:[[item objectForKey:@"value"] floatValue]];
+            component.delegate = self;
 			[components addObject:component];
 			
 			if (i==0)
@@ -95,7 +103,19 @@
     // e.g. self.myOutlet = nil;
 }
 
-
+-(UIViewController*)ViewController: (PCPieComponent*)pieComponent
+{
+    PieChartPopover *pieChartPopover = [[PieChartPopover alloc] init];
+    [pieChartPopover setTittle:pieComponent.title];
+    [pieChartPopover setSubTittle:[NSString stringWithFormat:@"Chart Value %f", pieComponent.value]];
+    NSString *content = [NSString stringWithFormat:@"Content for chart %@ and value %f ", pieComponent.title, pieComponent.value];
+    for (int i = 0; i < 10; i++) {
+        content = [content stringByAppendingString:content];
+    }
+    [pieChartPopover setContent:[NSString stringWithFormat:@"THE CONTENT CAN BE SCROLLED DOWN.\n %@", content]];
+    
+    return pieChartPopover;
+}
 
 
 @end

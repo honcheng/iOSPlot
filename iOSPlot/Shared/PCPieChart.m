@@ -32,6 +32,7 @@
  */
 
 #import "PCPieChart.h"
+#import "FPPopoverController.h"
 
 @implementation PCPieComponent
 
@@ -576,6 +577,19 @@
         if (angle > startDeg && angle < endDeg) {
             NSLog(@"Portion %@ with value %f%% and percent %.1f%% was touched",
                   component.title, component.value, component.value/total*100.f);
+            if (component.delegate) {
+                UIViewController *viewController = [component.delegate ViewController:component];
+                FPPopoverController *popoverController = [[FPPopoverController alloc] initWithViewController:viewController];
+                CGPoint point = CGPointMake(self.frame.origin.x + touchPointOnSelf.x, self.frame.origin.y + touchPointOnSelf.y);
+                //[popoverController presentPopoverFromPoint:point];
+                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(point.x-self.frame.origin.x,
+                                                                        point.y-self.frame.origin.y,
+                                                                        1,
+                                                                        1)];
+                [self addSubview:view];
+                [popoverController presentPopoverFromView:view];
+                [view removeFromSuperview];
+            }
             break;
         }
         startDeg = endDeg;

@@ -34,12 +34,16 @@
 #import <UIKit/UIKit.h>
 #import "PCPieChart.h"
 
+@class PCPieComponent;
+
+@protocol PCPieComponentDelegate;
+
 @interface PCPieComponent : NSObject
 @property (nonatomic, assign) float value, startDeg, endDeg;
 @property (nonatomic, strong) UIColor *colour;
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *titlePopover;
 @property (nonatomic, copy) NSString *contentPopover;
+@property (nonatomic, weak) id<PCPieComponentDelegate>   delegate;
 - (id)initWithTitle:(NSString*)title value:(float)value;
 + (id)pieComponentWithTitle:(NSString*)title value:(float)value;
 @end
@@ -60,4 +64,9 @@
 @property (nonatomic, strong) NSString *titleInnerCircle;
 @property (nonatomic, assign) BOOL showArrow, sameColorLabel, showInnerCircle, showValuesInChart;
 @property (nonatomic, assign, getter = hasOutline) BOOL outline;
+@end
+
+@protocol PCPieComponentDelegate <NSObject>
+@required
+-(UIViewController*)ViewController: (PCPieComponent*)pieComponent;
 @end
