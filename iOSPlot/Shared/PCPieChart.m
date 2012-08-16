@@ -212,7 +212,7 @@
                 float origin_x_label =  cosf(angle_rad) * _diameter * 0.5f * 0.75f;
                 float origin_y_label =  - sinf(angle_rad) * _diameter * 0.5f * 0.75f;
                 
-                CGContextSetShadow(ctx, CGSizeMake(0.2f, 0.1f), 3);
+                CGContextSetShadow(ctx, CGSizeMake(1.f, 1.0f), .6f);
                 CGContextSetRGBFillColor(ctx, 0.4f, 0.4f, 0.4f, 1.0f);
                 
                 //float text_x = x + 10;
