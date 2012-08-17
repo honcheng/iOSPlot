@@ -35,6 +35,7 @@
 #import "PieChartViewController.h"
 #import "PieChartViewController2.h"
 #import "PieChartViewController3.h"
+#import "PieChartViewController4.h"
 #import "LineChartViewController.h"
 #import "HalfPieChartViewController.h"
 
@@ -71,7 +72,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 5;
+    return 6;
 }
 
 
@@ -101,9 +102,12 @@
             [cell.textLabel setText:@"Pie Chart with innner circle"];
             break;
         case 3:
-            [cell.textLabel setText:@"Half Pie Chart (not completed yet)"];
+            [cell.textLabel setText:@"Pie Chart with innner circle animated"];
             break;
         case 4:
+            [cell.textLabel setText:@"Half Pie Chart (not completed yet)"];
+            break;
+        case 5:
             [cell.textLabel setText:@"Line Chart"];
             break;
             
@@ -131,9 +135,12 @@
             detailViewController = [[PieChartViewController3 alloc] init];
             break;
         case 3:
-            detailViewController = [[HalfPieChartViewController alloc] init];
+            detailViewController = [[PieChartViewController4 alloc] init];
             break;
         case 4:
+            detailViewController = [[HalfPieChartViewController alloc] init];
+            break;
+        case 5:
             detailViewController = [[LineChartViewController alloc] init];
             break;
             

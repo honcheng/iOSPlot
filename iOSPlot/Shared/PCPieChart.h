@@ -39,7 +39,7 @@
 @protocol PCPieComponentDelegate;
 
 @interface PCPieComponent : NSObject
-@property (nonatomic, assign) float value, startDeg, endDeg;
+@property (nonatomic, assign) float value;
 @property (nonatomic, strong) UIColor *colour;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *contentPopover;
@@ -62,7 +62,7 @@
 @property (nonatomic, strong) NSMutableArray *components;
 @property (nonatomic, strong) UIFont *titleFont, *percentageFont;
 @property (nonatomic, strong) NSString *titleInnerCircle;
-@property (nonatomic, assign) BOOL showArrow, sameColorLabel, showInnerCircle, showValuesInChart;
+@property (nonatomic, assign) BOOL showArrow, sameColorLabel, showInnerCircle, showValuesInChart, touchAnimated;
 @property (nonatomic, assign, getter = hasOutline) BOOL outline;
 @end
 

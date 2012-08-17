@@ -15,6 +15,7 @@
 		2860E32E111B888700E27156 /* AppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2860E32C111B888700E27156 /* AppDelegate_iPad.m */; };
 		2860E32F111B888700E27156 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2860E32D111B888700E27156 /* MainWindow_iPad.xib */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		929C6EC415DEF4AC008FD849 /* PieChartViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C6EC315DEF4AC008FD849 /* PieChartViewController4.m */; };
 		C96DD05715DD35EC00939DC6 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96DD05215DD35EC00939DC6 /* FPPopoverController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C96DD05815DD35EC00939DC6 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96DD05415DD35EC00939DC6 /* FPPopoverView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C96DD05915DD35EC00939DC6 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96DD05615DD35EC00939DC6 /* FPTouchView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -50,6 +51,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Shared/main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* PlotCreator_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotCreator_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* PlotCreator-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PlotCreator-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		929C6EC215DEF4AC008FD849 /* PieChartViewController4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartViewController4.h; sourceTree = "<group>"; };
+		929C6EC315DEF4AC008FD849 /* PieChartViewController4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartViewController4.m; sourceTree = "<group>"; };
 		C96DD05115DD35EC00939DC6 /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
 		C96DD05215DD35EC00939DC6 /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
 		C96DD05315DD35EC00939DC6 /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 				F83260C11363D91E0045F9DC /* PieChartViewController2.m */,
 				C9B46D8C15DAE7880069B114 /* PieChartViewController3.h */,
 				C9B46D8D15DAE7880069B114 /* PieChartViewController3.m */,
+				929C6EC215DEF4AC008FD849 /* PieChartViewController4.h */,
+				929C6EC315DEF4AC008FD849 /* PieChartViewController4.m */,
 				F87DE41B1370D82D00347F69 /* HalfPieChartViewController.h */,
 				F87DE41C1370D82D00347F69 /* HalfPieChartViewController.m */,
 				F83260681363D49B0045F9DC /* ChartListViewController.h */,
@@ -318,6 +323,7 @@
 				C96DD05815DD35EC00939DC6 /* FPPopoverView.m in Sources */,
 				C96DD05915DD35EC00939DC6 /* FPTouchView.m in Sources */,
 				C96DD05E15DD39B000939DC6 /* PieChartPopover.m in Sources */,
+				929C6EC415DEF4AC008FD849 /* PieChartViewController4.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
