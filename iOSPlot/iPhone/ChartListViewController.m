@@ -99,10 +99,10 @@
             [cell.textLabel setText:@"Pie Chart without arrows"];
             break;
         case 2:
-            [cell.textLabel setText:@"Pie Chart with innner circle"];
+            [cell.textLabel setText:@"Pie Chart with inner circle"];
             break;
         case 3:
-            [cell.textLabel setText:@"Pie Chart with innner circle animated"];
+            [cell.textLabel setText:@"Pie Chart with inner circle animated"];
             break;
         case 4:
             [cell.textLabel setText:@"Half Pie Chart (not completed yet)"];

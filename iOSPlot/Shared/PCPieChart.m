@@ -281,7 +281,10 @@
 {
     if (self.diameter==0)
     {
-        self.diameter = MIN(rect.size.width, rect.size.height) - 2 * MARGIN;
+        //if (_touchAnimated)
+        //    self.diameter = MIN(rect.size.width, rect.size.height) - 0.5f * MARGIN;
+        //else
+            self.diameter = MIN(rect.size.width, rect.size.height) - 2 * MARGIN;
     }
     float x = (rect.size.width - self.diameter) * 0.5f;
     float y = (rect.size.height - self.diameter) * 0.5f;
@@ -611,45 +614,29 @@
 -(void)TapByUser:(id)sender
 {
     CGRect rect = self.frame;
-    float x = (rect.size.width - self.diameter)/2;
-    float y = (rect.size.height - self.diameter)/2;
-    float origin_x = x + self.diameter/2;
-    float origin_y = y + self.diameter/2;
+    float origin_x = rect.size.width*0.5f;
+    float origin_y = rect.size.height*0.5f;
     
     //Find by what angle it has to rotate
     CGPoint touchPointOnSelf=[(UITapGestureRecognizer *)sender locationInView:self];
-    
-    if (_showInnerCircle
-        && powf(touchPointOnSelf.x-origin_x, 2.f) + powf(touchPointOnSelf.y-origin_y,2.f) <= powf(_diameterInnerCircle*0.5f,2.f)) {
+    if (_showInnerCircle &&
+        powf(touchPointOnSelf.x-origin_x, 2.f) + powf(touchPointOnSelf.y-origin_y,2.f) <= powf(_diameterInnerCircle*0.5f,2.f)) {
         NSLog(@"Touch inside Inner Circle");
         return;
     }
-    
-    
-    if (powf(touchPointOnSelf.x-origin_x, 2.f) + powf(touchPointOnSelf.y-origin_y,2.f) <= powf(_diameter*0.5f,2.f))
-        NSLog(@"Touch inside");
-    else {
+    if (powf(touchPointOnSelf.x-origin_x, 2.f) + powf(touchPointOnSelf.y-origin_y,2.f) > powf(_diameter*0.5f,2.f)){
         NSLog(@"Touch outside");
         return;
     }
+    NSLog(@"Touch inside");
     
     float angle=atan2f((touchPointOnSelf.y - origin_y), (touchPointOnSelf.x -  origin_x)) * 180.f / M_PI;
+    if(angle<0) angle += 360;
     angle += 90; // Chart alligment.
-    
-    if(angle<0)
-        angle += 360;
-    
-    float total = 0;
-    for (PCPieComponent *component in self.components)
-        total += component.value;
-    angle += _deltaRotation;
-    if (angle >= 360) {
-        angle -= 360;
-    }
+    angle -= _deltaRotation;
+    if (angle >= 360.f) angle = remainderf(angle, 360.f);
     for (PCPieComponent *component in self.components) {
         if (angle > component.startDeg && angle < component.endDeg) {
-            NSLog(@"Portion %@ with value %f%% and percent %.1f%% was touched",
-                  component.title, component.value, component.value/total*100.f);
             if (_touchAnimated) {
                 [NSThread detachNewThreadSelector:@selector(addDeltaAngleTillCenter:)
                                          toTarget:self
@@ -675,22 +662,24 @@
 
 -(void)addDeltaAngleTillCenter: (id)obj
 {
-    [NSThread sleepForTimeInterval:0.04f];
+    [NSThread sleepForTimeInterval:0.015f];
     PCPieComponent *component = obj;
-    float targetAngle = (component.startDeg + component.endDeg) * 0.5f;
+    float targetAngle = 360 - (component.startDeg + component.endDeg) * 0.5f + 90;
+    if(targetAngle < 0) targetAngle += 360;
+    if (targetAngle >= 360.f) targetAngle = remainderf(targetAngle, 360.f);
     if (ceilf(_deltaRotation) == ceilf(targetAngle)) {
-        /*
+        
         if (component.delegate) {
             UIViewController *viewController = [component.delegate ViewController:component];
             FPPopoverController *popoverController = [[FPPopoverController alloc] initWithViewController:viewController];
-            CGPoint point = CGPointMake(self.frame.origin.x + touchPointOnSelf.x, self.frame.origin.y + touchPointOnSelf.y);
+            CGPoint point = CGPointMake(self.frame.origin.x + _diameter * 0.5f, self.frame.origin.y + _diameter * 0.5f);
             CGRect frame = CGRectMake(point.x-self.frame.origin.x, point.y-self.frame.origin.y, 1, 1);
             UIView *view = [[UIView alloc] initWithFrame:frame];
             [self addSubview:view];
             [popoverController presentPopoverFromView:view];
             [view removeFromSuperview];
         }
-        */
+        
         return;
     }
     self.deltaRotation = _deltaRotation + 1;

@@ -27,11 +27,12 @@
 		[self setTitle:@"Pie Chart"];
 		
 		
-		int height = [self.view bounds].size.width/3*2.; // 220;
-		int width = [self.view bounds].size.width; //320;
-		PCPieChart *pieChart = [[PCPieChart alloc] initWithFrame:CGRectMake(([self.view bounds].size.width-width)/2,([self.view bounds].size.height-height)/2,width,height)];
+		int width = [self.view bounds].size.width * 0.75f; //320;
+		int height = width / 3.f * 2.2f; // 220;
+		PCPieChart *pieChart = [[PCPieChart alloc] initWithFrame:CGRectMake(15,//([self.view bounds].size.width-width)/2,
+                                                                            ([self.view bounds].size.height-height)/2,width,height)];
 		[pieChart setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin];
-		[pieChart setDiameter:width/2];
+		[pieChart setDiameter: 374];// width/2];
 		[pieChart setSameColorLabel:YES];
         
         [pieChart setShowInnerCircle:YES];
