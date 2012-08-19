@@ -157,35 +157,27 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">TittleLabel</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="817315531"/>
-					</object>
-					<int key="connectionID">8</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">subTittleLabel</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="228765750"/>
-					</object>
-					<int key="connectionID">9</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">tittleLabel</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="817315531"/>
-					</object>
-					<int key="connectionID">10</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">contentTextView</string>
 						<reference key="source" ref="841351856"/>
 						<reference key="destination" ref="843756521"/>
 					</object>
-					<int key="connectionID">11</int>
+					<int key="connectionID">12</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">subTitleLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="228765750"/>
+					</object>
+					<int key="connectionID">13</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">titleLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="817315531"/>
+					</object>
+					<int key="connectionID">14</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -248,7 +240,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">11</int>
+			<int key="maxID">14</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -256,36 +248,36 @@
 					<string key="className">PieChartPopover</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="content">NSString</string>
+						<string key="chartContent">NSString</string>
+						<string key="chartSubTitle">NSString</string>
+						<string key="chartTitle">NSString</string>
 						<string key="contentTextView">UITextView</string>
-						<string key="subTittle">NSString</string>
-						<string key="subTittleLabel">UILabel</string>
-						<string key="tittle">NSString</string>
-						<string key="tittleLabel">UILabel</string>
+						<string key="subTitleLabel">UILabel</string>
+						<string key="titleLabel">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="content">
-							<string key="name">content</string>
+						<object class="IBToOneOutletInfo" key="chartContent">
+							<string key="name">chartContent</string>
+							<string key="candidateClassName">NSString</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="chartSubTitle">
+							<string key="name">chartSubTitle</string>
+							<string key="candidateClassName">NSString</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="chartTitle">
+							<string key="name">chartTitle</string>
 							<string key="candidateClassName">NSString</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="contentTextView">
 							<string key="name">contentTextView</string>
 							<string key="candidateClassName">UITextView</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="subTittle">
-							<string key="name">subTittle</string>
-							<string key="candidateClassName">NSString</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="subTittleLabel">
-							<string key="name">subTittleLabel</string>
+						<object class="IBToOneOutletInfo" key="subTitleLabel">
+							<string key="name">subTitleLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="tittle">
-							<string key="name">tittle</string>
-							<string key="candidateClassName">NSString</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="tittleLabel">
-							<string key="name">tittleLabel</string>
+						<object class="IBToOneOutletInfo" key="titleLabel">
+							<string key="name">titleLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 					</dictionary>

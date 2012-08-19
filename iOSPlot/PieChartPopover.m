@@ -13,11 +13,11 @@
 @end
 
 @implementation PieChartPopover
-@synthesize tittle = _tittle;
-@synthesize subTittle = _subTittle;
-@synthesize content = _content;
-@synthesize tittleLabel = _tittleLabel;
-@synthesize subTittleLabel = _subTittleLabel;
+@synthesize chartTitle = _chartTitle;
+@synthesize chartSubTitle = _chartSubTitle;
+@synthesize chartContent = _chartContent;
+@synthesize titleLabel = _titleLabel;
+@synthesize subTitleLabel = _subTitleLabel;
 @synthesize contentTextView = _contentTextView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,9 +33,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.tittleLabel.text = _tittle;
-    self.subTittleLabel.text = _subTittle;
-    self.contentTextView.text = _content;
+    self.titleLabel.text = _chartTitle;
+    self.subTitleLabel.text = _chartSubTitle;
+    self.contentTextView.text = _chartContent;
 }
 
 - (void)viewDidUnload
@@ -43,11 +43,11 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    [self setTittle:nil];
-    [self setSubTittle:nil];
-    [self setContent:nil];
-    [self setTittleLabel:nil];
-    [self setSubTittleLabel:nil];
+    [self setChartTitle:nil];
+    [self setChartSubTitle:nil];
+    [self setChartContent:nil];
+    [self setTitleLabel:nil];
+    [self setSubTitleLabel:nil];
     [self setContentTextView:nil];
 }
 

@@ -106,13 +106,13 @@
 -(UIViewController*)ViewController: (PCPieComponent*)pieComponent
 {
     PieChartPopover *pieChartPopover = [[PieChartPopover alloc] init];
-    [pieChartPopover setTittle:pieComponent.title];
-    [pieChartPopover setSubTittle:[NSString stringWithFormat:@"Chart Value %f", pieComponent.value]];
+    [pieChartPopover setChartTitle:pieComponent.title];
+    [pieChartPopover setChartSubTitle:[NSString stringWithFormat:@"Chart Value %f", pieComponent.value]];
     NSString *content = [NSString stringWithFormat:@"Content for chart %@ and value %f ", pieComponent.title, pieComponent.value];
     for (int i = 0; i < 10; i++) {
         content = [content stringByAppendingString:content];
     }
-    [pieChartPopover setContent:[NSString stringWithFormat:@"THE CONTENT CAN BE SCROLLED DOWN.\n %@", content]];
+    [pieChartPopover setChartContent:[NSString stringWithFormat:@"THE CONTENT CAN BE SCROLLED DOWN.\n %@", content]];
     
     return pieChartPopover;
 }

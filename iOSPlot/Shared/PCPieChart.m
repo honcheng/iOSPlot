@@ -34,6 +34,8 @@
 #import "PCPieChart.h"
 #import "FPPopoverController.h"
 
+#import "PieChartPopover.h"
+
 @interface PCPieComponent()
 
 @property float startDeg, endDeg;
@@ -281,10 +283,7 @@
 {
     if (self.diameter==0)
     {
-        //if (_touchAnimated)
-        //    self.diameter = MIN(rect.size.width, rect.size.height) - 0.5f * MARGIN;
-        //else
-            self.diameter = MIN(rect.size.width, rect.size.height) - 2 * MARGIN;
+        self.diameter = MIN(rect.size.width, rect.size.height) - 2 * MARGIN;
     }
     float x = (rect.size.width - self.diameter) * 0.5f;
     float y = (rect.size.height - self.diameter) * 0.5f;
@@ -660,6 +659,20 @@
     
 }
 
+-(void)popovermethod: (PCPieComponent*)component
+{
+    
+    UIViewController *viewController = [component.delegate ViewController:component];
+    FPPopoverController *popoverController = [[FPPopoverController alloc] initWithViewController:viewController];
+    CGPoint point = CGPointMake(self.frame.size.width * 0.5f + self.diameter * 0.5f,
+                                self.frame.size.height * 0.5f);
+    CGRect frame = CGRectMake(point.x, point.y, 1, 1);
+    UIView *view = [[UIView alloc] initWithFrame:frame];
+    [self addSubview:view];
+    [popoverController presentPopoverFromView:view];
+    [view removeFromSuperview];
+}
+
 -(void)addDeltaAngleTillCenter: (id)obj
 {
     [NSThread sleepForTimeInterval:0.015f];
@@ -668,18 +681,9 @@
     if(targetAngle < 0) targetAngle += 360;
     if (targetAngle >= 360.f) targetAngle = remainderf(targetAngle, 360.f);
     if (ceilf(_deltaRotation) == ceilf(targetAngle)) {
-        
-        if (component.delegate) {
-            UIViewController *viewController = [component.delegate ViewController:component];
-            FPPopoverController *popoverController = [[FPPopoverController alloc] initWithViewController:viewController];
-            CGPoint point = CGPointMake(self.frame.origin.x + _diameter * 0.5f, self.frame.origin.y + _diameter * 0.5f);
-            CGRect frame = CGRectMake(point.x-self.frame.origin.x, point.y-self.frame.origin.y, 1, 1);
-            UIView *view = [[UIView alloc] initWithFrame:frame];
-            [self addSubview:view];
-            [popoverController presentPopoverFromView:view];
-            [view removeFromSuperview];
-        }
-        
+        if (component.delegate)
+            [self performSelectorOnMainThread:@selector(popovermethod:)
+                                   withObject:component waitUntilDone:NO];
         return;
     }
     self.deltaRotation = _deltaRotation + 1;

@@ -10,12 +10,12 @@
 
 @interface PieChartPopover : UIViewController
 
-@property (strong, nonatomic) IBOutlet NSString *tittle;
-@property (strong, nonatomic) IBOutlet NSString *subTittle;
-@property (strong, nonatomic) IBOutlet NSString *content;
+@property (strong, nonatomic) IBOutlet NSString *chartTitle;
+@property (strong, nonatomic) IBOutlet NSString *chartSubTitle;
+@property (strong, nonatomic) IBOutlet NSString *chartContent;
 
-@property (strong, nonatomic) IBOutlet UILabel *tittleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *subTittleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *subTitleLabel;
 @property (strong, nonatomic) IBOutlet UITextView *contentTextView;
 
 @end

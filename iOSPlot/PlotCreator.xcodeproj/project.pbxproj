@@ -136,6 +136,9 @@
 				C96DD05015DD35EC00939DC6 /* FPPopover */,
 				3794799B13706BB200C0E457 /* iOSPlot */,
 				F8C1B407136F7FB7002DDF6C /* JSONKit */,
+				C96DD05B15DD39B000939DC6 /* PieChartPopover.h */,
+				C96DD05C15DD39B000939DC6 /* PieChartPopover.m */,
+				C96DD05D15DD39B000939DC6 /* PieChartPopover.xib */,
 				F897D6FE136311E60025FE6E /* PieChartViewController.h */,
 				F897D6FF136311E60025FE6E /* PieChartViewController.m */,
 				F83260C01363D91E0045F9DC /* PieChartViewController2.h */,
@@ -151,9 +154,6 @@
 				F88CC4D113684FD30096327F /* LineChartViewController.h */,
 				F88CC4D213684FD30096327F /* LineChartViewController.m */,
 				8D1107310486CEB800E47090 /* PlotCreator-Info.plist */,
-				C96DD05B15DD39B000939DC6 /* PieChartPopover.h */,
-				C96DD05C15DD39B000939DC6 /* PieChartPopover.m */,
-				C96DD05D15DD39B000939DC6 /* PieChartPopover.xib */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
