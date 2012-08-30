@@ -125,7 +125,16 @@
     }
     
     float margin = 45;
-    float div_width = (self.frame.size.width-2*margin)/([self.xLabels count]-1);
+    float div_width;
+    if ([self.xLabels count] == 1)
+    {
+        div_width = 0;
+    }
+    else
+    {
+        div_width = (self.frame.size.width-2*margin)/([self.xLabels count]-1);
+    }
+    
     for (NSUInteger i=0; i<[self.xLabels count]; i++)
     {
         if (i % self.numXIntervals == 1 || self.numXIntervals==1) {
