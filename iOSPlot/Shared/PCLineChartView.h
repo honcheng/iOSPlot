@@ -65,4 +65,9 @@
 ///
 @property (nonatomic, strong) NSDictionary *mappedYLabels;
 
+///
+/// Alignment of labels in Y axis (right by default)
+///
+@property (nonatomic) NSTextAlignment yLabelAlignment;
+
 @end

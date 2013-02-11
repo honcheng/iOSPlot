@@ -60,6 +60,7 @@
 		_legendFont = [UIFont boldSystemFontOfSize:10];
 		_numYIntervals = 5;
 		_numXIntervals = 1;
+		_yLabelAlignment = NSTextAlignmentRight;
 	}
 	return self;
 }
@@ -105,7 +106,7 @@
 		} else {
 			text = [NSString stringWithFormat:formatString, y_axis];
 		}
-		[text drawInRect:textFrame withFont:self.yLabelFont lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentRight];
+		[text drawInRect:textFrame withFont:self.yLabelFont lineBreakMode:NSLineBreakByWordWrapping alignment:self.yLabelAlignment];
 
 		// These are "grid" lines
 		CGContextSetLineWidth(ctx, 1);
