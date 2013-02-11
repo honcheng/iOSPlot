@@ -97,16 +97,15 @@
 		int y = top_margin + div_height*i;
 		CGRect textFrame = CGRectMake(0,y-8,25,20);
 
-		//        NSString *text = [NSString stringWithFormat:@"%.0f", y_axis];
-		//        NSLog(@">>>>%@", text);
-
 		NSString *formatString = [NSString stringWithFormat:@"%%.%if", (power < 0) ? -power : 0];
-		NSString *text = [NSString stringWithFormat:formatString, y_axis];
-
-		[text drawInRect:textFrame
-						withFont:self.yLabelFont
-			 lineBreakMode:NSLineBreakByWordWrapping
-					 alignment:NSTextAlignmentRight];
+		NSString *text;
+		if (self.mappedYLabels != nil) {
+			NSUInteger key = [[NSString stringWithFormat:formatString, y_axis] integerValue];
+			text = [self.mappedYLabels objectForKey:[NSNumber numberWithInteger:key]];
+		} else {
+			text = [NSString stringWithFormat:formatString, y_axis];
+		}
+		[text drawInRect:textFrame withFont:self.yLabelFont lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentRight];
 
 		// These are "grid" lines
 		CGContextSetLineWidth(ctx, 1);
