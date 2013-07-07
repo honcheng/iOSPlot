@@ -34,10 +34,16 @@
 #import <UIKit/UIKit.h>
 #import "PCPieChart.h"
 
+@class PCPieComponent;
+
+@protocol PCPieComponentDelegate;
+
 @interface PCPieComponent : NSObject
-@property (nonatomic, assign) float value, startDeg, endDeg;
+@property (nonatomic, assign) float value;
 @property (nonatomic, strong) UIColor *colour;
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *contentPopover;
+@property (nonatomic, weak) id<PCPieComponentDelegate>   delegate;
 - (id)initWithTitle:(NSString*)title value:(float)value;
 + (id)pieComponentWithTitle:(NSString*)title value:(float)value;
 @end
@@ -48,11 +54,19 @@
 #define PCColorRed [UIColor colorWithRed:1.0 green:51/255.0 blue:51/255.0 alpha:1.0]
 #define PCColorYellow [UIColor colorWithRed:1.0 green:220/255.0 blue:0.0 alpha:1.0]
 #define PCColorDefault [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0]
+#define PCColorInnerCircle [UIColor colorWithRed:0.85 green:0.80 blue:0.85 alpha:1.0]
+#define PCColorTextInnerCircle [UIColor colorWithRed:0.05 green:0.15 blue:0.05 alpha:1.0]
 
 @interface PCPieChart : UIView
 @property (nonatomic, assign) int diameter;
 @property (nonatomic, strong) NSMutableArray *components;
 @property (nonatomic, strong) UIFont *titleFont, *percentageFont;
-@property (nonatomic, assign) BOOL showArrow, sameColorLabel;
+@property (nonatomic, strong) NSString *titleInnerCircle;
+@property (nonatomic, assign) BOOL showArrow, sameColorLabel, showInnerCircle, showValuesInChart, touchAnimated;
 @property (nonatomic, assign, getter = hasOutline) BOOL outline;
+@end
+
+@protocol PCPieComponentDelegate <NSObject>
+@required
+-(UIViewController*)ViewController: (PCPieComponent*)pieComponent;
 @end

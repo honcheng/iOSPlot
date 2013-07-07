@@ -1,40 +1,22 @@
-/**
- * Copyright (c) 2011 Muh Hon Cheng
- * Created by honcheng on 28/4/11.
- * 
- * Permission is hereby granted, free of charge, to any person obtaining 
- * a copy of this software and associated documentation files (the 
- * "Software"), to deal in the Software without restriction, including 
- * without limitation the rights to use, copy, modify, merge, publish, 
- * distribute, sublicense, and/or sell copies of the Software, and to 
- * permit persons to whom the Software is furnished to do so, subject 
- * to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be 
- * included in all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT 
- * WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
- * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR 
- * PURPOSE AND NONINFRINGEMENT. IN NO EVENT 
- * SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE 
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
- * TORT OR OTHERWISE, ARISING FROM, OUT OF OR 
- * IN CONNECTION WITH THE SOFTWARE OR 
- * THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- * 
- * @author 		Muh Hon Cheng <honcheng@gmail.com>
- * @copyright	2011	Muh Hon Cheng
- * @version
- * 
- */
+//
+//  PieChartViewController3.m
+//  PlotCreator
+//
+//  Created by gustavo halperin on 8/14/12.
+//
+//
 
-#import "PieChartViewController.h"
+#import "PieChartViewController3.h"
 #import "PCPieChart.h"
+#import "PieChartPopover.h"
 
-@implementation PieChartViewController
+@interface PieChartViewController3()<PCPieComponentDelegate>
+
+-(UIViewController*)ViewController: (PCPieComponent*)pieComponent;
+
+@end
+
+@implementation PieChartViewController3
 
 - (id)init
 {
@@ -48,10 +30,14 @@
 		int height = [self.view bounds].size.width/3*2.; // 220;
 		int width = [self.view bounds].size.width; //320;
 		PCPieChart *pieChart = [[PCPieChart alloc] initWithFrame:CGRectMake(([self.view bounds].size.width-width)/2,([self.view bounds].size.height-height)/2,width,height)];
-		[pieChart setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin];
+		[pieChart setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin];
 		[pieChart setDiameter:width/2];
 		[pieChart setSameColorLabel:YES];
-        		
+        
+        [pieChart setShowInnerCircle:YES];
+        [pieChart setTitleInnerCircle:@"Center Title"];
+        [pieChart setShowValuesInChart:YES];
+		
 		[self.view addSubview:pieChart];
 		
 		if ([[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPad)
@@ -67,6 +53,7 @@
 		{
 			NSDictionary *item = [[sampleInfo objectForKey:@"data"] objectAtIndex:i];
 			PCPieComponent *component = [PCPieComponent pieComponentWithTitle:[item objectForKey:@"title"] value:[[item objectForKey:@"value"] floatValue]];
+            component.delegate = self;
 			[components addObject:component];
 			
 			if (i==0)
@@ -116,7 +103,19 @@
     // e.g. self.myOutlet = nil;
 }
 
-
+-(UIViewController*)ViewController: (PCPieComponent*)pieComponent
+{
+    PieChartPopover *pieChartPopover = [[PieChartPopover alloc] init];
+    [pieChartPopover setChartTitle:pieComponent.title];
+    [pieChartPopover setChartSubTitle:[NSString stringWithFormat:@"Chart Value %f", pieComponent.value]];
+    NSString *content = [NSString stringWithFormat:@"Content for chart %@ and value %f ", pieComponent.title, pieComponent.value];
+    for (int i = 0; i < 10; i++) {
+        content = [content stringByAppendingString:content];
+    }
+    [pieChartPopover setChartContent:[NSString stringWithFormat:@"THE CONTENT CAN BE SCROLLED DOWN.\n %@", content]];
+    
+    return pieChartPopover;
+}
 
 
 @end

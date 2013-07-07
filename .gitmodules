@@ -1,3 +1,6 @@
 [submodule "iOSPlot/JSONKit"]
 	path = iOSPlot/JSONKit
 	url = git://github.com/johnezang/JSONKit.git
+[submodule "iOSPlot/FPPopover"]
+	path = iOSPlot/FPPopover
+	url = https://github.com/50pixels/FPPopover.git

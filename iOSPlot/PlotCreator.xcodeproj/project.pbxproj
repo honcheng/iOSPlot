@@ -15,6 +15,13 @@
 		2860E32E111B888700E27156 /* AppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2860E32C111B888700E27156 /* AppDelegate_iPad.m */; };
 		2860E32F111B888700E27156 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2860E32D111B888700E27156 /* MainWindow_iPad.xib */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		929C6EC415DEF4AC008FD849 /* PieChartViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C6EC315DEF4AC008FD849 /* PieChartViewController4.m */; };
+		C96DD05715DD35EC00939DC6 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96DD05215DD35EC00939DC6 /* FPPopoverController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C96DD05815DD35EC00939DC6 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96DD05415DD35EC00939DC6 /* FPPopoverView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C96DD05915DD35EC00939DC6 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96DD05615DD35EC00939DC6 /* FPTouchView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C96DD05E15DD39B000939DC6 /* PieChartPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = C96DD05C15DD39B000939DC6 /* PieChartPopover.m */; };
+		C96DD05F15DD39B000939DC6 /* PieChartPopover.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96DD05D15DD39B000939DC6 /* PieChartPopover.xib */; };
+		C9B46D8E15DAE7880069B114 /* PieChartViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B46D8D15DAE7880069B114 /* PieChartViewController3.m */; };
 		F832606A1363D49B0045F9DC /* ChartListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F83260691363D49B0045F9DC /* ChartListViewController.m */; };
 		F83260AA1363D8170045F9DC /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = F83260A81363D8170045F9DC /* back_button.png */; };
 		F83260AB1363D8170045F9DC /* back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F83260A91363D8170045F9DC /* back_button@2x.png */; };
@@ -44,6 +51,19 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Shared/main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* PlotCreator_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotCreator_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* PlotCreator-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PlotCreator-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		929C6EC215DEF4AC008FD849 /* PieChartViewController4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartViewController4.h; sourceTree = "<group>"; };
+		929C6EC315DEF4AC008FD849 /* PieChartViewController4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartViewController4.m; sourceTree = "<group>"; };
+		C96DD05115DD35EC00939DC6 /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
+		C96DD05215DD35EC00939DC6 /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
+		C96DD05315DD35EC00939DC6 /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
+		C96DD05415DD35EC00939DC6 /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
+		C96DD05515DD35EC00939DC6 /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
+		C96DD05615DD35EC00939DC6 /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
+		C96DD05B15DD39B000939DC6 /* PieChartPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartPopover.h; sourceTree = "<group>"; };
+		C96DD05C15DD39B000939DC6 /* PieChartPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartPopover.m; sourceTree = "<group>"; };
+		C96DD05D15DD39B000939DC6 /* PieChartPopover.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PieChartPopover.xib; sourceTree = "<group>"; };
+		C9B46D8C15DAE7880069B114 /* PieChartViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartViewController3.h; sourceTree = "<group>"; };
+		C9B46D8D15DAE7880069B114 /* PieChartViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartViewController3.m; sourceTree = "<group>"; };
 		F83260681363D49B0045F9DC /* ChartListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChartListViewController.h; path = iPhone/ChartListViewController.h; sourceTree = "<group>"; };
 		F83260691363D49B0045F9DC /* ChartListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChartListViewController.m; path = iPhone/ChartListViewController.m; sourceTree = "<group>"; };
 		F83260A81363D8170045F9DC /* back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back_button.png; path = Images/back_button.png; sourceTree = "<group>"; };
@@ -113,12 +133,20 @@
 		28EEBF621118D79A00187D67 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				C96DD05015DD35EC00939DC6 /* FPPopover */,
 				3794799B13706BB200C0E457 /* iOSPlot */,
 				F8C1B407136F7FB7002DDF6C /* JSONKit */,
+				C96DD05B15DD39B000939DC6 /* PieChartPopover.h */,
+				C96DD05C15DD39B000939DC6 /* PieChartPopover.m */,
+				C96DD05D15DD39B000939DC6 /* PieChartPopover.xib */,
 				F897D6FE136311E60025FE6E /* PieChartViewController.h */,
 				F897D6FF136311E60025FE6E /* PieChartViewController.m */,
 				F83260C01363D91E0045F9DC /* PieChartViewController2.h */,
 				F83260C11363D91E0045F9DC /* PieChartViewController2.m */,
+				C9B46D8C15DAE7880069B114 /* PieChartViewController3.h */,
+				C9B46D8D15DAE7880069B114 /* PieChartViewController3.m */,
+				929C6EC215DEF4AC008FD849 /* PieChartViewController4.h */,
+				929C6EC315DEF4AC008FD849 /* PieChartViewController4.m */,
 				F87DE41B1370D82D00347F69 /* HalfPieChartViewController.h */,
 				F87DE41C1370D82D00347F69 /* HalfPieChartViewController.m */,
 				F83260681363D49B0045F9DC /* ChartListViewController.h */,
@@ -176,6 +204,19 @@
 				F87DE4191370D68300347F69 /* PCHalfPieChart.m */,
 			);
 			name = iOSPlot;
+			sourceTree = "<group>";
+		};
+		C96DD05015DD35EC00939DC6 /* FPPopover */ = {
+			isa = PBXGroup;
+			children = (
+				C96DD05115DD35EC00939DC6 /* FPPopoverController.h */,
+				C96DD05215DD35EC00939DC6 /* FPPopoverController.m */,
+				C96DD05315DD35EC00939DC6 /* FPPopoverView.h */,
+				C96DD05415DD35EC00939DC6 /* FPPopoverView.m */,
+				C96DD05515DD35EC00939DC6 /* FPTouchView.h */,
+				C96DD05615DD35EC00939DC6 /* FPTouchView.m */,
+			);
+			path = FPPopover;
 			sourceTree = "<group>";
 		};
 		F897D6E513630F4B0025FE6E /* Sample Data */ = {
@@ -254,6 +295,7 @@
 				F83260AA1363D8170045F9DC /* back_button.png in Resources */,
 				F83260AB1363D8170045F9DC /* back_button@2x.png in Resources */,
 				F8C1B41C136F8056002DDF6C /* sample_linechart_data.json in Resources */,
+				C96DD05F15DD39B000939DC6 /* PieChartPopover.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +318,12 @@
 				F87DE41A1370D68300347F69 /* PCHalfPieChart.m in Sources */,
 				F87DE41D1370D82D00347F69 /* HalfPieChartViewController.m in Sources */,
 				F8B8196215D573FB0005945A /* JSONKit.m in Sources */,
+				C9B46D8E15DAE7880069B114 /* PieChartViewController3.m in Sources */,
+				C96DD05715DD35EC00939DC6 /* FPPopoverController.m in Sources */,
+				C96DD05815DD35EC00939DC6 /* FPPopoverView.m in Sources */,
+				C96DD05915DD35EC00939DC6 /* FPTouchView.m in Sources */,
+				C96DD05E15DD39B000939DC6 /* PieChartPopover.m in Sources */,
+				929C6EC415DEF4AC008FD849 /* PieChartViewController4.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +341,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PlotCreator_Prefix.pch;
 				INFOPLIST_FILE = "PlotCreator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = PlotCreator;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
@@ -307,6 +356,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PlotCreator_Prefix.pch;
 				INFOPLIST_FILE = "PlotCreator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = PlotCreator;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				VALIDATE_PRODUCT = YES;
