@@ -26,7 +26,6 @@
 		F897D6EE13630F560025FE6E /* sample_piechart_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = F897D6ED13630F560025FE6E /* sample_piechart_data.plist */; };
 		F897D6F113630FD40025FE6E /* PCPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = F897D6F013630FD40025FE6E /* PCPieChart.m */; };
 		F897D700136311E60025FE6E /* PieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F897D6FF136311E60025FE6E /* PieChartViewController.m */; };
-		F8B8196215D573FB0005945A /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B8196115D573FB0005945A /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F8C1B41C136F8056002DDF6C /* sample_linechart_data.json in Resources */ = {isa = PBXBuildFile; fileRef = F8C1B41B136F8056002DDF6C /* sample_linechart_data.json */; };
 /* End PBXBuildFile section */
 
@@ -63,8 +62,6 @@
 		F897D6F013630FD40025FE6E /* PCPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCPieChart.m; path = Shared/PCPieChart.m; sourceTree = "<group>"; };
 		F897D6FE136311E60025FE6E /* PieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieChartViewController.h; path = iPhone/PieChartViewController.h; sourceTree = "<group>"; };
 		F897D6FF136311E60025FE6E /* PieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PieChartViewController.m; path = iPhone/PieChartViewController.m; sourceTree = "<group>"; };
-		F8B8196015D573FB0005945A /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = JSONKit/JSONKit.h; sourceTree = "<group>"; };
-		F8B8196115D573FB0005945A /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = JSONKit/JSONKit.m; sourceTree = "<group>"; };
 		F8C1B41B136F8056002DDF6C /* sample_linechart_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_linechart_data.json; path = "Sample Data/sample_linechart_data.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				3794799B13706BB200C0E457 /* iOSPlot */,
-				F8C1B407136F7FB7002DDF6C /* JSONKit */,
 				F897D6FE136311E60025FE6E /* PieChartViewController.h */,
 				F897D6FF136311E60025FE6E /* PieChartViewController.m */,
 				F83260C01363D91E0045F9DC /* PieChartViewController2.h */,
@@ -185,15 +181,6 @@
 				F897D6ED13630F560025FE6E /* sample_piechart_data.plist */,
 			);
 			name = "Sample Data";
-			sourceTree = "<group>";
-		};
-		F8C1B407136F7FB7002DDF6C /* JSONKit */ = {
-			isa = PBXGroup;
-			children = (
-				F8B8196015D573FB0005945A /* JSONKit.h */,
-				F8B8196115D573FB0005945A /* JSONKit.m */,
-			);
-			name = JSONKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,7 +262,6 @@
 				F88CC4D313684FD30096327F /* LineChartViewController.m in Sources */,
 				F87DE41A1370D68300347F69 /* PCHalfPieChart.m in Sources */,
 				F87DE41D1370D82D00347F69 /* HalfPieChartViewController.m in Sources */,
-				F8B8196215D573FB0005945A /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
