@@ -153,6 +153,8 @@
 			component.colour = PCColorBlue;
 		}
 
+        int x = 0;
+        int y = 0;
 		for (int x_axis_index=0; x_axis_index<[component.points count]; x_axis_index++) {
 			id object = [component.points objectAtIndex:x_axis_index];
 
@@ -162,8 +164,8 @@
 				CGContextSetStrokeColorWithColor(ctx, [component.colour CGColor]);
 				CGContextSetLineWidth(ctx, circle_stroke_width);
 
-				int x = margin + div_width*x_axis_index;
-				int y = top_margin + (scale_max-value)/self.interval*div_height;
+				x = margin + div_width*x_axis_index;
+				y = top_margin + (scale_max-value)/self.interval*div_height;
 
 				CGRect circleRect = CGRectMake(x-circle_diameter/2, y-circle_diameter/2, circle_diameter,circle_diameter);
 				CGContextStrokeEllipseInRect(ctx, circleRect);
@@ -182,22 +184,22 @@
 					CGContextAddLineToPoint(ctx, x1, y1);
 					CGContextStrokePath(ctx);
 				}
-
-
-				if (x_axis_index==[component.points count]-1) {
-					NSMutableDictionary *info = [NSMutableDictionary dictionary];
-					if (component.title) {
-						[info setObject:component.title forKey:@"title"];
-					}
-					[info setObject:[NSNumber numberWithFloat:x+circle_diameter/2+15] forKey:@"x"];
-					[info setObject:[NSNumber numberWithFloat:y-10] forKey:@"y"];
-					[info setObject:component.colour forKey:@"colour"];
-					[legends addObject:info];
-				}
-
+                
 				last_x = x;
 				last_y = y;
 			}
+            
+            if (x_axis_index==[component.points count]-1) {
+                NSMutableDictionary *info = [NSMutableDictionary dictionary];
+                if (component.title) {
+                    [info setObject:component.title forKey:@"title"];
+                }
+                [info setObject:[NSNumber numberWithFloat:x+circle_diameter/2+15] forKey:@"x"];
+                [info setObject:[NSNumber numberWithFloat:y-10] forKey:@"y"];
+                [info setObject:component.colour forKey:@"colour"];
+                [legends addObject:info];
+            }
+
 		}
 	}
 
