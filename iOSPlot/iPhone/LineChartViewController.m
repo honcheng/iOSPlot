@@ -40,7 +40,7 @@
 	self = [super init];
 	if (self)
 	{
-        NSError *jsonError;
+        NSError *jsonError = nil;
 		[self.view setBackgroundColor:[UIColor colorWithWhite:1 alpha:1]];
 		[self setTitle:@"Line Chart"];
 		
