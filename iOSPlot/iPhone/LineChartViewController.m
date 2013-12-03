@@ -40,6 +40,7 @@
 	self = [super init];
 	if (self)
 	{
+        NSError *jsonError;
 		[self.view setBackgroundColor:[UIColor colorWithWhite:1 alpha:1]];
 		[self setTitle:@"Line Chart"];
 		
@@ -53,42 +54,49 @@
 		NSString *jsonString = [NSString stringWithContentsOfFile:sampleFile encoding:NSUTF8StringEncoding error:nil];
 		
         NSDictionary *sampleInfo = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]
-                                                                   options:NSJSONReadingMutableContainers error:nil];
+                                                                   options:NSJSONReadingMutableContainers error:&jsonError];
         
-        NSMutableArray *components = [NSMutableArray array];
-		for (int i=0; i<[[sampleInfo objectForKey:@"data"] count]; i++)
-		{
-			NSDictionary *point = [[sampleInfo objectForKey:@"data"] objectAtIndex:i];
-			PCLineChartViewComponent *component = [[PCLineChartViewComponent alloc] init];
-			[component setTitle:[point objectForKey:@"title"]];
-			[component setPoints:[point objectForKey:@"data"]];
-			[component setShouldLabelValues:NO];
-			
-			if (i==0)
-			{
-				[component setColour:PCColorYellow];
-			}
-			else if (i==1)
-			{
-				[component setColour:PCColorGreen];
-			}
-			else if (i==2)
-			{
-				[component setColour:PCColorOrange];
-			}
-			else if (i==3)
-			{
-				[component setColour:PCColorRed];
-			}
-			else if (i==4)
-			{
-				[component setColour:PCColorBlue];
-			}
-			
-			[components addObject:component];
-		}
-		[_lineChartView setComponents:components];
-		[_lineChartView setXLabels:[sampleInfo objectForKey:@"x_labels"]];
+        if(!jsonError){
+            NSMutableArray *components = [NSMutableArray array];
+            for (int i=0; i<[[sampleInfo objectForKey:@"data"] count]; i++)
+            {
+                NSDictionary *point = [[sampleInfo objectForKey:@"data"] objectAtIndex:i];
+                PCLineChartViewComponent *component = [[PCLineChartViewComponent alloc] init];
+                [component setTitle:[point objectForKey:@"title"]];
+                [component setPoints:[point objectForKey:@"data"]];
+                [component setShouldLabelValues:NO];
+                
+                if (i==0)
+                {
+                    [component setColour:PCColorYellow];
+                }
+                else if (i==1)
+                {
+                    [component setColour:PCColorGreen];
+                }
+                else if (i==2)
+                {
+                    [component setColour:PCColorOrange];
+                }
+                else if (i==3)
+                {
+                    [component setColour:PCColorRed];
+                }
+                else if (i==4)
+                {
+                    [component setColour:PCColorBlue];
+                }
+                
+                [components addObject:component];
+            }
+            [_lineChartView setComponents:components];
+            [_lineChartView setXLabels:[sampleInfo objectForKey:@"x_labels"]];
+        }else{
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@""
+                                                           message:[jsonError localizedDescription] delegate:self
+                                                 cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertView show];
+        }
 	}
 	return self;
 }
