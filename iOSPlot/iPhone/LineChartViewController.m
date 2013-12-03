@@ -32,7 +32,6 @@
  */
 
 #import "LineChartViewController.h"
-#import "JSONKit.h"
 
 @implementation LineChartViewController
 
@@ -53,7 +52,8 @@
 		NSString *sampleFile = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"sample_linechart_data.json"];
 		NSString *jsonString = [NSString stringWithContentsOfFile:sampleFile encoding:NSUTF8StringEncoding error:nil];
 		
-        NSDictionary *sampleInfo = [jsonString objectFromJSONString];
+        NSDictionary *sampleInfo = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]
+                                                                   options:NSJSONReadingMutableContainers error:nil];
         
         NSMutableArray *components = [NSMutableArray array];
 		for (int i=0; i<[[sampleInfo objectForKey:@"data"] count]; i++)
