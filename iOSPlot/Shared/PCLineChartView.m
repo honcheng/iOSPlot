@@ -71,7 +71,7 @@
 	CGContextSetRGBFillColor(ctx, 0.2f, 0.2f, 0.2f, 1.0f);
 
 	int n_div;
-	int power;
+	int power = 0;
 	float scale_min, scale_max, div_height;
 	float top_margin = 35;
 	float bottom_margin = 25;
