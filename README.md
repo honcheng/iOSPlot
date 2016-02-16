@@ -25,7 +25,7 @@ Display legend
 Minimum Requirements
 --------------------
 * ARC - this project uses ARC. If you are not using ARC in your project, add '-fobjc-arc' as a compiler flag for StyledPageControl.h and StyledPageControl.m
-* XCode 4.4 and newer (auto-synthesis required)
+* Xcode 4.4 and newer (auto-synthesis required)
 
 Contact
 -------
